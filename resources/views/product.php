@@ -8,7 +8,7 @@
                 <div class="w-full self-start">
                     <h1 class="text-xl font-bold mb-1">BABY HAI Rayya Series Ramadhan Abizar Series Color 2 -
                         Baju Anak Laki - Laki Lengan Pendek Celana Panjang</h1>
-                    <p class="text-sm font-semibold">Terjual 300 | Tersedia 200 | 200 Ulasan</p>
+                    <p class="text-sm font-semibold"><i class="fas fa-star text-yellow-300"></i> 5.0 Rating | Terjual 300 | 200 Ulasan</p>
                     <p class="text-2xl font-bold text-red-primary mb-3">Rp.30.000</p>
                     <p class="text-sm font-semibold mb-2">Ukuran tersedia</p>
                     <div class="text-sm font-semibold flex flex-wrap gap-3 mb-3">
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-sm font-semibold mb-2">Jumlah</p>
+                    <p class="text-sm font-semibold mb-2">Tersedia 200</p>
                     <form class="max-w-xs">
                         <div class="relative flex items-center max-w-[11rem]">
                             <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-red-primary hover:bg-red-500 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">

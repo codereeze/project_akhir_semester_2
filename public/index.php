@@ -26,6 +26,11 @@ $app->route::get('/baca_notifikasi', [NotificationController::class, 'read_notif
 $app->route::get('/product', [ProductController::class, 'product']);
 $app->route::get('/checkout', [ProductController::class, 'checkout']);
 $app->route::get('/toko', [StoreController::class, 'store']);
+$app->route::get('/manajemen_produk', [StoreController::class, 'management_product']);
+$app->route::get('/edit_produk', [StoreController::class, 'edit_product']);
+$app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
+$app->route::get('/profile_toko', [StoreController::class, 'profile_store']);
+$app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 $app->route::get('/login', [AuthController::class, 'login']);
 $app->route::get('/register', [AuthController::class, 'register']);
 $app->run();
