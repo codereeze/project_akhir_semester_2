@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       backgroundColor: {
         'red-primary': '#DB1919',
+        'gray-secondary': '#E0E6ED',
       },
       fontFamily: {
         'quicksand': 'Quicksand, sans-serif'

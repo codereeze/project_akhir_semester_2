@@ -1,11 +1,27 @@
 <section class="container mx-auto">
-    <div class="pt-24">
-        <div class="flex justify-center bg-gray-50 py-3 mb-10">
-            <div class="px-12">
-                <img src="https://www.static-src.com/siva/asset/05_2024/desktop-car2-puma-may9.jpg?w=1200" alt="" srcset="" class="rounded-md">
+    <div class="pt-20">
+        <div class="flex justify-center py-7 mb-1">
+            <div class="w-full bg-gray-secondary py-2">
+                <div class="swiper" style="width: 1200px;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://assets.skilvul.com/campaign/wts-animasi-modal-1698812185486.jpg" alt="" srcset="" class="w-full rounded-lg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://assets.skilvul.com/campaign/wts-animasi-modal-1698812185486.jpg" alt="" srcset="" class="w-full rounded-lg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://www.static-src.com/siva/asset/05_2024/desktop-car4_3-kredivo-may24.jpg?w=1200" alt="" srcset="" class="w-full rounded-lg">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
             </div>
         </div>
-        <div class="px-12">
+        <div class="px-8">
             <h1 class="text-2xl mb-4 font-bold">Rekomendasi untuk mu</h1>
             <div class="flex gap-3">
                 <div class="w-40">

@@ -21,15 +21,17 @@
                     <i class="fas fa-bell text-white text-sm"></i>
                 </div>
             </div>
-            <a class="flex items-center gap-3 cursor-pointer">
-                <span class="font-semibold hover:text-red-200 duration-200">Codereeeze25</span>
+            <a class="flex items-center gap-3 cursor-pointer group">
+                <span class="font-semibold group-hover:text-red-200 duration-200">Codereeeze25</span>
                 <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full p-0.5 border-2 border-white" width="45" alt="" srcset="">
             </a>
         </div>
         <div class="flex justify-between items-center text-black font-semibold text-sm">
             <div class="bg-white p-2 rounded-tr-md">
-                <a href="">Atur alamat pengiriman
-                    <i class="fas fa-map-marker-alt text-red-primary"></i></a>
+                <a href="">
+                    <i class="fas fa-map-marker-alt text-red-primary"></i>
+                    Atur alamat pengiriman
+                </a>
             </div>
             <div class="flex gap-7 text-white">
                 <a href="" class="hover:text-red-200 duration-150">T-Shirt</a>|
@@ -43,7 +45,7 @@
             <div class="bg-white p-2 rounded-tl-md">
                 <div class="flex items-center gap-3 cursor-pointer">
                     <span>Bahasa Indonesia</span>
-                    <img src="img/id.svg" width="20" class="border rounded-full" alt="" srcset="">
+                    <img src="/assets/id.svg" width="20" class="border rounded-full" alt="" srcset="">
                 </div>
             </div>
         </div>
