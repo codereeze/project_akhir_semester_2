@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
-<body class="font-quicksand h-[1000vh]">
+<body class="font-quicksand">
     <?php include_once 'partials/main_navbar.php' ?>
     {{ content }}
     <?php include_once 'partials/main_footer.php' ?>
