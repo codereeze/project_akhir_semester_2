@@ -15,6 +15,7 @@ require_once '../vendor/autoload.php';
 
 $app = new Application(dirname(__DIR__));
 
+// User & Seller route
 $app->route::get('/', [SiteController::class, 'home']);
 $app->route::get('/hasil_pencarian', [SiteController::class, 'search_result']);
 $app->route::get('/profile', [ProfileController::class, 'profile']);
@@ -32,10 +33,14 @@ $app->route::get('/edit_produk', [StoreController::class, 'edit_product']);
 $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
 $app->route::get('/profile_toko', [StoreController::class, 'profile_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
+
+
+// Auth route
 $app->route::get('/login', [AuthController::class, 'login']);
 $app->route::get('/register', [AuthController::class, 'register']);
 
 
 // Admin route
 $app->route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+
 $app->run();
