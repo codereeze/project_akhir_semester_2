@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AdminController;
 use App\Controllers\AuthController;
 use App\Controllers\CartController;
 use App\Controllers\NotificationController;
@@ -33,4 +34,8 @@ $app->route::get('/profile_toko', [StoreController::class, 'profile_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 $app->route::get('/login', [AuthController::class, 'login']);
 $app->route::get('/register', [AuthController::class, 'register']);
+
+
+// Admin route
+$app->route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
 $app->run();
