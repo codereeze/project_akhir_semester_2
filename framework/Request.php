@@ -5,6 +5,21 @@ namespace Framework;
 class Request
 {
     private array $routeParams = [];
+    private $formData = [];
+
+    public function __construct()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            foreach ($_POST as $key => $value) {
+                $this->formData[$key] = $value;
+            }
+        }
+    }
+
+    public function getFormData()
+    {
+        return $this->formData;
+    }
 
     public function getHttpMethod()
     {
