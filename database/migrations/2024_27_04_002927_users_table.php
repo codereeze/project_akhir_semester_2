@@ -12,7 +12,7 @@ class UsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $attribute) {
             $attribute->id();
-            $attribute->varchar('name');
+            $attribute->varchar('nama');
         });
     }
 

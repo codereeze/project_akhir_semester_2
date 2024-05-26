@@ -19,7 +19,7 @@ class Blueprint
     public function createTable()
     {
         $columns = '';
-        
+
         for ($i = 0; $i < count($this->columns); $i++) {
             $comma = $i < count($this->columns) - 1 ? ',' : '';
             $columns .= "{$this->columns[$i]}$comma";
@@ -35,14 +35,46 @@ class Blueprint
         return $this;
     }
 
-    public function varchar(string $attr_name, $length = 255)
+    public function varchar(string $attr_name, $length = 255, $null = true, $unique = false)
     {
-        array_push($this->columns, "$attr_name VARCHAR($length)");
+        $nullable = $null ? '' : 'NOT NULL';
+        $unique = $unique ? 'UNIQUE' : '';
+        array_push($this->columns, "$attr_name VARCHAR($length) $nullable $unique");
         return $this;
     }
 
-    public function unique()
+    public function text(string $attr_name, $null = true)
     {
+        $nullable = $null ? '' : 'NOT NULL';
+        array_push($this->columns, "$attr_name TEXT $nullable");
+        return $this;
+    }
+
+    public function char(string $attr_name, $length = 20, $null = true, $unique = false)
+    {
+        $nullable = $null ? '' : 'NOT NULL';
+        $unique = $unique ? 'UNIQUE' : '';
+        array_push($this->columns, "$attr_name CHAR($length) $nullable $unique");
+        return $this;
+    }
+
+    public function enum(string $attr_name, $length, $defaultValue)
+    {
+        $enumValues = "'" . implode("', '", $length) . "'";
+        $isDefault = $defaultValue ? "DEFAULT $defaultValue" : "";
+        array_push($this->columns, "$attr_name ENUM($enumValues) $isDefault");
+        return $this;
+    }
+
+    public function integer(string $attr_name, $length = 12)
+    {
+        array_push($this->columns, "$attr_name INTEGER($length)");
+        return $this;
+    }
+
+    public function foreign(string $attr_name, $reference, $column)
+    {
+        array_push($this->columns, "CONSTRAINT fk_$attr_name FOREIGN KEY ($attr_name) REFERENCES $reference($column)");
         return $this;
     }
 }
