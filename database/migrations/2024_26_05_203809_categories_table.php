@@ -6,18 +6,18 @@ use Framework\QueryBuilder\Blueprint;
 use Framework\QueryBuilder\Migration;
 use Framework\QueryBuilder\Schema;
 
-class UsersTable extends Migration
+class CategoriesTable extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $attribute) {
+        Schema::create('categories', function (Blueprint $attribute) {
             $attribute->id();
-            $attribute->varchar('nama');
+            $attribute->varchar('nama_kategori', 50, false);
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('categories');
     }
 }

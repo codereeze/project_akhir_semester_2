@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Migrations;
+
+use Framework\QueryBuilder\Blueprint;
+use Framework\QueryBuilder\Migration;
+use Framework\QueryBuilder\Schema;
+
+class AddressesTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('addresses', function (Blueprint $attribute) {
+            $attribute->id();
+            $attribute->integer('user_id');
+            $attribute->text('nama_jalan', false);
+            $attribute->varchar('rt_rw', 10, false);
+            $attribute->varchar('kelurahan', 30, false);
+            $attribute->varchar('kecamatan', 30, false);
+            $attribute->varchar('kabupaten', 30, false);
+            $attribute->varchar('provinsi', 30, false);
+            $attribute->char('kode_pos', 7, false);
+
+            // foreign key
+            $attribute->foreign('user_id', 'users', 'id');
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('addresses');
+    }
+}

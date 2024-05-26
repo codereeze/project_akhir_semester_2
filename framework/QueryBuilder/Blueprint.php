@@ -58,23 +58,23 @@ class Blueprint
         return $this;
     }
 
-    public function enum(string $attr_name, $length, $defaultValue)
+    public function enum(string $attr_name, $length, $defaultValue = '')
     {
         $enumValues = "'" . implode("', '", $length) . "'";
-        $isDefault = $defaultValue ? "DEFAULT $defaultValue" : "";
+        $isDefault = $defaultValue ? "DEFAULT '$defaultValue'" : "";
         array_push($this->columns, "$attr_name ENUM($enumValues) $isDefault");
         return $this;
     }
 
     public function integer(string $attr_name, $length = 12)
     {
-        array_push($this->columns, "$attr_name INTEGER($length)");
+        array_push($this->columns, "$attr_name INT($length) NOT NULL");
         return $this;
     }
 
     public function foreign(string $attr_name, $reference, $column)
     {
-        array_push($this->columns, "CONSTRAINT fk_$attr_name FOREIGN KEY ($attr_name) REFERENCES $reference($column)");
+        array_push($this->columns, "CONSTRAINT fk_". uniqid() ." FOREIGN KEY ($attr_name) REFERENCES $reference($column)");
         return $this;
     }
 }
