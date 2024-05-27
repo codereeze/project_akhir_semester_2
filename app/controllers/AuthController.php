@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\User;
+use Database\Database;
 use Framework\Auth;
 use Framework\Controller;
 use Framework\Request;
@@ -31,9 +32,10 @@ class AuthController extends Controller
 
     public function loginHandler(Request $request)
     {
+        Auth::initialize(new Database());
         if (Auth::attempt($request->getFormData())) {
             Response::redirect('/');
-        }else{
+        } else {
             echo "NT Bang";
         }
     }
@@ -41,13 +43,28 @@ class AuthController extends Controller
     public function registerHandler(Request $request)
     {
         $request = $request->getFormData();
+        if($request['password'] !== $request['confirm_password']){
+            return;
+        }
+
+        $username = explode(' ', $request['nama']);
         $sanitized = [
+            'username' => end($username),
             'nama' => htmlspecialchars($request['nama']),
             'email' => htmlspecialchars($request['email']),
-            'password' => htmlspecialchars($request['password'])
+            'password' => password_hash($request['password'], PASSWORD_BCRYPT)
         ];
 
-        User::insert($sanitized);
+        $user = new User();
+        $user->insert($sanitized);
         Response::redirect('/login');
+    }
+    
+    public function logout()
+    {
+        session_start();
+        session_unset();
+        session_destroy();
+        Response::redirect('/');
     }
 }

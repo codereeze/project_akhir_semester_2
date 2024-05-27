@@ -6,5 +6,8 @@ use Framework\Model;
 
 class User extends Model
 {
-    // Hello World
+    public function __construct()
+    {
+        $this->table_name = 'users';
+    }
 }

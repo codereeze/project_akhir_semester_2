@@ -35,13 +35,13 @@ $app->route::get('/profile_toko', [StoreController::class, 'profile_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 
 
-// User & Seller route (post)
-$app->route::post('/login', [AuthController::class, 'loginHandler']);
-$app->route::post('/register', [AuthController::class, 'registerHandler']);
 
 // Auth route
 $app->route::get('/login', [AuthController::class, 'login']);
 $app->route::get('/register', [AuthController::class, 'register']);
+$app->route::get('/logout', [AuthController::class, 'logout']);
+$app->route::post('/login', [AuthController::class, 'loginHandler']);
+$app->route::post('/register', [AuthController::class, 'registerHandler']);
 
 
 // Admin route

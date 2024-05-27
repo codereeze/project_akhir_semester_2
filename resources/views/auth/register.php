@@ -31,5 +31,5 @@
             <span class="text-sm font-bold">Register with Facebook</span>
         </div>
     </button>
-    <a href="login.html" class="text-sm hover:text-red-primary hover:underline">Sudah punya akun? Login!</a>
+    <a href="/login" class="text-sm hover:text-red-primary hover:underline">Sudah punya akun? Login!</a>
 </div>

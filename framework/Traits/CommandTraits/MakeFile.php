@@ -63,7 +63,10 @@ trait MakeFile
 
             class $classname extends Model
             {
-                // Hello World
+                public function __construct()
+                {
+                    \$this->table_name = '';
+                }
             }
             CLASS;
 

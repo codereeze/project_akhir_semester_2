@@ -14,16 +14,16 @@
             <div>
                 <h3 class="font-bold text-xl mb-4">Menu Website</h3>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Keranjang</a>
+                    <a href="/keranjang" class="inline-block font-medium">Keranjang</a>
                 </div>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Pembelian</a>
+                    <a href="/transaksi" class="inline-block font-medium">Transaksi</a>
                 </div>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Notifikasi</a>
+                    <a href="/notifikasi" class="inline-block font-medium">Notifikasi</a>
                 </div>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Profile</a>
+                    <a href="/profile" class="inline-block font-medium">Profile</a>
                 </div>
             </div>
             <div>

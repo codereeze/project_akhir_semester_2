@@ -2,7 +2,9 @@
     <nav class="container mx-auto bg-red-primary w-full text-white fixed z-50 shadow-lg">
         <div class="flex justify-between items-center py-3 px-7">
             <div class="flex gap-5 items-center">
-                <img src="https://skilvul.com/static/skilvul-anniversary-white.svg" width="121" alt="" srcset="">
+                <a href="/">
+                    <img src="https://skilvul.com/static/skilvul-anniversary-white.svg" width="121" alt="" srcset="">
+                </a>
                 <div class="relative">
                     <input type="text" class="bg-white py-2.5 px-3 rounded-md w-[24rem] text-sm placeholder:text-black text-black font-semibold outline-none border-none" placeholder="Cari baju yang kamu sukai...">
                     <div class="absolute right-0 top-0" style="margin-top: 4px; margin-right: 8px;">
@@ -11,18 +13,24 @@
                         </button>
                     </div>
                 </div>
-                <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
-                    <i class="fas fa-shopping-cart text-white text-sm"></i>
-                </div>
-                <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
-                    <i class="fas fa-shopping-bag text-white text-sm"></i>
-                </div>
-                <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
-                    <i class="fas fa-bell text-white text-sm"></i>
-                </div>
+                <a href="/keranjang">
+                    <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
+                        <i class="fas fa-shopping-cart text-white text-sm"></i>
+                    </div>
+                </a>
+                <a href="/transaksi">
+                    <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
+                        <i class="fas fa-shopping-bag text-white text-sm"></i>
+                    </div>
+                </a>
+                <a href="/notifikasi">
+                    <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
+                        <i class="fas fa-bell text-white text-sm"></i>
+                    </div>
+                </a>
             </div>
-            <a class="flex items-center gap-3 cursor-pointer group">
-                <span class="font-semibold group-hover:text-red-200 duration-200">Codereeeze25</span>
+            <a href="/profile" class="flex items-center gap-3 cursor-pointer group">
+                <span class="font-semibold group-hover:text-red-200 duration-200"><?= $_SESSION['username']?></span>
                 <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full p-0.5 border-2 border-white" width="45" alt="" srcset="">
             </a>
         </div>

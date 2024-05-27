@@ -30,6 +30,7 @@ class Application
     public function run()
     {
         try {
+            session_start();
             echo $this->route->resolve();
         } catch (\Exception $e) {
             echo $this->route->renderView('_error', [

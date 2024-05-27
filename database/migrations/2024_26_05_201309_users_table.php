@@ -14,11 +14,11 @@ class UsersTable extends Migration
             $attribute->id();
             $attribute->varchar('username', 15, false);
             $attribute->varchar('nama', 255, false);
-            $attribute->enum('jk', ['Laki-laki', 'Perempuan']);
-            $attribute->varchar('email', 50, false, true);
-            $attribute->char('telepon', 15, false, true);
-            $attribute->varchar('password', 255, false);
-            $attribute->text('foto_profile', false);
+            $attribute->enum('jk', ['Laki-laki', 'Perempuan', 'Belum diatur'], 'Belum diatur');
+            $attribute->varchar('email', 255, false, true);
+            $attribute->char('telepon', 15, true, true);
+            $attribute->text('password', false);
+            $attribute->text('foto_profile', true);
             $attribute->enum('role', ['Admin', 'Seller', 'User'], 'User');
         });
     }

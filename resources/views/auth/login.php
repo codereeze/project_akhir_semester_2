@@ -13,7 +13,7 @@
                 <input type="checkbox" class="cursor-pointer" name="" id="">
                 <label for="">Ingat saya</label>
             </div>
-            <a href="" class="hover:text-red-primary hover:underline">Lupa password?</a>
+            <a href="/lupa_password" class="hover:text-red-primary hover:underline">Lupa password?</a>
         </div>
         <button type="submit" class="bg-red-primary w-full p-2 text-white font-bold mb-3 rounded-sm hover:bg-red-500">Login</button>
     </form>
