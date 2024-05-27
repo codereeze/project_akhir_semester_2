@@ -6,5 +6,8 @@ use Framework\Model;
 
 class Store extends Model
 {
-    // Hello World
+    public function __construct()
+    {
+        $this->table_name = 'stores';
+    }
 }

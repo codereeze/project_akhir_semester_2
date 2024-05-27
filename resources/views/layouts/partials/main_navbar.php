@@ -29,10 +29,40 @@
                     </div>
                 </a>
             </div>
-            <a href="/profile" class="flex items-center gap-3 cursor-pointer group">
-                <span class="font-semibold group-hover:text-red-200 duration-200"><?= $_SESSION['username']?></span>
-                <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full p-0.5 border-2 border-white" width="45" alt="" srcset="">
-            </a>
+            <?php if (isset($_SESSION['id'])) : ?>
+                <div class="flex items-center gap-3 cursor-pointer group" id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="100" data-dropdown-trigger="hover">
+                    <span class="font-semibold group-hover:text-red-200 duration-200"><?= $_SESSION['username'] ?></span>
+                    <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full p-0.5 border-2 border-white" width="45" alt="" srcset="">
+                </div>
+                <div id="dropdownDelay" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 font-semibold">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDelayButton">
+                        <li>
+                            <a href="/" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-home"></i> Beranda</a>
+                        </li>
+                        <li>
+                            <a href="/profile" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-user"></i> Profile</a>
+                        </li>
+                        <?php if ($_SESSION['role'] == 'Seller') : ?>
+                            <li>
+                                <a href="/toko_saya" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-store"></i> Toko Saya</a>
+                            </li>
+                        <?php endif; ?>
+                        <hr class="border">
+                        <li>
+                            <a href="/logout" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            <?php else : ?>
+                <div class="flex items-center gap-2">
+                    <a href="/login">
+                        <button class="bg-white border-2 border-white hover:bg-transparent hover:text-white duration-300 rounded-lg py-1.5 px-4 text-red-primary text-sm font-bold"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    </a>
+                    <a href="/register">
+                        <button class="border-2 border-white hover:bg-white hover:text-red-primary duration-300 text-white rounded-lg py-1.5 px-4 text-sm font-bold">Register</button>
+                    </a>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="flex justify-between items-center text-black font-semibold text-sm">
             <div class="bg-white p-2 rounded-tr-md">
