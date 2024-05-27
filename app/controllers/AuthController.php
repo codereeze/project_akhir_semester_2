@@ -47,12 +47,12 @@ class AuthController extends Controller
             return;
         }
 
-        $username = explode(' ', $request['nama']);
+        $username = explode(' ', trim($request['nama']));
         $sanitized = [
             'username' => end($username),
-            'nama' => htmlspecialchars($request['nama']),
-            'email' => htmlspecialchars($request['email']),
-            'password' => password_hash($request['password'], PASSWORD_BCRYPT)
+            'nama' => htmlspecialchars(trim($request['nama'])),
+            'email' => htmlspecialchars(trim($request['email'])),
+            'password' => password_hash(trim($request['password']), PASSWORD_BCRYPT)
         ];
 
         $user = new User();

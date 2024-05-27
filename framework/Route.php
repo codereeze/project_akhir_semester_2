@@ -101,8 +101,8 @@ class Route
         return Application::$app->view->renderView($view, $params);
     }
 
-    public function renderViewOnly($view, $params = [])
+    public function renderViewOnly($view, $params = [], $dataUser = [])
     {
-        return Application::$app->view->renderViewOnly($view, $params);
+        return Application::$app->view->renderViewOnly($view, $params, $dataUser);
     }
 }

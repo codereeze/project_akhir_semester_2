@@ -1,4 +1,4 @@
-<section class="container mx-auto pl-16 text-gray-600">
+<section class="container mx-auto pl-16 text-gray-600 mb-14">
     <div class="pt-36">
         <?php include_once 'partials/sidebar.php' ?>
         <div class="px-4 sm:ml-64">

@@ -1,7 +1,7 @@
 <section class="container mx-auto px-12 text-gray-600">
     <div class="pt-36">
         <div class="flex gap-3">
-            <?php include_once 'partials/profile_nav.php'?>
+            <?php include_once 'partials/profile_nav.php' ?>
             <div class="self-start w-full border shadow-md rounded-md p-4">
                 <h1 class="text-xl font-bold mb-1">Profile saya</h1>
                 <hr class="mb-3">
@@ -19,29 +19,30 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <p class="font-semibold mb-1">Nama lengkap</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="nama">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $dataUser['nama'] ?>" name="nama">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Username</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="username">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $dataUser['username'] ?>" name="username">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Alamat email</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="email">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $dataUser['email'] ?>" name="email">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">No. Telepon</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="no_telp">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $dataUser['telepon'] ?>" name="telepon">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Jenis kelamin</p>
                             <select class="p-2 rounded-md border w-full font-medium cursor-pointer" name="jk">
-                                <option value="Laki-laki" selected>Laki-laki</option>
+                                <option value="<?= $dataUser['jk'] ?>" selected><?= $dataUser['jk'] ?></option>
+                                <option value="Laki-laki">Laki-laki</option>
                                 <option value="Perempuan">Perempuan</option>
                             </select>
                         </div>
                     </div>
-                    <button class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2.5 font-bold mt-4"><i class="fas fa-save"></i> Simpan perubahan</button>
+                    <button type="submit" class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2.5 font-bold mt-4"><i class="fas fa-save"></i> Simpan perubahan</button>
                 </form>
             </div>
         </div>

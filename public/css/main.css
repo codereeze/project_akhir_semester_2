@@ -800,6 +800,10 @@ video {
   margin-top: 1.75rem;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1573,6 +1577,10 @@ video {
 
 .duration-500 {
   transition-duration: 500ms;
+}
+
+.duration-100 {
+  transition-duration: 100ms;
 }
 
 .placeholder\:text-black::-moz-placeholder {
