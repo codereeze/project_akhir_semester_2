@@ -80,11 +80,23 @@ abstract class Model
             echo "sukses";
         } catch (\Exception $e) {
             echo "Maaf error: " . $e->getMessage();
-            return false;
         }
     }
 
-    public static function delete($id)
+    public function delete($id)
     {
+        try {
+            $stmt = $this->db->prepare("DELETE FROM {$this->table_name} WHERE id = :id");
+            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                echo "User deleted successfully.";
+            } else {
+                echo "No user found with the provided ID.";
+            }
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
     }
 }

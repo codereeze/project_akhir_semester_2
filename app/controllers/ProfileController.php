@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Address;
 use App\Models\User;
 use Framework\Controller;
 use Framework\Request;
@@ -37,6 +38,25 @@ class ProfileController extends Controller
         return $this->render('users/profile/set_address', [
             'title' => 'Atur Alamat'
         ]);
+    }
+
+    public function setAddressHandler(Request $request)
+    {
+        $request = $request->getFormData();
+        $sanitized = [
+            'user_id' => $_SESSION['user_id'],
+            'nama_jalan' => htmlspecialchars(trim($request['nama_jalan'])),
+            'rt_rw' => htmlspecialchars(trim($request['rt_rw'])),
+            'kelurahan' => htmlspecialchars(trim($request['kelurahan'])),
+            'kecamatan' => htmlspecialchars(trim($request['kecamatan'])),
+            'kabupaten' => htmlspecialchars(trim($request['kabupaten'])),
+            'provinsi' => htmlspecialchars(trim($request['provinsi'])),
+            'kode_pos' => htmlspecialchars(trim($request['kode_pos']))
+        ];
+
+        $address = new Address();
+        $address->insert($sanitized);
+        Response::redirect('/atur_alamat');
     }
 
     public function change_password()

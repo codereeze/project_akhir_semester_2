@@ -6,6 +6,8 @@ use Database\Database;
 
 class Schema
 {
+    public static Database $db;
+
     public static function create(string $table_name, $callback)
     {
         $blueprint = new Blueprint($table_name);
@@ -22,6 +24,9 @@ class Schema
 
     public static function dropIfExists(string $table_name)
     {
+        self::$db = new Database();
+        $stmt = self::$db->prepare("DROP TABLE IF EXISTS $table_name");
+        $stmt->execute();
     }
 
     private static function log($message)

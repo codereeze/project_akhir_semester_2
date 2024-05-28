@@ -10,7 +10,7 @@ class ProductImagesTable extends Migration
 {
     public function up()
     {
-        Schema::create('productimages', function (Blueprint $attribute) {
+        Schema::create('product_images', function (Blueprint $attribute) {
             $attribute->id();
             $attribute->integer('produk_id');
             $attribute->text('gambar', false);
@@ -22,6 +22,6 @@ class ProductImagesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('productimages');
+        Schema::dropIfExists('product_images');
     }
 }

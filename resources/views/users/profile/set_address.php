@@ -18,34 +18,34 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <p class="font-semibold mb-1">Nama jalan</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="nama_jalan">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Rt/Rw</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="rt_rw">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Desa/kelurahan</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kelurahan">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Kecamatan</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kecamatan">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Kabupaten</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kabupaten">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Provinsi</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="provinsi">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Kode pos</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kode_pos">
                         </div>
                     </div>
-                    <button class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2.5 font-bold mt-4"><i class="fas fa-save"></i> Tambah alamat</button>
+                    <button type="submit" class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2.5 font-bold mt-4"><i class="fas fa-save"></i> Tambah alamat</button>
                 </form>
             </div>
         </div>

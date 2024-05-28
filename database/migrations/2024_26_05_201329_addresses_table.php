@@ -17,9 +17,10 @@ class AddressesTable extends Migration
             $attribute->varchar('rt_rw', 10, false);
             $attribute->varchar('kelurahan', 30, false);
             $attribute->varchar('kecamatan', 30, false);
-            $attribute->varchar('kabupaten', 30, false);
+            $attribute->varchar('kab_kot', 30, false);
             $attribute->varchar('provinsi', 30, false);
             $attribute->char('kode_pos', 7, false);
+            $attribute->enum('status', ['Utama', 'Bukan utama'], 'Bukan utama');
 
             // foreign key
             $attribute->foreign('user_id', 'users', 'id');

@@ -23,6 +23,9 @@ class CmdHandler
             $this->dropFile($get_cmd[1], $argv[2] ?? '');
         } else if ($argv[1] === 'run:migrate') {
             Migration::run();
+        } else if ($argv[1] === 'run:migrate-fresh') {
+            Migration::migrateFresh();
+            Migration::run();
         } else {
             echo "" . PHP_EOL;
             echo "\033[41mThat command doesn't exist. Please run \"php slash\"\033[0m to check the commands.\033[0m" . PHP_EOL;

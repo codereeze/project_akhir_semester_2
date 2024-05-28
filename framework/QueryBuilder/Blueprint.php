@@ -74,7 +74,7 @@ class Blueprint
 
     public function foreign(string $attr_name, $reference, $column)
     {
-        array_push($this->columns, "CONSTRAINT fk_". uniqid() ." FOREIGN KEY ($attr_name) REFERENCES $reference($column)");
+        array_push($this->columns, "CONSTRAINT fk_". uniqid() ." FOREIGN KEY ($attr_name) REFERENCES $reference($column) ON DELETE CASCADE");
         return $this;
     }
 }

@@ -38,6 +38,7 @@ $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 
 // User & Seller route (get)
 $app->route::post('/profile', [ProfileController::class, 'profileUpdateHandler']);
+$app->route::post('/atur_alamat', [ProfileController::class, 'setAddressHandler']);
 
 
 
