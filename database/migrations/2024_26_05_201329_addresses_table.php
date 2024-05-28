@@ -13,6 +13,8 @@ class AddressesTable extends Migration
         Schema::create('addresses', function (Blueprint $attribute) {
             $attribute->id();
             $attribute->integer('user_id');
+            $attribute->varchar('nama_penerima', 255, false);
+            $attribute->char('telepon', 15, false);
             $attribute->text('nama_jalan', false);
             $attribute->varchar('rt_rw', 10, false);
             $attribute->varchar('kelurahan', 30, false);

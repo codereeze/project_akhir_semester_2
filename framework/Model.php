@@ -43,14 +43,14 @@ abstract class Model
         }
     }
 
-    public function update($data, $id)
+    public function update($data, $condition, $column = 'id')
     {
         try {
             $this->initialize();
             if (isset($data['email'])) {
                 $stmt = $this->db->prepare("SELECT id FROM {$this->table_name} WHERE email = :email AND id != :id");
                 $stmt->bindValue(':email', $data['email']);
-                $stmt->bindValue(':id', $id);
+                $stmt->bindValue(':id', $condition);
                 $stmt->execute();
 
                 if ($stmt->rowCount() > 0) {
@@ -68,9 +68,9 @@ abstract class Model
 
             $setPart = rtrim($setPart, ', ');
 
-            $sql = "UPDATE {$this->table_name} SET $setPart WHERE id = :id";
+            $sql = "UPDATE {$this->table_name} SET $setPart WHERE $column = :$column";
             $stmt = $this->db->prepare($sql);
-            $values[':id'] = $id;
+            $values[":$column"] = $condition;
 
             foreach ($values as $placeholder => $value) {
                 $stmt->bindValue($placeholder, $value);
@@ -83,9 +83,25 @@ abstract class Model
         }
     }
 
+    public function findAllById($column, $id)
+    {
+        try {
+            $this->initialize();
+            $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name . " WHERE $column = :id");
+            $stmt->bindValue(':id', (int)$id, \PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
     public function delete($id)
     {
         try {
+            $this->initialize();
             $stmt = $this->db->prepare("DELETE FROM {$this->table_name} WHERE id = :id");
             $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
             $stmt->execute();

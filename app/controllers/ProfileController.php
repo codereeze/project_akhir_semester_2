@@ -36,26 +36,48 @@ class ProfileController extends Controller
 
     public function set_address()
     {
+        $address = new Address();
         return $this->render('users/profile/set_address', [
-            'title' => 'Atur Alamat'
+            'title' => 'Atur Alamat',
+            'addresses' => $address->findAllById('user_id', $_SESSION['user_id']),
         ]);
     }
 
     public function setAddressHandler(Request $request)
     {
+        $address = new Address();
         $request = $request->getFormData();
+
+        if ($request['address_id']) {
+            $status = [
+                'status' => 'Utama'
+            ];
+            $address->update(['status' => 'Bukan utama'], $_SESSION['user_id'], 'user_id');
+            $address->update($status, $request['address_id']);
+            Response::redirect('/atur_alamat');
+            exit();
+        }
+
+        if ($request['delete_address_id']) {
+            $address->delete($request['delete_address_id']);
+            Response::redirect('/atur_alamat');
+            exit();
+        }
+
         $sanitized = [
             'user_id' => $_SESSION['user_id'],
+            'nama_penerima' => htmlspecialchars(trim($request['nama_penerima'])),
+            'telepon' => htmlspecialchars(trim($request['telepon'])),
             'nama_jalan' => htmlspecialchars(trim($request['nama_jalan'])),
             'rt_rw' => htmlspecialchars(trim($request['rt_rw'])),
             'kelurahan' => htmlspecialchars(trim($request['kelurahan'])),
             'kecamatan' => htmlspecialchars(trim($request['kecamatan'])),
             'kab_kot' => htmlspecialchars(trim($request['kab_kot'])),
             'provinsi' => htmlspecialchars(trim($request['provinsi'])),
-            'kode_pos' => htmlspecialchars(trim($request['kode_pos']))
+            'kode_pos' => htmlspecialchars(trim($request['kode_pos'])),
+            'status' => $request['status'] ?? 'Bukan utama'
         ];
 
-        $address = new Address();
         $address->insert($sanitized);
         Response::redirect('/atur_alamat');
     }
@@ -70,8 +92,8 @@ class ProfileController extends Controller
     public function changePasswordHandler(Request $request)
     {
         $request = $request->getFormData();
-        if(password_verify($request['password'], Auth::user()['password'])){
-            if($request['new_password'] === $request['cnfrm_password']){
+        if (password_verify($request['password'], Auth::user()['password'])) {
+            if ($request['new_password'] === $request['cnfrm_password']) {
                 $sanitized = [
                     'password' => password_hash(trim($request['new_password']), PASSWORD_BCRYPT)
                 ];
