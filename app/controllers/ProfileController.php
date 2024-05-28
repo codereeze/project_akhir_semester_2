@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Address;
 use App\Models\User;
+use Framework\Auth;
 use Framework\Controller;
 use Framework\Request;
 use Framework\Response;
@@ -49,7 +50,7 @@ class ProfileController extends Controller
             'rt_rw' => htmlspecialchars(trim($request['rt_rw'])),
             'kelurahan' => htmlspecialchars(trim($request['kelurahan'])),
             'kecamatan' => htmlspecialchars(trim($request['kecamatan'])),
-            'kabupaten' => htmlspecialchars(trim($request['kabupaten'])),
+            'kab_kot' => htmlspecialchars(trim($request['kab_kot'])),
             'provinsi' => htmlspecialchars(trim($request['provinsi'])),
             'kode_pos' => htmlspecialchars(trim($request['kode_pos']))
         ];
@@ -64,5 +65,21 @@ class ProfileController extends Controller
         return $this->render('users/profile/change_password', [
             'title' => 'Change Password'
         ]);
+    }
+
+    public function changePasswordHandler(Request $request)
+    {
+        $request = $request->getFormData();
+        if(password_verify($request['password'], Auth::user()['password'])){
+            if($request['new_password'] === $request['cnfrm_password']){
+                $sanitized = [
+                    'password' => password_hash(trim($request['new_password']), PASSWORD_BCRYPT)
+                ];
+
+                $user = new User();
+                $user->update($sanitized, $_SESSION['user_id']);
+                Response::redirect('/ganti_password');
+            }
+        }
     }
 }

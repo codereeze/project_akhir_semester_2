@@ -33,8 +33,8 @@
                             <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kecamatan">
                         </div>
                         <div>
-                            <p class="font-semibold mb-1">Kabupaten</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kabupaten">
+                            <p class="font-semibold mb-1">Kabupaten/Kota</p>
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kab_kot">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Provinsi</p>

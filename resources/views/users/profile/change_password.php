@@ -19,15 +19,15 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <p class="font-semibold mb-1">Password saat ini</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="password" class="p-2 rounded-md border w-full font-medium" value="" name="password">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Password baru</p>
-                            <input type="password" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="password" class="p-2 rounded-md border w-full font-medium" value="" name="new_password">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Konfirmasi password</p>
-                            <input type="password" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="password" class="p-2 rounded-md border w-full font-medium" value="" name="cnfrm_password">
                         </div>
                     </div>
                     <button class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2.5 font-bold mt-4"><i class="fas fa-save"></i> Ganti password</button>
