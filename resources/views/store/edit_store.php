@@ -19,26 +19,27 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <p class="font-semibold mb-1">Nama toko</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['nama_toko'] ?>" name="nama_toko">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Copywriting</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['copywriting'] ?>" name="copywriting">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Jam buka</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="time" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['jam_buka'] ?>" name="jam_buka">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Jam tutup</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="time" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['jam_tutup'] ?>" name="jam_tutup">
                         </div>
                     </div>
                     <div class="mt-3">
                         <p class="font-semibold mb-1">Deskripsi toko</p>
-                        <textarea class="p-2 rounded-md border w-full font-medium" name=""></textarea>
+                        <textarea class="p-2 rounded-md border w-full font-medium" name="deskripsi"><?= $params['store']['deskripsi'] ?></textarea>
                     </div>
-                    <button class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2.5 font-bold mt-4">Simpan perubahan</button>
+                    <input type="hidden" name="data_1" value="init" id="">
+                    <button type="submit" class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2.5 font-bold mt-4">Simpan perubahan</button>
                 </form>
             </div>
             <div class="border shadow-sm rounded-md p-4">
@@ -48,29 +49,34 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <p class="font-semibold mb-1">Jalan</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['nama_jalan'] ?>" name="nama_jalan">
+                        </div>
+                        <div>
+                            <p class="font-semibold mb-1">Rt/Rw</p>
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['rt_rw'] ?>" name="rt_rw">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Kelurahan/Desa</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['kelurahan'] ?>" name="kelurahan">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Kecamatan</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['kecamatan'] ?>" name="kecamatan">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Kabupaten</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['kab_kot'] ?>" name="kab_kot">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Provinsi</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['provinsi'] ?>" name="provinsi">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Kode Pos</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="">
+                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['kode_pos'] ?>" name="kode_pos">
                         </div>
                     </div>
+                    <input type="hidden" name="data_2" value="init" id="">
                     <button class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2.5 font-bold mt-4">Simpan perubahan</button>
                 </form>
             </div>

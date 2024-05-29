@@ -640,6 +640,10 @@ video {
   z-index: 50;
 }
 
+.float-start {
+  float: inline-start;
+}
+
 .m-0 {
   margin: 0px;
 }

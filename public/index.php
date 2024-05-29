@@ -16,7 +16,6 @@ require_once '../vendor/autoload.php';
 $app = new Application(dirname(__DIR__));
 
 
-
 // User & Seller route (get)
 $app->route::get('/', [SiteController::class, 'home']);
 $app->route::get('/hasil_pencarian', [SiteController::class, 'search_result']);
@@ -36,11 +35,14 @@ $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
 $app->route::get('/profile_toko', [StoreController::class, 'profile_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 
-// User & Seller route (get)
+
+// User & Seller route (post)
 $app->route::post('/profile', [ProfileController::class, 'profileUpdateHandler']);
 $app->route::post('/atur_alamat', [ProfileController::class, 'setAddressHandler']);
 $app->route::post('/ganti_password', [ProfileController::class, 'changePasswordHandler']);
-
+$app->route::post('/tambah_produk', [StoreController::class, 'addProductHandler']);
+$app->route::post('/manajemen_produk', [StoreController::class, 'deleteProductHandler']);
+$app->route::post('/edit_toko', [StoreController::class, 'editStoreHandler']);
 
 
 // Auth route

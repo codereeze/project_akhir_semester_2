@@ -42,6 +42,11 @@
                         <li>
                             <a href="/profile" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-user"></i> Profile</a>
                         </li>
+                        <?php if ($dataUser['role'] == 'User') : ?>
+                            <li>
+                                <a href="/menjadi_seller" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-coins"></i> Menjadi Seller</a>
+                            </li>
+                        <?php endif; ?>
                         <?php if ($dataUser['role'] == 'Seller') : ?>
                             <li>
                                 <a href="/toko_saya" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-store"></i> Toko Saya</a>

@@ -24,6 +24,7 @@ class ProductsTable extends Migration
             $attribute->varchar('stock', 5, false);
             $attribute->varchar('harga', 20, false);
             $attribute->text('deskripsi', false);
+            $attribute->text('cover', false);
 
             // foreign key
             $attribute->foreign('toko_id', 'stores', 'id');

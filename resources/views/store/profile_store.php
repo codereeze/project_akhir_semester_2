@@ -10,24 +10,24 @@
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <p class="font-semibold mb-1">Nama toko</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['nama_toko'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Copywriting</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['copywriting'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Jam buka</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['jam_buka'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Jam tutup</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['jam_tutup'] ?>" disabled>
                     </div>
                 </div>
                 <div class="mt-3">
                     <p class="font-semibold mb-1">Deskripsi toko</p>
-                    <textarea class="p-2 rounded-md border w-full font-medium" disabled></textarea>
+                    <textarea class="p-2 rounded-md border w-full font-medium" disabled><?= $params['store']['deskripsi'] ?></textarea>
                 </div>
             </div>
             <div class="border shadow-sm rounded-md p-4">
@@ -35,27 +35,27 @@
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <p class="font-semibold mb-1">Jalan</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['nama_jalan'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Kelurahan/Desa</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['kelurahan'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Kecamatan</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['kecamatan'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Kabupaten</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['kab_kot'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Provinsi</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['provinsi'] ?>" disabled>
                     </div>
                     <div class="mb-3">
                         <p class="font-semibold mb-1">Kode Pos</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['kode_pos'] ?>" disabled>
                     </div>
                 </div>
             </div>

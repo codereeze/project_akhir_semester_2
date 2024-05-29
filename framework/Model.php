@@ -113,6 +113,20 @@ abstract class Model
         }
     }
 
+    public function selectAll()
+    {
+        try {
+            $this->initialize();
+            $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name);
+            $stmt->execute();
+            
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
     public function delete($id)
     {
         try {
