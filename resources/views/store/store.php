@@ -3,15 +3,14 @@
         <?php include_once 'partials/sidebar.php' ?>
         <div class="px-4 sm:ml-64">
             <div class="p-4 bg-red-primary rounded-xl text-white">
-                <h1 class="text-2xl font-bold">Selamat Datang di Acumalaka Store</h1>
-                <p class="mb-3 font-medium text-sm">Terimakasih telah berkunjung, silahkan cari produk kesukaan kamu
-                    di toko ini.</p>
+                <h1 class="text-2xl font-bold">Selamat Datang di <?= $params['store']['nama_toko'] ?></h1>
+                <p class="mb-3 font-medium text-sm"><?= $params['store']['copywriting'] ?></p>
                 <div class="bg-white rounded-xl w-full text-gray-600 p-6">
                     <div class="flex justify-between text-center">
                         <div>
                             <p class="text-lg font-semibold mb-1">Tahun bergabung</p>
                             <hr>
-                            <h1 class="text-2xl font-bold text-yellow-500">2023</h1>
+                            <h1 class="text-2xl font-bold text-yellow-500"><?= $params['store']['tahun_bergabung'] ?></h1>
                         </div>
                         <div>
                             <p class="text-lg font-semibold mb-1">Total produk</p>
@@ -21,7 +20,7 @@
                         <div>
                             <p class="text-lg font-semibold mb-1">Jam operasional</p>
                             <hr>
-                            <h1 class="text-2xl font-bold text-yellow-500">08:00 - 18:00</h1>
+                            <h1 class="text-2xl font-bold text-yellow-500"><?= $params['store']['jam_buka'] ?> - <?= $params['store']['jam_tutup'] ?></h1>
                         </div>
                         <div>
                             <p class="text-lg font-semibold mb-1">Ulasan toko</p>

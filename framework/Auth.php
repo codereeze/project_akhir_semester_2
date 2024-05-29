@@ -38,7 +38,19 @@ class Auth
         $stmt->bindValue(':id', $_SESSION['user_id'], \PDO::PARAM_INT);
         $stmt->execute();
 
+        $stmt2 = self::$db->prepare("SELECT * FROM addresses WHERE user_id = :id AND status = :status");
+        $stmt2->bindValue(':id', $_SESSION['user_id'], \PDO::PARAM_INT);
+        $stmt2->bindValue(':status', 'Utama');
+        $stmt2->execute();
+
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $user;
+        $address = $stmt2->fetch(\PDO::FETCH_ASSOC);
+
+        if ($address) {
+            $combinedData = array_merge($user, $address);
+        } else {
+            $combinedData = $user;
+        }
+        return $combinedData;
     }
 }

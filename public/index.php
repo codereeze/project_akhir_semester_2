@@ -29,7 +29,7 @@ $app->route::get('/notifikasi', [NotificationController::class, 'notification'])
 $app->route::get('/baca_notifikasi', [NotificationController::class, 'read_notification']);
 $app->route::get('/product', [ProductController::class, 'product']);
 $app->route::get('/checkout', [ProductController::class, 'checkout']);
-$app->route::get('/toko', [StoreController::class, 'store']);
+$app->route::get('/toko_saya', [StoreController::class, 'my_store']);
 $app->route::get('/manajemen_produk', [StoreController::class, 'management_product']);
 $app->route::get('/edit_produk', [StoreController::class, 'edit_product']);
 $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);

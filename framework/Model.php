@@ -98,6 +98,21 @@ abstract class Model
         }
     }
 
+    public function find($column, $id)
+    {
+        try {
+            $this->initialize();
+            $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name . " WHERE $column = :id");
+            $stmt->bindValue(':id', (int)$id, \PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
     public function delete($id)
     {
         try {

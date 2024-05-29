@@ -92,7 +92,7 @@
                                 <p class="font-semibold mb-1">Kode pos</p>
                                 <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kode_pos" required>
                             </div>
-                            <?php if(!isset($params['addresses'])): ?>
+                            <?php if(count($params['addresses']) == 0): ?>
                                 <input type="hidden" name="status" value="Utama" required>
                             <?php endif; ?>
                         </div>

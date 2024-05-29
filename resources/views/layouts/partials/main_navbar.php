@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center py-3 px-7">
             <div class="flex gap-5 items-center">
                 <a href="/">
-                    <img src="https://skilvul.com/static/skilvul-anniversary-white.svg" width="121" alt="" srcset="">
+                    <img src="/assets/logo.svg" width="145" alt="" srcset="">
                 </a>
                 <div class="relative">
                     <input type="text" class="bg-white py-2.5 px-3 rounded-md w-[24rem] text-sm placeholder:text-black text-black font-semibold outline-none border-none" placeholder="Cari baju yang kamu sukai...">
@@ -66,10 +66,16 @@
         </div>
         <div class="flex justify-between items-center text-black font-semibold text-sm">
             <div class="bg-white p-2 rounded-tr-md">
-                <a href="">
-                    <i class="fas fa-map-marker-alt text-red-primary"></i>
-                    Atur alamat pengiriman
-                </a>
+                <?php if (isset($_SESSION['user_id'])) : ?>
+                    <a href="/atur_alamat">
+                        <i class="fas fa-map-marker-alt text-red-primary"></i>
+                        <?= isset($dataUser['nama_penerima']) ? "Penerima: " . ($dataUser['nama_penerima']) : 'Atur alamat pengiriman' ?>
+                    </a>
+                <?php else : ?>
+                    <div>
+                        Selamat Datang
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="flex gap-7 text-white">
                 <a href="" class="hover:text-red-200 duration-150">T-Shirt</a>|

@@ -19,7 +19,7 @@
 <body class="font-quicksand">
     <?php include_once 'partials/main_navbar.php' ?>
     {{ content }}
-    <?php if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] !== '/toko') : ?>
+    <?php if (!isset($params['footer'])) : ?>
         <?php include_once 'partials/main_footer.php'; ?>
     <?php endif; ?>
 
