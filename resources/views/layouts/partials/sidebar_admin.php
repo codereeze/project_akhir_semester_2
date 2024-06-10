@@ -55,7 +55,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/admin/master_date_user">
+                                <a href="/admin/master_data_user">
                                     <span class="sub-item">Pengguna</span>
                                 </a>
                             </li>
@@ -83,7 +83,7 @@
                 <li class="nav-item">
                     <a href="/admin/buat_notifikasi">
                         <i class="fas fa-bell"></i>
-                        <p>Notifikasi</p>
+                        <p>Buat Notifikasi</p>
                     </a>
                 </li>
                 <li class="nav-item">

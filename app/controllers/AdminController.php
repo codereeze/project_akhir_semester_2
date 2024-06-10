@@ -35,7 +35,7 @@ class AdminController extends Controller
     public function master_data_user()
     {
         return $this->render('admin/master_data/user', [
-            'title' => 'Master Data Seller'
+            'title' => 'Master Data User'
         ]);
     }
 

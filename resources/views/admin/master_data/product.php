@@ -1,11 +1,8 @@
 <div class="page-inner">
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
         <div>
-            <h3 class="fw-bold mb-3">Master Data User</h3>
-            <h6 class="op-7 mb-2">Konten ini menampilkan daftar user</h6>
-        </div>
-        <div class="ms-md-auto py-2 py-md-0">
-            <a href="#" class="btn btn-primary btn-round">Tambah User</a>
+            <h3 class="fw-bold mb-3">Master Data Produk</h3>
+            <h6 class="op-7 mb-2">Konten ini menampilkan daftar produk</h6>
         </div>
     </div>
     <div>
@@ -15,27 +12,31 @@
                     <div class="d-flex justify-content-end">
                         <div class="input-group mb-4 w-25">
                             <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Cari seller...">
+                            <input type="text" class="form-control" placeholder="Cari produk...">
                         </div>
                     </div>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Nama pengguna</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Telepon</th>
-                                <th scope="col">Gender</th>
+                                <th scope="col">Nama produk</th>
+                                <th scope="col">Ukuran</th>
+                                <th scope="col">Kategori</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Harga</th>
+                                <th scope="col">Asal toko</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>Karina Elfira</td>
-                                <td>karinaefira@gmail.com</td>
-                                <td>0812988973666</td>
-                                <td>Perempuan</td>
+                                <td>Baju tidur pria lengan panjang lengkap...</td>
+                                <td>S, M, L, XL</td>
+                                <td>Baju tidur</td>
+                                <td>200</td>
+                                <td>Rp.200.000</td>
+                                <td>Toko pakaian Karina</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="">
@@ -49,10 +50,12 @@
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td>Karina Elfira</td>
-                                <td>karinaefira@gmail.com</td>
-                                <td>0812988973666</td>
-                                <td>Perempuan</td>
+                                <td>Baju tidur pria lengan panjang lengkap...</td>
+                                <td>S, M, L, XL</td>
+                                <td>Baju tidur</td>
+                                <td>200</td>
+                                <td>Rp.200.000</td>
+                                <td>Toko pakaian Karina</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="">
