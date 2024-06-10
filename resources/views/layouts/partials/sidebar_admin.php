@@ -3,8 +3,8 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
 
-            <a href="index.html" class="logo">
-                <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20">
+            <a href="" class="logo">
+                <img src="/assets/logo.svg" alt="navbar brand" class="navbar-brand" height="50">
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -25,7 +25,7 @@
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <li class="nav-item active">
-                    <a href="index.html">
+                    <a href="/admin/dashboard">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
@@ -45,17 +45,17 @@
                     <div class="collapse" id="base">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="">
+                                <a href="/admin/master_data_admin">
                                     <span class="sub-item">Admin</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="/admin/master_data_seller">
                                     <span class="sub-item">Seller</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="/admin/master_date_user">
                                     <span class="sub-item">Pengguna</span>
                                 </a>
                             </li>
@@ -63,13 +63,13 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="">
+                    <a href="/admin/master_data_kategori">
                         <i class="fas fa-tag"></i>
                         <p>Kategori</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="">
+                    <a href="/admin/master_data_produk">
                         <i class="fas fa-box"></i>
                         <p>Produk</p>
                     </a>
@@ -81,13 +81,13 @@
                     <h4 class="text-section">Informasi</h4>
                 </li>
                 <li class="nav-item">
-                    <a href="">
+                    <a href="/admin/buat_notifikasi">
                         <i class="fas fa-bell"></i>
                         <p>Notifikasi</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="">
+                    <a href="/admin/kirim_email">
                         <i class="fas fa-envelope"></i>
                         <p>Kirim Email</p>
                     </a>

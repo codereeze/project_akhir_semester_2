@@ -56,5 +56,14 @@ $app->route::post('/register', [AuthController::class, 'registerHandler']);
 
 // Admin route
 $app->route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+$app->route::get('/admin/master_data_admin', [AdminController::class, 'master_data_admin']);
+$app->route::get('/admin/master_data_seller', [AdminController::class, 'master_data_seller']);
+$app->route::get('/admin/master_data_user', [AdminController::class, 'master_data_user']);
+$app->route::get('/admin/master_data_kategori', [AdminController::class, 'master_data_category']);
+$app->route::get('/admin/master_data_produk', [AdminController::class, 'master_data_product']);
+$app->route::get('/admin/profile', [AdminController::class, 'profile']);
+$app->route::get('/admin/notifikasi', [AdminController::class, 'notification']);
+$app->route::get('/admin/buat_notifikasi', [AdminController::class, 'createNotification']);
+$app->route::get('/admin/kirim_email', [AdminController::class, 'sendEmail']);
 
 $app->run();
