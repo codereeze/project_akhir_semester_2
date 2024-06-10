@@ -75,6 +75,13 @@ class StoreController extends Controller
             'footer' => 'disable'
         ]);
     }
+    public function detail_product()
+    {
+        return $this->render('store/detail_product', [
+            'title' => 'Tambah Produk',
+            'footer' => 'disable'
+        ]);
+    }
 
     public function addProductHandler(Request $request)
     {

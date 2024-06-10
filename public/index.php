@@ -34,6 +34,7 @@ $app->route::get('/edit_produk', [StoreController::class, 'edit_product']);
 $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
 $app->route::get('/profile_toko', [StoreController::class, 'profile_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
+$app->route::get('/detail_produk', [StoreController::class, 'detail_product']);
 
 
 // User & Seller route (post)
