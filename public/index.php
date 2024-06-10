@@ -9,7 +9,7 @@ use App\Controllers\ProfileController;
 use App\Controllers\SiteController;
 use App\Controllers\StoreController;
 use App\Controllers\TransactionController;
-use Framework\Application;
+use Libraries\Application;
 
 require_once '../vendor/autoload.php';
 

@@ -5,9 +5,9 @@ namespace App\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Store;
-use Framework\Controller;
-use Framework\Request;
-use Framework\Response;
+use Libraries\Controller;
+use Libraries\Request;
+use Libraries\Response;
 
 class StoreController extends Controller
 {

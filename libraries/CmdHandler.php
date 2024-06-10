@@ -1,11 +1,11 @@
 <?php
 
-namespace Framework;
+namespace Libraries;
 
-use Framework\Traits\CommandTraits\MakeFile;
-use Framework\Traits\CommandTraits\DropFile;
-use Framework\Traits\CommandTraits\TextColoring;
-use Framework\QueryBuilder\Migration;
+use Libraries\Traits\CommandTraits\MakeFile;
+use Libraries\Traits\CommandTraits\DropFile;
+use Libraries\Traits\CommandTraits\TextColoring;
+use Libraries\QueryBuilder\Migration;
 use Symfony\Component\String\Inflector\EnglishInflector;
 
 class CmdHandler

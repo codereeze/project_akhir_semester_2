@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Framework\Controller;
+use Libraries\Controller;
 
 class SiteController extends Controller
 {

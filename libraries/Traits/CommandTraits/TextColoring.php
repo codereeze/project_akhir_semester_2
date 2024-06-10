@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Traits\CommandTraits;
+namespace Libraries\Traits\CommandTraits;
 
 trait TextColoring
 {

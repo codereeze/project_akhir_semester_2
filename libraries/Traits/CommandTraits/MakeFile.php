@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Traits\CommandTraits;
+namespace Libraries\Traits\CommandTraits;
 
 trait MakeFile
 {
@@ -14,7 +14,7 @@ trait MakeFile
 
             namespace App\Controllers$namespace;
 
-            use Framework\Controller;
+            use Libraries\Controller;
 
             class $classname extends Controller
             {
@@ -59,7 +59,7 @@ trait MakeFile
 
             namespace App\Models$namespace;
 
-            use Framework\Model;
+            use Libraries\Model;
 
             class $classname extends Model
             {
@@ -104,9 +104,9 @@ trait MakeFile
 
         namespace Database\Migrations;
 
-        use Framework\QueryBuilder\Blueprint;
-        use Framework\QueryBuilder\Migration;
-        use Framework\QueryBuilder\Schema;
+        use Libraries\QueryBuilder\Blueprint;
+        use Libraries\QueryBuilder\Migration;
+        use Libraries\QueryBuilder\Schema;
 
         class $class_name extends Migration
         {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace Libraries;
 
 abstract class Controller {
     public string $layout = 'main';

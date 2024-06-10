@@ -2,7 +2,7 @@
     "name": "hp/toko_baju_online",
     "autoload": {
         "psr-4": {
-            "Framework\\": "framework/",
+            "Libraries\\": "libraries/",
             "Database\\": "database/",
             "App\\": "app/"
         }

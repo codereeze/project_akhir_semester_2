@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\QueryBuilder;
+namespace Libraries\QueryBuilder;
 
 class Migration
 {

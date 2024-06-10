@@ -2,9 +2,9 @@
 
 namespace Database\Migrations;
 
-use Framework\QueryBuilder\Blueprint;
-use Framework\QueryBuilder\Migration;
-use Framework\QueryBuilder\Schema;
+use Libraries\QueryBuilder\Blueprint;
+use Libraries\QueryBuilder\Migration;
+use Libraries\QueryBuilder\Schema;
 
 class CategoriesTable extends Migration
 {

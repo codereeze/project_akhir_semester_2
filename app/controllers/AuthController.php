@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Models\User;
 use Database\Database;
-use Framework\Auth;
-use Framework\Controller;
-use Framework\Request;
-use Framework\Response;
+use Libraries\Auth;
+use Libraries\Controller;
+use Libraries\Request;
+use Libraries\Response;
 
 class AuthController extends Controller
 {

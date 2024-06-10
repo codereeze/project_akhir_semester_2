@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Framework\Model;
+use Libraries\Model;
 
 class Store extends Model
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace Libraries;
 
 class Response
 {

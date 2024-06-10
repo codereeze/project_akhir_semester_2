@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\QueryBuilder;
+namespace Libraries\QueryBuilder;
 
 use Database\Database;
 
