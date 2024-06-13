@@ -87,7 +87,7 @@ class Route
 
         if (is_array($callback)) {
             $dir = explode("/", $callback[0]);
-            require_once Application::$ROOT_DIR . "/" . end($dir) .".php";
+            require_once Application::$ROOT_DIR . "/" . end($dir) . ".php";
             $controller = new $callback[0]();
             $controller->action = $callback[1];
             Application::$app->controller = $controller;
