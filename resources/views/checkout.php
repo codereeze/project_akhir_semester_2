@@ -25,16 +25,14 @@
                     <hr class="mb-4">
                     <div class="w-full p-1 bg-red-primary rounded-md mb-5">
                         <p class="text-xs text-white font-medium">
-                            <i class="fas fa-store"></i> Acumalaka Store - Kota Tasikmalaya
+                            <i class="fas fa-store"></i> Abdul Store - Kota Tasikmalaya
                         </p>
                     </div>
                     <div class="flex gap-7 mb-3">
-                        <img src="https://dynamic.zacdn.com/N8sHQYr21UmYQ62hqBBIYJ-N3QI=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/pennay-7948-7431024-5.jpg" alt="" width="100" class="rounded-md self-start">
+                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" width="100" class="rounded-md self-start">
                         <div class="self-start">
-                            <h3 class="font-bold text-lg mb-2">KAOS KESSOKU BAND BOCCHI THE ROCK | BAJU ANIME
-                                PREMIUM
-                                HIGH QUALITY T-SHIRT - Putih</h3>
-                            <p class="text-xs font-medium">Type: Warna putih</p>
+                            <h3 class="font-bold text-lg mb-2">Baju Sweeter Wanita Lengan Panjang</h3>
+                            <p class="text-xs font-medium">Type: Warna merah muda</p>
                             <p class="text-xs font-medium">Size: XL</p>
                             <p class="text-xs font-medium">Quantity: 10</p>
                             <p class="text-base font-medium"><span class="text-red-primary font-bold">30.000</span>/produk</p>
@@ -79,7 +77,7 @@
                     <hr class="mb-4">
                     <div class="bg-[url('../img/discount.jpg')] bg-right bg-cover p-3 rounded-lg contrast-100 shadow-sm border text-red-primary">
                         <div class="flex justify-between">
-                            <span class="font-bold text-black">Promo 5.5 Mega buy 2024</span>
+                            <span class="font-bold text-black">Promo 5.5 Mega 2024</span>
                             <button class="bg-red-primary text-white p-1 rounded-md text-xs font-semibold block">Gunakan</button>
                         </div>
                     </div>

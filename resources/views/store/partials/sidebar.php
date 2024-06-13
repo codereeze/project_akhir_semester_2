@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="flex justify-center flex-col text-center">
-            <h3 class="text-xl font-bold mb-2 text-center text-gray-800 block">Acumalaka Store</h3>
+            <h3 class="text-xl font-bold mb-2 text-center text-gray-800 block"><?= $params['store']['nama_toko'] ?></h3>
             <?php if($dataUser['role'] == 'User'): ?>
                 <a href="" class="inline-block mb-3">
                     <button class="bg-red-primary hover:bg-red-500 text-sm font-semibold p-2 duration-300 text-white"><i class="fas fa-user-plus"></i> Ikuti toko</button>

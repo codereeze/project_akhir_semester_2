@@ -2,12 +2,11 @@
     <div class="pt-36">
         <div class="flex flex-wrap">
             <div class="self-start max-w-md w-full">
-                <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//112/MTA-94766386/baby_hai_baby_hai_rayya_series_ramadhan_abizar_series_color_2_-_baju_anak_laki_-_laki_lengan_pendek_celana_panjang_full03_rubqnfwc.jpg?output-format=webp" class="rounded-2xl shadow-md" alt="" srcset="">
+                <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-2xl shadow-md" alt="" srcset="">
             </div>
             <div class="self-start max-w-2xl w-full">
                 <div class="w-full self-start">
-                    <h1 class="text-xl font-bold mb-1">BABY HAI Rayya Series Ramadhan Abizar Series Color 2 -
-                        Baju Anak Laki - Laki Lengan Pendek Celana Panjang</h1>
+                    <h1 class="text-xl font-bold mb-1">Baju Sweeter Wanita Lengan Panjang</h1>
                     <p class="text-sm font-semibold"><i class="fas fa-star text-yellow-300"></i> 5.0 Rating | Terjual 300 | 200 Ulasan</p>
                     <p class="text-2xl font-bold text-red-primary mb-3">Rp.30.000</p>
                     <p class="text-sm font-semibold mb-2">Ukuran tersedia</p>
@@ -52,18 +51,22 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                                 </svg>
                             </button>
-                            <button class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
-                            <button class="border border-red-primary text-red-primary hover:bg-red-500 rounded-md hover:text-white ml-4 text-base px-7 py-2.5 font-semibold duration-300 flex items-center gap-2">
-                                <i class="fas fa-cart-plus"></i>
-                                <span>Keranjang</span>
-                            </button>
+                            <a href="/checkout">
+                                <button type="button" class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
+                            </a>
+                            <a href="/keranjang">
+                                <button type="button" class="border border-red-primary text-red-primary hover:bg-red-500 rounded-md hover:text-white ml-4 text-base px-7 py-2.5 font-semibold duration-300 flex items-center gap-2">
+                                    <i class="fas fa-cart-plus"></i>
+                                    <span>Keranjang</span>
+                                </button>
+                            </a>
                         </div>
                     </form>
                     <div class="mt-5 border rounded-lg p-3">
                         <div class="flex items-center gap-3">
                             <img src="https://avatars.githubusercontent.com/u/159593076?v=4" width="40" alt="" srcset="" class="rounded-full">
                             <div>
-                                <p class="font-bold leading-5">Acumalaka Store</p>
+                                <p class="font-bold leading-5">Abdul Store</p>
                                 <p class="text-xs font-medium">2000 Followers</p>
                             </div>
                             <a href="">

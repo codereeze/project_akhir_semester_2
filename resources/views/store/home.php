@@ -33,7 +33,7 @@
             <div class="mt-6 flex flex-wrap gap-5">
                 <?php foreach($params['products'] as $item): ?>
                 <div class="w-40">
-                    <a href="">
+                    <a href="/produk">
                         <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
                         <p class="text-sm font-semibold"><?= $item['nama_produk'] ?></p>
                         <p class="text-lg font-bold text-red-primary">Rp<?= $item['harga'] ?></p>
