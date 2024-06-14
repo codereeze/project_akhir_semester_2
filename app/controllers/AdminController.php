@@ -2,17 +2,23 @@
 
 namespace App\Controllers;
 
+use App\Middleware\Authorization;
 use Libraries\Controller;
 
 class AdminController extends Controller
 {
+    private Authorization $author;
+    
     public function __construct()
     {
         $this->layout = 'admin';
+        $this->author = new Authorization();
     }
 
     public function dashboard()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/dashboard', [
             'title' => 'Dashboard Admin'
         ]);
@@ -20,6 +26,8 @@ class AdminController extends Controller
 
     public function master_data_admin()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/master_data/admin', [
             'title' => 'Master Data Admin'
         ]);
@@ -27,6 +35,8 @@ class AdminController extends Controller
 
     public function master_data_seller()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/master_data/seller', [
             'title' => 'Master Data Seller'
         ]);
@@ -34,6 +44,8 @@ class AdminController extends Controller
 
     public function master_data_user()
     {
+        $this->author->onlyAdmin();
+        
         return $this->render('admin/master_data/user', [
             'title' => 'Master Data User'
         ]);
@@ -41,6 +53,8 @@ class AdminController extends Controller
 
     public function master_data_category()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/master_data/category', [
             'title' => 'Master Data Kategori'
         ]);
@@ -48,6 +62,8 @@ class AdminController extends Controller
 
     public function master_data_product()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/master_data/product', [
             'title' => 'Master Data Produk'
         ]);
@@ -55,6 +71,8 @@ class AdminController extends Controller
 
     public function profile()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/profile', [
             'title' => 'Profile Admin'
         ]);
@@ -62,6 +80,8 @@ class AdminController extends Controller
 
     public function notification()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/notification', [
             'title' => 'Notifikasi'
         ]);
@@ -69,6 +89,8 @@ class AdminController extends Controller
 
     public function createNotification()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/create_notification', [
             'title' => 'Buat Notifikasi'
         ]);
@@ -76,6 +98,8 @@ class AdminController extends Controller
 
     public function sendEmail()
     {
+        $this->author->onlyAdmin();
+
         return $this->render('admin/send_email', [
             'title' => 'Kirim Email'
         ]);

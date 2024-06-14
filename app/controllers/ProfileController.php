@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Middleware\Authorization;
 use App\Models\Address;
 use App\Models\User;
 use Libraries\Auth;
@@ -11,8 +12,17 @@ use Libraries\Response;
 
 class ProfileController extends Controller
 {
+    private Authorization $author;
+
+    public function __construct()
+    {
+        $this->author = new Authorization();
+    }
+
     public function profile()
     {
+        $this->author->userAndSeller();
+
         return $this->render('users/profile/profile', [
             'title' => 'Profile'
         ]);
@@ -36,6 +46,8 @@ class ProfileController extends Controller
 
     public function set_address()
     {
+        $this->author->userAndSeller();
+
         $address = new Address();
         return $this->render('users/profile/set_address', [
             'title' => 'Atur Alamat',
@@ -84,6 +96,8 @@ class ProfileController extends Controller
 
     public function change_password()
     {
+        $this->author->userAndSeller();
+
         return $this->render('users/profile/change_password', [
             'title' => 'Change Password'
         ]);

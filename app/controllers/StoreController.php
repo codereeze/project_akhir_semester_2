@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Middleware\Authorization;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Store;
@@ -11,8 +12,17 @@ use Libraries\Response;
 
 class StoreController extends Controller
 {
+    private Authorization $author;
+
+    public function __construct()
+    {
+        $this->author = new Authorization();
+    }
+
     public function my_store()
     {
+        $this->author->onlySeller();
+
         $store = new Store();
         $product = new Product();
         $result = $store->find('seller_id', $_SESSION['user_id']);
@@ -26,6 +36,8 @@ class StoreController extends Controller
 
     public function management_product()
     {
+        $this->author->onlySeller();
+
         $product = new Product();
         $store = new Store();
         $store = $store->find('seller_id', $_SESSION['user_id']);
@@ -38,6 +50,8 @@ class StoreController extends Controller
 
     public function profile_store()
     {
+        $this->author->onlySeller();
+
         $store = new Store();
         return $this->render('store/profile_store', [
             'title' => 'Profile Toko',
@@ -48,6 +62,8 @@ class StoreController extends Controller
 
     public function edit_store()
     {
+        $this->author->onlySeller();
+
         $store = new Store();
         return $this->render('store/edit_store', [
             'title' => 'Edit Toko',
@@ -58,6 +74,8 @@ class StoreController extends Controller
 
     public function edit_product()
     {
+        $this->author->onlySeller();
+
         return $this->render('store/edit_product', [
             'title' => 'Edit Produk',
             'footer' => 'disable'
@@ -66,6 +84,8 @@ class StoreController extends Controller
 
     public function add_product()
     {
+        $this->author->onlySeller();
+
         $category = new Category();
         $store = new Store();
         return $this->render('store/add_product', [
@@ -77,6 +97,8 @@ class StoreController extends Controller
     }
     public function detail_product()
     {
+        $this->author->onlySeller();
+
         return $this->render('store/detail_product', [
             'title' => 'Tambah Produk',
             'footer' => 'disable'

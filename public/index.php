@@ -10,13 +10,11 @@ use App\Controllers\ProfileController;
 use App\Controllers\SiteController;
 use App\Controllers\StoreController;
 use App\Controllers\TransactionController;
-use App\Middleware\CheckRoleUser;
 use Libraries\Application;
 
 require_once '../vendor/autoload.php';
 
 $app = new Application(dirname(__DIR__));
-$middleware = new CheckRoleUser();
 
 // User & Seller route (get)
 $app->route::get('/', [SiteController::class, 'home']);

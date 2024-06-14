@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Middleware\Authorization;
 use App\Models\User;
 use Database\Database;
 use Libraries\Auth;
@@ -11,13 +12,18 @@ use Libraries\Response;
 
 class AuthController extends Controller
 {
+    private Authorization $author;
+
     public function __construct()
     {
         $this->layout = 'auth';
+        $this->author = new Authorization();
     }
 
     public function login()
     {
+        $this->author->onlyGuest();
+
         return $this->render('auth/login', [
             'title' => 'Login ke Aplikasi'
         ]);
@@ -25,6 +31,8 @@ class AuthController extends Controller
 
     public function register()
     {
+        $this->author->onlyGuest();
+
         return $this->render('auth/register', [
             'title' => 'Membuat Akun Baru'
         ]);

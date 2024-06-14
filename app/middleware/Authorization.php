@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Middleware;
 
 use Database\Database;
 use Libraries\Response;
 
-class CheckRoleUser
+class Authorization
 {
     public Database $db;
 
@@ -23,29 +24,32 @@ class CheckRoleUser
         return $result['role'] ?? null;
     }
 
-    public function allUsers()
+    public function allEnrolledUsers()
     {
         $role = $this->getUserRole();
 
-        if ($role || $role == null) {
+        if ($role) {
             return true;
+        } else {
+            Response::redirect('/login');
         }
-        exit();
     }
 
     public function onlyGuest()
     {
         $role = $this->getUserRole();
 
-        if ($role !== null) {
+        if ($role) {
             $previousPage = $_SERVER['HTTP_REFERER'];
-            Response::redirect($previousPage);
-        } else {
-            return true;
+            if (isset($previousPage)) {
+                Response::redirect($previousPage);
+            } else {
+                Response::redirect('/');
+            }
         }
     }
 
-    public function userAndGuest()
+    public function userSellerAndGuest()
     {
         $role = $this->getUserRole();
 
@@ -53,7 +57,21 @@ class CheckRoleUser
             return true;
         } else {
             Response::redirect('/303');
-            return false;
+        }
+    }
+
+    public function userAndSeller()
+    {
+        $role = $this->getUserRole();
+
+        if ($role === 'User' || $role === 'Seller') {
+            return true;
+        } else {
+            if ($role === 'Admin') {
+                Response::redirect('/303');
+            } else {
+                Response::redirect('/login');
+            }
         }
     }
 
@@ -75,7 +93,11 @@ class CheckRoleUser
         if ($role === 'Seller') {
             return true;
         } else {
-            Response::redirect('/303');
+            if ($role === 'User' || $role === 'Admin') {
+                Response::redirect('/303');
+            } else {
+                Response::redirect('/login');
+            }
         }
     }
 
@@ -86,7 +108,11 @@ class CheckRoleUser
         if ($role === 'Admin') {
             return true;
         } else {
-            Response::redirect('/303');
+            if ($role === 'User' || $role === 'Seller') {
+                Response::redirect('/303');
+            } else {
+                Response::redirect('/login');
+            }
         }
     }
 }
