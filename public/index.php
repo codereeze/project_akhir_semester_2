@@ -34,6 +34,7 @@ $app->route::get('/edit_produk/{id}', [StoreController::class, 'edit_product']);
 $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 $app->route::get('/detail_produk', [StoreController::class, 'detail_product']);
+$app->route::get('/menjadi_seller', [SiteController::class, 'register_seller']);
 
 
 // User & Seller route (post)
@@ -44,6 +45,7 @@ $app->route::post('/tambah_produk', [StoreController::class, 'addProductHandler'
 $app->route::post('/manajemen_produk', [StoreController::class, 'deleteProductHandler']);
 $app->route::post('/edit_toko', [StoreController::class, 'editStoreHandler']);
 $app->route::post('/produk/{id}', [ProductController::class, 'postHandler']);
+$app->route::post('/menjadi_seller', [SiteController::class, 'register_seller']);
 
 
 // Auth route

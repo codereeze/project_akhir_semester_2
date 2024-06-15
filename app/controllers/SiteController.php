@@ -22,4 +22,11 @@ class SiteController extends Controller
             'title' => 'Hasil Pencarian'
         ]);
     }
+
+    public function register_seller()
+    {
+        return $this->render('register_seller', [
+            'title' => 'Daftar Menjadi Seller'
+        ]);
+    }
 }

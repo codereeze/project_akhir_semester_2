@@ -4,12 +4,12 @@
             <div class="w-full bg-gray-secondary py-2">
                 <div class="swiper" style="width: 1200px;">
                     <div class="swiper-wrapper">
-                        <!-- <div class="swiper-slide">
+                        <div class="swiper-slide">
                             <img src="https://assets.skilvul.com/campaign/wts-animasi-modal-1698812185486.jpg" alt="" srcset="" class="w-full rounded-lg">
                         </div>
                         <div class="swiper-slide">
                             <img src="https://assets.skilvul.com/campaign/wts-animasi-modal-1698812185486.jpg" alt="" srcset="" class="w-full rounded-lg">
-                        </div> -->
+                        </div>
                         <div class="swiper-slide">
                             <img src="https://www.static-src.com/siva/asset/05_2024/desktop-car4_3-kredivo-may24.jpg?w=1200" alt="" srcset="" class="w-full rounded-lg">
                         </div>
