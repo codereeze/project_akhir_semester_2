@@ -21,7 +21,9 @@
                         <div class="flex gap-3">
                             <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" width="100" class="rounded-lg">
                             <div class="max-w-lg">
-                                <h2 class="text-lg font-bold leading-6 mb-2"><?= $item['nama_produk'] ?></h2>
+                                <a href="/detail_produk">
+                                    <h2 class="text-lg font-bold leading-6 mb-2"><?= $item['nama_produk'] ?></h2>
+                                </a>
                                 <div class="text-xs font-medium">
                                     <p>Ukuran tersedia:
                                         <?= $item['size_s'] == "No" ? '' : "S," ?>
@@ -39,7 +41,7 @@
                                 <input type="hidden" value="<?= $item['id'] ?>" name="product_id">
                                 <button type="submit" class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300 mr-1"><i class="fas fa-trash"></i> Hapus</button>
                             </form>
-                            <a href="">
+                            <a href="/edit_produk/<?= $item['id'] ?>">
                                 <button class="border-red-primary border p-2 rounded-md font-semibold text-sm text-red-primary hover:bg-red-500 duration-300 hover:text-white"><i class="fas fa-pen"></i> Edit produk</button>
                             </a>
                         </div>

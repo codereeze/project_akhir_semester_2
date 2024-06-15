@@ -30,9 +30,8 @@ $app->route::get('/produk/{id}', [ProductController::class, 'product']);
 $app->route::get('/checkout/{id}', [ProductController::class, 'checkout']);
 $app->route::get('/toko_saya', [StoreController::class, 'my_store']);
 $app->route::get('/manajemen_produk', [StoreController::class, 'management_product']);
-$app->route::get('/edit_produk', [StoreController::class, 'edit_product']);
+$app->route::get('/edit_produk/{id}', [StoreController::class, 'edit_product']);
 $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
-$app->route::get('/profile_toko', [StoreController::class, 'profile_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 $app->route::get('/detail_produk', [StoreController::class, 'detail_product']);
 

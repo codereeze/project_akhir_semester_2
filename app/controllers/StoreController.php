@@ -26,6 +26,7 @@ class StoreController extends Controller
         $store = new Store();
         $product = new Product();
         $result = $store->find('seller_id', $_SESSION['user_id']);
+
         return $this->render('store/home', [
             'title' => 'Toko',
             'store' => $result,
@@ -41,6 +42,7 @@ class StoreController extends Controller
         $product = new Product();
         $store = new Store();
         $store = $store->find('seller_id', $_SESSION['user_id']);
+
         return $this->render('store/management_product', [
             'title' => 'Manajemen Produk',
             'products' => $product->findAllById('toko_id', $store['id']),
@@ -49,23 +51,12 @@ class StoreController extends Controller
         ]);
     }
 
-    public function profile_store()
-    {
-        $this->author->onlySeller();
-
-        $store = new Store();
-        return $this->render('store/profile_store', [
-            'title' => 'Profile Toko',
-            'store' => $store->find('seller_id', $_SESSION['user_id']),
-            'footer' => 'disable',
-        ]);
-    }
-
     public function edit_store()
     {
         $this->author->onlySeller();
 
         $store = new Store();
+
         return $this->render('store/edit_store', [
             'title' => 'Edit Toko',
             'store' => $store->find('seller_id', $_SESSION['user_id']),
@@ -77,8 +68,10 @@ class StoreController extends Controller
     {
         $this->author->onlySeller();
 
+        $store = new Store();
         return $this->render('store/edit_product', [
             'title' => 'Edit Produk',
+            'store' => $store->find('seller_id', $_SESSION['user_id']),
             'footer' => 'disable'
         ]);
     }
@@ -100,8 +93,10 @@ class StoreController extends Controller
     {
         $this->author->onlySeller();
 
+        $store = new Store();
         return $this->render('store/detail_product', [
             'title' => 'Tambah Produk',
+            'store' => $store->find('seller_id', $_SESSION['user_id']),
             'footer' => 'disable'
         ]);
     }
