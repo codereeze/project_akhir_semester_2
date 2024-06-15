@@ -10,4 +10,5 @@ class Comment extends Model
     {
         $this->table_name = 'comments';
     }
+    
 }

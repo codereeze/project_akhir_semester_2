@@ -44,6 +44,7 @@ $app->route::post('/ganti_password', [ProfileController::class, 'changePasswordH
 $app->route::post('/tambah_produk', [StoreController::class, 'addProductHandler']);
 $app->route::post('/manajemen_produk', [StoreController::class, 'deleteProductHandler']);
 $app->route::post('/edit_toko', [StoreController::class, 'editStoreHandler']);
+$app->route::post('/produk/{id}', [ProductController::class, 'postHandler']);
 
 
 // Auth route

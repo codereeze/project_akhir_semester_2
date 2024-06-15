@@ -186,9 +186,13 @@ abstract class Model
             $stmt->execute();
 
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            
-            if (count($result) === 1) {
-                return $result[0];
+
+            if (empty($result)) {
+                return null; 
+            }
+
+            if (count($result) === 0) {
+                return $result[0]; 
             }
 
             return $result;

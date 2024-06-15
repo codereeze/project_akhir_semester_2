@@ -59,7 +59,7 @@
                     </div>
                     <p class="text-sm font-semibold mb-2">Tersedia <?= $params['product']['stock'] ?></p>
                     <form class="max-w-xs" method="post">
-                        <input type="hidden" name="ticket" id="" value="checkout">
+                        <input type="hidden" name="form" id="" value="checkout">
                         <div class="relative flex items-center max-w-[11rem]">
                             <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-red-primary hover:bg-red-500 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                                 <svg class="w-3 h-3 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
@@ -75,7 +75,7 @@
                             <button type="submit" class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
                     </form>
                     <form action="" method="post">
-                        <input type="hidden" name="ticket" id="" value="keranjang">
+                        <input type="hidden" name="form" id="" value="keranjang">
                         <input type="hidden" name="product_id" value="<?= $params['product']['id'] ?>">
                         <button type="submit" class="border border-red-primary text-red-primary hover:bg-red-500 rounded-md hover:text-white ml-4 text-base px-7 py-2.5 font-semibold duration-300 flex items-center gap-2">
                             <i class="fas fa-cart-plus"></i>
@@ -93,9 +93,19 @@
                         <a href="/toko/<?= $params['store']['id'] ?>">
                             <button class="border border-red-primary hover:bg-red-500 text-sm font-semibold p-2 text-red-primary duration-300 hover:text-white"><i class="fas fa-store"></i> Kunjungi toko</button>
                         </a>
-                        <a href="">
-                            <button class="bg-red-primary hover:bg-red-500 text-sm font-semibold p-2 duration-300 text-white"><i class="fas fa-user-plus"></i> Ikuti toko</button>
-                        </a>
+                        <form action="" method="post">
+                            <input type="hidden" name="produk_id" value="<?= $params['product']['id'] ?>" id="">
+                            <?php if (!$params['isFollow']) : ?>
+                                <input type="hidden" name="toko_id" id="" value="<?= $params['store']['id'] ?>">
+                                <button name="form" value="follow" class="bg-red-primary hover:bg-red-500 text-sm font-semibold p-2 duration-300 text-white">
+                                    <i class="fas fa-user-plus"></i> Ikuti toko
+                                </button>
+                            <?php else : ?>
+                                <button name="form" value="unfollow" class="bg-red-primary hover:bg-red-500 text-sm font-semibold p-2 duration-300 text-white">
+                                    <i class="fas fa-check"></i> Mengikuti
+                                </button>
+                            <?php endif; ?>
+                        </form>
                     </div>
                     <hr class="mt-2">
                     <div class="flex justify-between">
