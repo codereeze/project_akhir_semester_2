@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full rounded-xl border p-4 mb-5">
+                <!-- <div class="w-full rounded-xl border p-4 mb-5">
                     <h2 class="text-xl font-bold mb-1"><i class="fas fa-tags text-red-primary"></i> Voucher diskon
                     </h2>
                     <p class="mb-2 text-sm font-semibold text-red-primary">Gunakan voucher diskon untuk menghemat
@@ -81,7 +81,7 @@
                             <button class="bg-red-primary text-white p-1 rounded-md text-xs font-semibold block">Gunakan</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="w-full rounded-xl border p-4 mb-5">
                     <h2 class="text-xl font-bold mb-1">Cek pembayaran</h2>
                     <hr class="mb-4">

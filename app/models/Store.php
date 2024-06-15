@@ -9,5 +9,6 @@ class Store extends Model
     public function __construct()
     {
         $this->table_name = 'stores';
+        return $this->table_name;
     }
 }

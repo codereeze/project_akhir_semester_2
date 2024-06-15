@@ -24,83 +24,19 @@
         <div class="px-8">
             <h1 class="text-2xl mb-4 font-bold">Rekomendasi untuk mu</h1>
             <div class="flex gap-3">
-                <div class="w-40">
-                    <a href="/produk">
-                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
-                        <p class="text-sm font-semibold">Baju Sweeter Wanita Lengan Panjang</p>
-                        <p class="text-lg font-bold text-red-primary">Rp.30.000</p>
-                        <p class="text-xs font-medium">Kategori: Dewasa
-                        </p>
-                        <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
-                        </p>
-                    </a>
-                </div>
-                <div class="w-40">
-                    <a href="/produk">
-                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
-                        <p class="text-sm font-semibold">Baju Sweeter Wanita Lengan Panjang</p>
-                        <p class="text-lg font-bold text-red-primary">Rp.30.000</p>
-                        <p class="text-xs font-medium">Kategori: Dewasa
-                        </p>
-                        <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
-                        </p>
-                    </a>
-                </div>
-                <div class="w-40">
-                    <a href="/produk">
-                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
-                        <p class="text-sm font-semibold">Baju Sweeter Wanita Lengan Panjang</p>
-                        <p class="text-lg font-bold text-red-primary">Rp.30.000</p>
-                        <p class="text-xs font-medium">Kategori: Dewasa
-                        </p>
-                        <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
-                        </p>
-                    </a>
-                </div>
-                <div class="w-40">
-                    <a href="/produk">
-                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
-                        <p class="text-sm font-semibold">Baju Sweeter Wanita Lengan Panjang</p>
-                        <p class="text-lg font-bold text-red-primary">Rp.30.000</p>
-                        <p class="text-xs font-medium">Kategori: Dewasa
-                        </p>
-                        <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
-                        </p>
-                    </a>
-                </div>
-                <div class="w-40">
-                    <a href="/produk">
-                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
-                        <p class="text-sm font-semibold">Baju Sweeter Wanita Lengan Panjang</p>
-                        <p class="text-lg font-bold text-red-primary">Rp.30.000</p>
-                        <p class="text-xs font-medium">Kategori: Dewasa
-                        </p>
-                        <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
-                        </p>
-                    </a>
-                </div>
-                <div class="w-40">
-                    <a href="/produk">
-                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
-                        <p class="text-sm font-semibold">Baju Sweeter Wanita Lengan Panjang</p>
-                        <p class="text-lg font-bold text-red-primary">Rp.30.000</p>
-                        <p class="text-xs font-medium">Kategori: Dewasa
-                        </p>
-                        <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
-                        </p>
-                    </a>
-                </div>
-                <div class="w-40">
-                    <a href="/produk">
-                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
-                        <p class="text-sm font-semibold">Baju Sweeter Wanita Lengan Panjang</p>
-                        <p class="text-lg font-bold text-red-primary">Rp.30.000</p>
-                        <p class="text-xs font-medium">Kategori: Dewasa
-                        </p>
-                        <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
-                        </p>
-                    </a>
-                </div>
+                <?php foreach ($params['recomended_products'] as $item) : ?>
+                    <div class="w-40">
+                        <a href="/produk/<?= $item['id'] ?>">
+                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
+                            <p class="text-sm font-semibold"><?= $item['nama_produk'] ?></p>
+                            <p class="text-lg font-bold text-red-primary">Rp.<?= $item['harga'] ?></p>
+                            <p class="text-xs font-medium">Kategori: Dewasa
+                            </p>
+                            <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
+                            </p>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

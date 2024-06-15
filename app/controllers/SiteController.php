@@ -2,14 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\Product;
 use Libraries\Controller;
 
 class SiteController extends Controller
 {
     public function home()
     {
+        $products = new Product();
         return $this->render('home', [
-            'title' => 'Beranda'
+            'title' => 'Beranda',
+            'recomended_products' => $products->selectAll(),
         ]);
     }
 

@@ -90,7 +90,7 @@ abstract class Model
             $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name . " WHERE $column = :id");
             $stmt->bindValue(':id', (int)$id, \PDO::PARAM_INT);
             $stmt->execute();
-            
+
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $result;
         } catch (\Exception $e) {
@@ -105,7 +105,7 @@ abstract class Model
             $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name . " WHERE $column = :id");
             $stmt->bindValue(':id', (int)$id, \PDO::PARAM_INT);
             $stmt->execute();
-            
+
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             return $result;
         } catch (\Exception $e) {
@@ -119,7 +119,7 @@ abstract class Model
             $this->initialize();
             $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name);
             $stmt->execute();
-            
+
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $result;
         } catch (\Exception $e) {
@@ -140,6 +140,58 @@ abstract class Model
             } else {
                 echo "No user found with the provided ID.";
             }
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
+    public function join($foreign_table, string $primary_key, string $foreign_key)
+    {
+        try {
+            $this->initialize();
+
+            $query = "
+            SELECT * 
+            FROM `{$this->table_name}` 
+            LEFT JOIN `{$foreign_table}` 
+            ON `{$this->table_name}`.`{$primary_key}` = `{$foreign_table}`.`{$foreign_key}`
+        ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
+
+    public function joinWhere($destination_table, string $primary_key, string $foreign_key, string $column, $condition)
+    {
+        try {
+            $this->initialize();
+
+            $query = "
+            SELECT * 
+            FROM {$this->table_name} 
+            LEFT JOIN {$destination_table} 
+            ON {$destination_table}.{$primary_key} = {$this->table_name}.{$foreign_key} 
+            WHERE {$this->table_name}.{$column} = :condition
+        ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':condition', $condition);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            
+            if (count($result) === 1) {
+                return $result[0];
+            }
+
+            return $result;
         } catch (\Exception $e) {
             echo "Maaf error: " . $e->getMessage();
         }

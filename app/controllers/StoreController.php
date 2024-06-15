@@ -44,6 +44,7 @@ class StoreController extends Controller
         return $this->render('store/management_product', [
             'title' => 'Manajemen Produk',
             'products' => $product->findAllById('toko_id', $store['id']),
+            'store' => $store,
             'footer' => 'disable'
         ]);
     }
