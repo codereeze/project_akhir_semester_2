@@ -13,9 +13,15 @@ class Product extends Model
         return $this->table_name;
     }
 
-    public function store($column, $id)
+    public function productImage($column, $id)
     {
-        $store = new Store();
-        return $this->joinWhere($store->table_name, 'id', 'toko_id', $column, $id);
+        $productImage = new ProductImage();
+        return $this->joinWhere($productImage->table_name, 'id', 'produk_id', $column, $id);
+    }
+
+    public function comment($column, $id)
+    {
+        $comment = new Comment();
+        return $this->joinWhere($comment->table_name, 'id', 'produk_id', $column, $id);
     }
 }

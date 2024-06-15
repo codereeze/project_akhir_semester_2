@@ -175,10 +175,10 @@ abstract class Model
 
             $query = "
             SELECT * 
-            FROM {$this->table_name} 
-            LEFT JOIN {$destination_table} 
-            ON {$destination_table}.{$primary_key} = {$this->table_name}.{$foreign_key} 
-            WHERE {$this->table_name}.{$column} = :condition
+            FROM {$destination_table} 
+            LEFT JOIN {$this->table_name} 
+            ON {$this->table_name}.{$primary_key} = {$destination_table}.{$foreign_key} 
+            WHERE {$destination_table}.{$column} = :condition
         ";
 
             $stmt = $this->db->prepare($query);

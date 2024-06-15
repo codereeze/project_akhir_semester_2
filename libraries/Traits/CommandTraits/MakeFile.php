@@ -66,6 +66,8 @@ trait MakeFile
                 public function __construct()
                 {
                     \$this->table_name = '';
+                    return \$this->table_name;
+
                 }
             }
             CLASS;

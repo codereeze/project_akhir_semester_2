@@ -112,14 +112,10 @@
         <h1 class="font-extrabold text-3xl mb-3">Deskripsi produk</h1>
         <div class="font-medium">
             <ul>
-                <li>- Kategori: Baju anak-anak</li>
-                <li class="mb-3">- Merk/brand: Acumalaka</li>
+                <li>- Kategori: <?= $params['category']['nama_kategori'] ?></li>
+                <li class="mb-3">- Merk/brand: <?= $params['product']['merk'] ?></li>
                 <li class="font-bold text-lg">Deskripsi: </li>
-                <li class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis
-                    sit laborum tempora voluptas ducimus veniam impedit nemo, laudantium placeat dicta autem
-                    expedita accusantium pariatur corrupti suscipit maiores tempore delectus architecto dolor
-                    quaerat dolore. Similique nam vitae rerum cupiditate, placeat, voluptatum quo temporibus,
-                    enim velit animi officiis in dicta. Eligendi, aperiam.</li>
+                <li class="text-justify"><?= $params['product']['deskripsi'] ?></li>
             </ul>
         </div>
     </div>
@@ -130,64 +126,46 @@
             pembeli.</p>
         <div class="flex gap-7">
             <div class="w-full self-start">
-                <div class="border border-gray-400 rounded-xl p-5 shadow-sm mb-5">
-                    <div class="flex items-center gap-3 mb-2">
-                        <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full" width="40" alt="" srcset="">
-                        <div>
-                            <p class="font-bold text-sm">Codereeze25</p>
-                            <div class="flex items-center">
-                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
+                <?php if ($params['comments']) : ?>
+                    <?php foreach ($params['comments'] as $item) : ?>
+                        <div class="border border-gray-400 rounded-xl p-5 shadow-sm mb-5">
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full" width="40" alt="" srcset="">
+                                <div>
+                                    <p class="font-bold text-sm">Codereeze25</p>
+                                    <div class="flex items-center">
+                                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="font-medium flex items-start gap-5 mt-4">
+                                <?php if ($item['gambar']) : ?>
+                                    <img src="https://www.static-src.com/product-review/full/2024/03/1711422775086-190887636.jpeg" width="50" alt="" srcset="">
+                                <?php endif; ?>
+                                <p><?= $item['komentar'] ?></p>
                             </div>
                         </div>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <div class="flex justify-center">
+                        <img src="https://img.freepik.com/free-vector/hidden-person-concept-illustration_114360-8814.jpg?t=st=1718434515~exp=1718438115~hmac=62a428c6b62ee81638d60bff20d55f64fb9d8f27f0691d84cc1310b25fbbbd68&w=826" alt="" srcset="" width="300">
                     </div>
-                    <div class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-                        impedit fugit animi inventore iure! Fuga asperiores doloremque voluptatibus at
-                        cupiditate!</div>
-                </div>
-                <div class="border border-gray-400 rounded-xl p-5 shadow-sm mb-5">
-                    <div class="flex items-center gap-3 mb-2">
-                        <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full" width="40" alt="" srcset="">
-                        <div>
-                            <p class="font-bold text-sm">Codereeze25</p>
-                            <div class="flex items-center">
-                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="font-medium flex items-start gap-5 mt-4">
-                        <img src="https://www.static-src.com/product-review/full/2024/03/1711422775086-190887636.jpeg" width="50" alt="" srcset="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur impedit fugit animi
-                            inventore iure! Fuga asperiores doloremque voluptatibus at cupiditate!</p>
-                    </div>
-                </div>
+                    <h1 class="text-black text-center text-lg font-semibold">Belum ada komentar terkait produk ini</h1>
+                <?php endif; ?>
             </div>
             <div class="max-w-md w-full self-start">
                 <div class="border border-gray-400 rounded-xl p-3">

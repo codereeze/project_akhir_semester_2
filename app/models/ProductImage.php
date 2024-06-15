@@ -8,6 +8,6 @@ class ProductImage extends Model
 {
     public function __construct()
     {
-        $this->table_name = 'productimages';
+        $this->table_name = 'product_images';
     }
 }
