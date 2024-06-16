@@ -10,4 +10,9 @@ class Cart extends Model
     {
         $this->table_name = 'carts';
     }
+
+    public function cart($column, $id)
+    {
+        return $this->joinForCart($column, $id);
+    }
 }

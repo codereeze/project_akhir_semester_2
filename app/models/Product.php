@@ -22,4 +22,10 @@ class Product extends Model
         $product = new Comment();
         return $this->joinWhere($product->table_name, 'id', 'produk_id', $column, $id);
     }
+
+    public function cart($column, $id)
+    {
+        $product = new Product();
+        return $this->joinWhere($product->table_name, 'id', 'produk_id', $column, $id);
+    }
 }

@@ -14,6 +14,8 @@ class CartsTable extends Migration
             $attribute->id();
             $attribute->integer('user_id');
             $attribute->integer('produk_id');
+            $attribute->char('size', 3, false);
+            $attribute->char('qty', 2, false);
 
             // foreign key
             $attribute->foreign('user_id', 'users', 'id');

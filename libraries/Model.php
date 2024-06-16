@@ -188,11 +188,54 @@ abstract class Model
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             if (empty($result)) {
-                return null; 
+                return null;
             }
 
             if (count($result) === 0) {
-                return $result[0]; 
+                return $result[0];
+            }
+
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
+    public function joinForCart($column, $condition)
+    {
+        try {
+            $this->initialize();
+
+            $query = "
+            SELECT 
+                carts.*, 
+                products.*, 
+                users.*, 
+                stores.*
+            FROM 
+                carts
+            LEFT JOIN 
+                products ON carts.produk_id = products.id
+            LEFT JOIN 
+                users ON carts.user_id = users.id
+            LEFT JOIN 
+                stores ON products.toko_id = stores.id
+            WHERE 
+                users.{$column} = :condition
+            ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':condition', $condition);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            if (empty($result)) {
+                return null;
+            }
+
+            if (count($result) === 0) {
+                return $result[0];
             }
 
             return $result;

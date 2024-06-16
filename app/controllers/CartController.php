@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Middleware\Authorization;
 use App\Models\Cart;
+use App\Models\Product;
+use App\Models\Store;
 use Libraries\Controller;
 
 class CartController extends Controller
@@ -22,7 +24,7 @@ class CartController extends Controller
         $cart = new Cart();
         return $this->render('users/cart', [
             'title' => 'Keranjang Saya',
-            'carts' => $cart->findAllById('user_id', $_SESSION['user_id'])
+            'carts' => $cart->cart('id', $_SESSION['user_id'])
         ]);
     }
 }
