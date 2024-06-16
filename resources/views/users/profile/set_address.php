@@ -103,3 +103,5 @@
         </div>
     </div>
 </section>
+
+<script src="/js/atur_alamat.js"></script>

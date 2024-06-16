@@ -16,7 +16,10 @@
                     <button class="p-2 mr-2 rounded-md bg-red-primary hover:bg-red-500 text-white font-bold text-base text-end self-center">
                         Checkout
                     </button>
-                    <button class="p-2 rounded-md border text-red-primary border-red-primary duration-300 hover:bg-red-primary hover:text-white font-bold text-base"><i class="fas fa-trash"></i> Hapus</button>
+                    <form action="" method="post">
+                        <input type="hidden" name="id_keranjang" value="<?= $item['cart_id'] ?>">
+                        <button class="p-2 rounded-md border text-red-primary border-red-primary duration-300 hover:bg-red-primary hover:text-white font-bold text-base"><i class="fas fa-trash"></i> Hapus</button>
+                    </form>
                 </div>
             <?php endforeach; ?>
         <?php else : ?>

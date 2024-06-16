@@ -208,6 +208,7 @@ abstract class Model
 
             $query = "
             SELECT 
+                carts.id AS cart_id, 
                 carts.*, 
                 products.*, 
                 users.*, 

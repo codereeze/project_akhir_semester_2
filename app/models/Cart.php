@@ -15,4 +15,11 @@ class Cart extends Model
     {
         return $this->joinForCart($column, $id);
     }
+
+    public function cart_id($column, $id)
+    {
+        $cart = new Cart();
+        return $this->joinWhere($cart->table_name, 'id', 'user_id', $column, $id);
+    }
+
 }

@@ -130,3 +130,5 @@
         </div>
     </div>
 </section>
+
+<script src="/js/pendaftaran_seller.js"></script>
