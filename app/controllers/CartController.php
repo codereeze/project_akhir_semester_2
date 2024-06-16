@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\Store;
 use App\Models\User;
 use Libraries\Controller;
+use Libraries\Request;
+use Libraries\Response;
 
 class CartController extends Controller
 {
@@ -34,5 +36,14 @@ class CartController extends Controller
             'title' => 'Keranjang Saya',
             'carts' => $carts,
         ]);
+    }
+
+    public function deleteHandler(Request $request)
+    {
+        $request = $request->getFormData();
+        $cart = new Cart();
+        $cart->delete((int)$request['id_keranjang']);
+
+        Response::redirect('/keranjang');
     }
 }
