@@ -2,7 +2,7 @@
     <div class="pt-28 text-black">
         <div class="py-7 px-8">
             <div class="p-4 shadow-md flex gap-5">
-                <ol class="relative border-s border-gray-200 max-w-md w-full">
+                <ol class="relative border-s border-gray-200 max-w-md w-full self-start">
                     <li class="mb-8 ms-6">
                         <span class="absolute flex items-center justify-center w-6 h-6 bg-white text-red-primary rounded-full -start-3 ring-8 ring-white">
                             <i class="fas fa-user text-2xl"></i>
@@ -36,55 +36,93 @@
                         </div>
                     </li>
                 </ol>
-                <div class="w-full p-4 border rounded-lg">
+                <div class="w-full p-4 border rounded-lg self-start">
                     <form action="" method="post">
-                        <h1 class="text-2xl font-bold">Input Informasi Calon Seller</h1>
-                        <p class="mb-7 text-sm">Pastikan Anda memasukan informasi calon seller dengan benar</p>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <p class="font-semibold mb-1">Nama pemilik</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="nama_pemilik">
+                        <div class="block" id="information-seller">
+                            <h1 class="text-2xl font-bold">Input Informasi Calon Seller</h1>
+                            <p class="mb-7 text-sm">Pastikan Anda memasukan informasi calon seller dengan benar</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <p class="font-semibold mb-1">Nama pemilik</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="nama_pemilik" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">NIK</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="nik" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Email</p>
+                                    <input type="email" class="p-2 rounded-md border w-full font-medium" name="email" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Telepon</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="telepon" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Nama Jalan</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="nama_jalan" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Desa/kelurahan</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="kelurahan" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Kecamatan</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="kecamatan" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Kabupaten</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="kabupaten" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Provinsi</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="provinsi" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Kode Pos</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="kode_pos" required>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-semibold mb-1">NIK</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="nik">
+                        </div>
+                        <div class="hidden" id="information-store">
+                            <h1 class="text-2xl font-bold">Input Informasi Toko</h1>
+                            <p class="mb-7 text-sm">Pastikan Anda memasukan informasi toko dengan benar</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <p class="font-semibold mb-1">Nama toko</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="nama_toko" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">NIK</p>
+                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="nik" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Email</p>
+                                    <input type="email" class="p-2 rounded-md border w-full font-medium" name="email" required>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-semibold mb-1">Email</p>
-                                <input type="email" class="p-2 rounded-md border w-full font-medium" name="email">
-                            </div>
-                            <div>
-                                <p class="font-semibold mb-1">Telepon</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="telepon">
-                            </div>
-                            <div>
-                                <p class="font-semibold mb-1">Nama Jalan</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="nama_jalan">
-                            </div>
-                            <div>
-                                <p class="font-semibold mb-1">Desa/kelurahan</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="kelurahan">
-                            </div>
-                            <div>
-                                <p class="font-semibold mb-1">Kecamatan</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="kecamatan">
-                            </div>
-                            <div>
-                                <p class="font-semibold mb-1">Kabupaten</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="kabupaten">
-                            </div>
-                            <div>
-                                <p class="font-semibold mb-1">Provinsi</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="provinsi">
-                            </div>
-                            <div>
-                                <p class="font-semibold mb-1">Kode Pos</p>
-                                <input type="text" class="p-2 rounded-md border w-full font-medium" name="kode_pos">
+                        </div>
+                        <div class="hidden" id="upload-document">
+                            <h1 class="text-2xl font-bold">Upload Dokumen</h1>
+                            <p class="mb-7 text-sm">Pastikan Anda mengupload dokumen file yang benar</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <p class="font-semibold mb-1">Foto diri</p>
+                                    <input type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_diri" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Foto KTP</p>
+                                    <input type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_ktp" required>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">Foto toko atau produk</p>
+                                    <input type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_toko_produk" required>
+                                </div>
                             </div>
                         </div>
                         <div class="flex gap-3 justify-end">
-                            <button class="border-2 border-red-primary py-2.5 px-5 rounded-full mt-5 text-sm text-red-primary font-semibold hover:text-white hover:bg-red-primary duration-300"><i class="fas fa-chevron-left"></i> Sebelumnya</button>
-                            <button class="bg-red-primary py-2.5 px-5 rounded-full mt-5 text-sm text-white font-semibold hover:bg-red-500 duration-300">Selanjutnya <i class="fas fa-chevron-right"></i></button>
+                            <button type="button" class="border-2 border-red-primary py-2.5 px-5 rounded-full mt-5 text-sm text-red-primary font-semibold hover:text-white hover:bg-red-primary duration-300 hidden" id="previous-button"><i class="fas fa-chevron-left"></i> Sebelumnya</button>
+                            <button type="button" class="bg-red-primary py-2.5 px-5 rounded-full mt-5 text-sm text-white font-semibold hover:bg-red-500 duration-300" id="next-button">Selanjutnya <i class="fas fa-chevron-right"></i></button>
                         </div>
                     </form>
                 </div>

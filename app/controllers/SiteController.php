@@ -2,11 +2,19 @@
 
 namespace App\Controllers;
 
+use App\Middleware\Authorization;
 use App\Models\Product;
 use Libraries\Controller;
 
 class SiteController extends Controller
 {
+    private Authorization $author;
+
+    public function __construct()
+    {
+        $this->author = new Authorization();
+    }
+
     public function home()
     {
         $products = new Product();
@@ -25,6 +33,8 @@ class SiteController extends Controller
 
     public function register_seller()
     {
+        $this->author->onlyUser();
+
         return $this->render('register_seller', [
             'title' => 'Daftar Menjadi Seller'
         ]);
