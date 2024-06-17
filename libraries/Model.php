@@ -244,4 +244,50 @@ abstract class Model
             echo "Maaf error: " . $e->getMessage();
         }
     }
+
+    public function joinForTransaction($column, $column2, $condition, $status)
+    {
+        try {
+            $this->initialize();
+
+            $query = "
+            SELECT 
+                transactions.id AS trans_id, 
+                transactions.*, 
+                products.*, 
+                users.*, 
+                stores.*
+            FROM 
+                transactions
+            LEFT JOIN 
+                products ON transactions.produk_id = products.id
+            LEFT JOIN 
+                users ON transactions.user_id = users.id
+            LEFT JOIN 
+                stores ON products.toko_id = stores.id
+            WHERE 
+                users.{$column} = :condition AND
+                transactions.{$column2} = :status
+            ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':condition', $condition);
+            $stmt->bindParam(':status', $status);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            if (empty($result)) {
+                return null;
+            }
+
+            if (count($result) === 0) {
+                return $result[0];
+            }
+
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
 }

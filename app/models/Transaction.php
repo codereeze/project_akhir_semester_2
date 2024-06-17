@@ -10,4 +10,9 @@ class Transaction extends Model
     {
         $this->table_name = 'transactions';
     }
+
+    public function transaction($id, $status)
+    {
+        return $this->joinForTransaction('id', 'status', $id, $status);
+    }
 }

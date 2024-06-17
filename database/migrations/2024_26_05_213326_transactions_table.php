@@ -14,6 +14,10 @@ class TransactionsTable extends Migration
             $attribute->id();
             $attribute->integer('user_id');
             $attribute->integer('produk_id');
+            $attribute->char('size', 3, false);
+            $attribute->char('qty', 2, false);
+            $attribute->varchar('estimasi', 30, false);
+            $attribute->varchar('pengiriman', 30, false);
             $attribute->enum('status', ['Dalam antrian', 'Dikirim', 'Ulasan', 'Selesai'], 'Dalam antrian');
 
             // foreign key

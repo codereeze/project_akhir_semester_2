@@ -8,8 +8,8 @@
                 <div class="mb-5">
                     <?php if(count($params['addresses']) > 0): ?>
                     <div class="flex gap-5 font-bold">
-                        <p id="slide1" class="cursor-pointer text-red-primary border-b-2 border-red-primary pb-1">Alamat saya</p>
-                        <p id="slide2" class="cursor-pointer">Tambah alamat</p>
+                        <p id="slide1" class="cursor-pointer text-red-primary border-b-2 border-red-primary pb-1 hover:text-red-primary">Alamat saya</p>
+                        <p id="slide2" class="cursor-pointer hover:text-red-primary">Tambah alamat</p>
                     </div>
                     <?php endif; ?>
                 </div>

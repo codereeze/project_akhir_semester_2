@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Middleware\Authorization;
+use App\Models\Transaction;
+use App\Models\User;
 use Libraries\Controller;
 
 class TransactionController extends Controller
@@ -18,8 +20,13 @@ class TransactionController extends Controller
     {
         $this->author->userAndSeller();
         
+        $transaction = new Transaction();
         return $this->render('users/transaction', [
-            'title' => 'Transaksi Saya'
+            'title' => 'Transaksi Saya',
+            'antrian' => $transaction->transaction($_SESSION['user_id'], 'Dalam antrian'),
+            'dikirim' => $transaction->transaction($_SESSION['user_id'], 'Dikirim'),
+            'selesai' => $transaction->transaction($_SESSION['user_id'], 'Selesai'),
+            'diulas' => $transaction->transaction($_SESSION['user_id'], 'Ulasan'),
         ]);
     }
 }
