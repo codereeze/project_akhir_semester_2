@@ -1240,18 +1240,6 @@ video {
   --tw-bg-opacity: 0.2;
 }
 
-.bg-\[url\(\'\.\.\/img\/discount\.jpg\'\)\] {
-  background-image: url('../img/discount.jpg');
-}
-
-.bg-cover {
-  background-size: cover;
-}
-
-.bg-right {
-  background-position: right;
-}
-
 .p-0 {
   padding: 0px;
 }
@@ -1591,11 +1579,6 @@ video {
 .ring-white {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity));
-}
-
-.contrast-100 {
-  --tw-contrast: contrast(1);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-transform {
