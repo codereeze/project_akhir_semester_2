@@ -4,9 +4,9 @@
         <hr class="mb-3">
         <div class="flex gap-6 mb-5">
             <p id="queue" class="text-red-primary hover:text-red-primary font-bold p-1 border-b-2 border-red-primary cursor-pointer">Dalam antrian</p>
-            <p id="send" class="font-semibold p-1 hover:text-red-primary cursor-pointer">Dikirim</p>
-            <p id="finish" class="font-semibold p-1 hover:text-red-primary cursor-pointer">Selesai</p>
-            <p id="comment" class="font-semibold p-1 hover:text-red-primary cursor-pointer">Sudah diulas</p>
+            <p id="send" class="font-bold p-1 hover:text-red-primary cursor-pointer">Dikirim</p>
+            <p id="finish" class="font-bold p-1 hover:text-red-primary cursor-pointer">Selesai</p>
+            <p id="comment" class="font-bold p-1 hover:text-red-primary cursor-pointer">Sudah diulas</p>
         </div>
         <div id="slide-display1" class="block">
             <?php if ($params['antrian']) : ?>

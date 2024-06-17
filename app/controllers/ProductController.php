@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Middleware\Authorization;
+use App\Models\Address;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Follower;
@@ -39,19 +40,6 @@ class ProductController extends Controller
             'productImages' => $product->productImage('id', $id),
             'comments' => $product->comment('produk_id', $id),
             'isFollow' => $follower->find('user_id', $_SESSION['user_id'])
-        ]);
-    }
-
-    public function checkout(Request $request)
-    {
-        $this->author->userAndSeller();
-
-        $product = new Product();
-        $request = $request->getRouteParams();
-
-        return $this->render('checkout', [
-            'title' => 'Checkout',
-            'product' => $product->find('id', $request['id'])
         ]);
     }
 

@@ -98,12 +98,20 @@ abstract class Model
         }
     }
 
-    public function find($column, $id)
+    public function find($column, $id, $column2 = '', $condition = '')
     {
+        $sql = '';
+        if($column2 && $condition){
+            $sql = "AND $column2 = :condition";
+        }
+
         try {
             $this->initialize();
-            $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name . " WHERE $column = :id");
+            $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name . " WHERE $column = :id $sql");
             $stmt->bindValue(':id', (int)$id, \PDO::PARAM_INT);
+            if($column2 && $condition){
+                $stmt->bindValue(':condition', $condition, \PDO::PARAM_STR);
+            }
             $stmt->execute();
 
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);

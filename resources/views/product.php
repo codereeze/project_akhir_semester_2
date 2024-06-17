@@ -58,8 +58,7 @@
                         <?php endif; ?>
                     </div>
                     <p class="text-sm font-semibold mb-2">Tersedia <?= $params['product']['stock'] ?></p>
-                    <form class="max-w-xs" method="post">
-                        <input type="hidden" name="form" id="" value="checkout">
+                    <form class="max-w-xs">
                         <div class="relative flex items-center max-w-[11rem]">
                             <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-red-primary hover:bg-red-500 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                                 <svg class="w-3 h-3 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
@@ -72,7 +71,9 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                                 </svg>
                             </button>
-                            <button type="submit" class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
+                            <a href="/checkout/<?= $params['product']['id'] ?>">
+                                <button type="button" class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
+                            </a>
                     </form>
                     <form action="" method="post">
                         <input type="hidden" name="form" id="" value="keranjang">
