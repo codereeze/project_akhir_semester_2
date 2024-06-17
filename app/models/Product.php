@@ -20,7 +20,7 @@ class Product extends Model
     public function comment($column, $id)
     {
         $product = new Comment();
-        return $this->joinWhere($product->table_name, 'id', 'produk_id', $column, $id);
+        return $this->joinForComment($column, $id);
     }
 
     public function cart($column, $id)

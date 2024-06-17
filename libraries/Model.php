@@ -153,29 +153,6 @@ abstract class Model
         }
     }
 
-    public function join($foreign_table, string $primary_key, string $foreign_key)
-    {
-        try {
-            $this->initialize();
-
-            $query = "
-            SELECT * 
-            FROM `{$this->table_name}` 
-            LEFT JOIN `{$foreign_table}` 
-            ON `{$this->table_name}`.`{$primary_key}` = `{$foreign_table}`.`{$foreign_key}`
-        ";
-
-            $stmt = $this->db->prepare($query);
-            $stmt->execute();
-
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            return $result;
-        } catch (\Exception $e) {
-            echo "Maaf error: " . $e->getMessage();
-        }
-    }
-
-
     public function joinWhere($destination_table, string $primary_key, string $foreign_key, string $column, $condition)
     {
         try {
@@ -281,6 +258,46 @@ abstract class Model
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':condition', $condition);
             $stmt->bindParam(':status', $status);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            if (empty($result)) {
+                return null;
+            }
+
+            if (count($result) === 0) {
+                return $result[0];
+            }
+
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
+    public function joinForComment($column, $condition)
+    {
+        try {
+            $this->initialize();
+
+            $query = "
+                SELECT 
+                    comments.*, 
+                    products.*, 
+                    users.*
+                FROM 
+                    comments
+                LEFT JOIN 
+                    products ON comments.produk_id = products.id
+                LEFT JOIN 
+                    users ON comments.user_id = users.id
+                WHERE 
+                    comments.{$column} = :condition
+            ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':condition', $condition);
             $stmt->execute();
 
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);

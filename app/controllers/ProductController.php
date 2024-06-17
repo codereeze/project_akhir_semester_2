@@ -29,8 +29,10 @@ class ProductController extends Controller
         $category = new Category();
         $store = new Store();
         $follower = new Follower();
+        $comment = new Comment();
 
         $id = (int)$request->getRouteParams()['id'];
+        $store_id = $product->find('id', $id)['toko_id'];
 
         return $this->render('product', [
             'title' => 'Produk Toko',
@@ -39,7 +41,10 @@ class ProductController extends Controller
             'store' => $store->store('id', $id)[0],
             'productImages' => $product->productImage('id', $id),
             'comments' => $product->comment('produk_id', $id),
-            'isFollow' => $follower->find('user_id', $_SESSION['user_id'])
+            'isFollow' => $follower->find('user_id', $_SESSION['user_id']),
+            'productTransaction' => count($product->findAllById('id', $id)),
+            'productComment' => count($comment->findAllById('produk_id', $id)),
+            'followers' => count($follower->findAllById('toko_id', $store_id))
         ]);
     }
 

@@ -7,7 +7,7 @@
             <div class="self-start max-w-2xl w-full">
                 <div class="w-full self-start">
                     <h1 class="text-xl font-bold mb-1"><?= $params['product']['nama_produk'] ?></h1>
-                    <p class="text-sm font-semibold"><i class="fas fa-star text-yellow-300"></i> 5.0 Rating | Terjual 300 | 200 Ulasan</p>
+                    <p class="text-sm font-semibold"><i class="fas fa-star text-yellow-300"></i> 5.0 Rating | Terjual <?= $params['productTransaction'] ?> | <?= $params['productComment'] ?> Ulasan</p>
                     <p class="text-2xl font-bold text-red-primary mb-3">Rp.<?= $params['product']['harga'] ?></p>
                     <p class="text-sm font-semibold mb-2">Ukuran tersedia</p>
                     <div class="text-sm font-semibold flex flex-wrap gap-3 mb-3">
@@ -89,7 +89,7 @@
                         <img src="https://avatars.githubusercontent.com/u/159593076?v=4" width="40" alt="" srcset="" class="rounded-full">
                         <div>
                             <p class="font-bold leading-5"><?= $params['store']['nama_toko'] ?></p>
-                            <p class="text-xs font-medium">2000 Followers</p>
+                            <p class="text-xs font-medium"><?= $params['followers'] ?> Followers</p>
                         </div>
                         <a href="/toko/<?= $params['store']['id'] ?>">
                             <button class="border border-red-primary hover:bg-red-500 text-sm font-semibold p-2 text-red-primary duration-300 hover:text-white"><i class="fas fa-store"></i> Kunjungi toko</button>
@@ -110,9 +110,7 @@
                     </div>
                     <hr class="mt-2">
                     <div class="flex justify-between">
-                        <p class="text-sm mt-3 font-semibold">Produk: 10</p>
                         <p class="text-sm mt-3 font-semibold">Tahun bergabung: <?= $params['store']['tahun_bergabung'] ?></p>
-                        <p class="text-sm mt-3 font-semibold">Ulasan toko: 10</p>
                     </div>
                 </div>
             </div>
@@ -143,7 +141,7 @@
                             <div class="flex items-center gap-3 mb-2">
                                 <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full" width="40" alt="" srcset="">
                                 <div>
-                                    <p class="font-bold text-sm">Codereeze25</p>
+                                    <p class="font-bold text-sm"><?= $item['username'] ?></p>
                                     <div class="flex items-center">
                                         <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                             <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
@@ -178,7 +176,7 @@
                     <h1 class="text-black text-center text-lg font-semibold">Belum ada komentar terkait produk ini</h1>
                 <?php endif; ?>
             </div>
-            <div class="max-w-md w-full self-start">
+            <!-- <div class="max-w-md w-full self-start">
                 <div class="border border-gray-400 rounded-xl p-3">
                     <h1 class="font-semibold text-lg mb-2">Upload gambar (opsional)</h1>
                     <div class="flex items-center justify-center w-full">
@@ -199,7 +197,7 @@
                     <button class="bg-red-primary p-2 rounded-md text-white font-semibold text-sm">Kirim
                         ulasan</button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     </div>
