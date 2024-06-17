@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="self-start max-w-md w-full">
-                    <!-- <div class="w-full rounded-xl border p-4 mb-5">
+                    <div class="w-full rounded-xl border p-4 mb-5">
                         <h2 class="text-xl font-bold mb-1"><i class="fas fa-wallet text-red-primary"></i> Metode
                             pembayaran</h2>
                         <p class="mb-2 text-sm font-semibold text-red-primary">Pilih metode pembayaran yang kamu sukai
@@ -55,7 +55,7 @@
                                 <span class="text-red-primary font-bold text-sm cursor-pointer">Ganti</span>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="w-full rounded-xl border p-4 mb-5">
                         <h2 class="text-xl font-bold mb-1"><i class="fas fa-truck text-red-primary"></i> Jasa Ekspedisi
                         </h2>

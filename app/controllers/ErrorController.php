@@ -13,8 +13,8 @@ class ErrorController extends Controller
 
     public function forbidden()
     {
-        return $this->render('error/303', [
-            'title' => 'Error 303: Forbidden Page'
+        return $this->render('error/403', [
+            'title' => 'Error 403: Forbidden Page'
         ]);
     }
 

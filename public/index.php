@@ -72,6 +72,7 @@ $app->route::get('/admin/buat_notifikasi', [AdminController::class, 'createNotif
 $app->route::get('/admin/kirim_email', [AdminController::class, 'sendEmail']);
 
 // Error route
-$app->route::get('/303', [ErrorController::class, 'forbidden']);
+$app->route::get('/403', [ErrorController::class, 'forbidden']);
+$app->route::get('/404', [ErrorController::class, 'not_found']);
 
 $app->run();
