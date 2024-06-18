@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $params['title']; ?></title>
     <link href="/css/main.css" rel="stylesheet" type="text/css">
+    <link href="/css/rating.css" rel="stylesheet" type="text/css">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

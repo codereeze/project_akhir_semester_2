@@ -16,6 +16,7 @@ class CommentsTable extends Migration
             $attribute->integer('produk_id');
             $attribute->text('gambar');
             $attribute->text('komentar', false);
+            $attribute->varchar('tanggal', 20, false);
 
             // foreign key
             $attribute->foreign('user_id', 'users', 'id');
