@@ -101,7 +101,7 @@ abstract class Model
     public function find($column, $id, $column2 = '', $condition = '')
     {
         $sql = '';
-        if($column2 && $condition){
+        if ($column2 && $condition) {
             $sql = "AND $column2 = :condition";
         }
 
@@ -109,7 +109,7 @@ abstract class Model
             $this->initialize();
             $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name . " WHERE $column = :id $sql");
             $stmt->bindValue(':id', (int)$id, \PDO::PARAM_INT);
-            if($column2 && $condition){
+            if ($column2 && $condition) {
                 $stmt->bindValue(':condition', $condition, \PDO::PARAM_STR);
             }
             $stmt->execute();
@@ -294,6 +294,48 @@ abstract class Model
                     users ON comments.user_id = users.id
                 WHERE 
                     comments.{$column} = :condition
+            ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':condition', $condition);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            if (empty($result)) {
+                return null;
+            }
+
+            if (count($result) === 0) {
+                return $result[0];
+            }
+
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
+    public function joinForNotification($column, $condition)
+    {
+        try {
+            $this->initialize();
+
+            $query = "
+                SELECT 
+                    s.id AS toko_id, 
+                    s.*, 
+                    n.id AS notif_id, 
+                    n.*, 
+                    u.*
+                FROM 
+                    notifications n
+                LEFT JOIN 
+                    stores s ON n.id_pengirim = s.id
+                LEFT JOIN 
+                    users u ON n.id_penerima = u.id
+                WHERE 
+                    n.{$column} = :condition;
             ";
 
             $stmt = $this->db->prepare($query);

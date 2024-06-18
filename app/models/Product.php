@@ -19,7 +19,6 @@ class Product extends Model
 
     public function comment($column, $id)
     {
-        $product = new Comment();
         return $this->joinForComment($column, $id);
     }
 

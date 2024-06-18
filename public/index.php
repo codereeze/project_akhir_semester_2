@@ -26,7 +26,7 @@ $app->route::get('/ganti_password', [ProfileController::class, 'change_password'
 $app->route::get('/keranjang', [CartController::class, 'cart']);
 $app->route::get('/transaksi', [TransactionController::class, 'transaction']);
 $app->route::get('/notifikasi', [NotificationController::class, 'notification']);
-$app->route::get('/baca_notifikasi', [NotificationController::class, 'read_notification']);
+$app->route::get('/baca_notifikasi/{notif_id}/{toko_id}', [NotificationController::class, 'read_notification']);
 $app->route::get('/produk/{id}', [ProductController::class, 'product']);
 $app->route::get('/checkout/{id}', [PaymentController::class, 'checkout']);
 $app->route::get('/toko_saya', [StoreController::class, 'my_store']);

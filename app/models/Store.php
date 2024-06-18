@@ -16,4 +16,9 @@ class Store extends Model
         $product = new Product();
         return $this->joinWhere($product->table_name, 'id', 'toko_id', $column, $id);
     }
+
+    public function transaction($id, $status)
+    {
+        return $this->joinForTransaction('id', 'status', $id, $status);
+    }
 }

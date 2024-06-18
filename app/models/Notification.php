@@ -10,4 +10,9 @@ class Notification extends Model
     {
         $this->table_name = 'notifications';
     }
+
+    public function notification($column, $id)
+    {
+        return $this->joinForNotification($column, $id);
+    }
 }
