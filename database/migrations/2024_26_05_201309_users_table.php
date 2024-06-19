@@ -16,8 +16,7 @@ class UsersTable extends Migration
             $attribute->varchar('nama', 255, false);
             $attribute->enum('jk', ['Laki-laki', 'Perempuan', 'Belum diatur'], 'Belum diatur');
             $attribute->varchar('email', 255, false, true);
-            $attribute->char('telepon', 15, true, true);
-            $attribute->text('password', false);
+            $attribute->text('password', true);
             $attribute->text('foto_profile', true);
             $attribute->enum('role', ['Admin', 'Seller', 'User'], 'User');
         });

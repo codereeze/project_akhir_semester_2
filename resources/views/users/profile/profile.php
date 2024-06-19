@@ -30,10 +30,6 @@
                             <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $dataUser['email'] ?>" name="email">
                         </div>
                         <div>
-                            <p class="font-semibold mb-1">No. Telepon</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $dataUser['telepon'] ?>" name="telepon">
-                        </div>
-                        <div>
                             <p class="font-semibold mb-1">Jenis kelamin</p>
                             <select class="p-2 rounded-md border w-full font-medium cursor-pointer" name="jk">
                                 <option value="<?= $dataUser['jk'] ?>" selected><?= $dataUser['jk'] ?></option>

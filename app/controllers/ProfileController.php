@@ -35,7 +35,6 @@ class ProfileController extends Controller
             'nama' => htmlspecialchars(trim($request['nama'])),
             'username' => htmlspecialchars(trim($request['username'])),
             'email' => htmlspecialchars(trim($request['email'])),
-            'telepon' => htmlspecialchars(trim($request['telepon'])),
             'jk' => htmlspecialchars(trim($request['jk'])),
         ];
 
