@@ -1,3 +1,6 @@
+<div class="self-center">
+    <img src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7865.jpg?t=st=1718806665~exp=1718810265~hmac=a410e5ce99500c1c4932549ef32f417864923d78a0df78292d5ee2542049e9db&w=740" width="400" alt="" srcset="">
+</div>
 <div class="self-center p-5 shadow-md max-w-md w-full">
     <div class="text-center mb-3">
         <h2 class="text-xl font-bold">Register your account</h2>
@@ -27,11 +30,13 @@
             </div>
         </button>
     </form>
-    <button class="border border-gray-400 rounded-sm hover:bg-red-50 w-full p-2 font-semibold mb-3">
-        <div class="flex items-center justify-center gap-2">
-            <img src="https://www.svgrepo.com/show/448224/facebook.svg" width="18" alt="" srcset="">
-            <span class="text-sm font-bold">Register with Facebook</span>
-        </div>
-    </button>
+    <form action="" method="post">
+        <button type="submit" name="facebook" value="facebook" class="border border-gray-400 rounded-sm hover:bg-red-50 w-full p-2 font-semibold mb-3">
+            <div class="flex items-center justify-center gap-2">
+                <img src="https://www.svgrepo.com/show/448224/facebook.svg" width="18" alt="" srcset="">
+                <span class="text-sm font-bold">Register with Facebook</span>
+            </div>
+        </button>
+    </form>
     <a href="/login" class="text-sm hover:text-red-primary hover:underline">Sudah punya akun? Login!</a>
 </div>

@@ -58,6 +58,7 @@ $app->route::get('/logout', [AuthController::class, 'logout']);
 $app->route::post('/login', [AuthController::class, 'loginHandler']);
 $app->route::post('/register', [AuthController::class, 'registerHandler']);
 $app->route::get('/google-callback', [AuthController::class, 'googleCallback']);
+$app->route::get('/facebook-callback', [AuthController::class, 'facebookCallback']);
 
 
 // Admin route

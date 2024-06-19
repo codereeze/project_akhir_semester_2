@@ -8,6 +8,7 @@ use Database\Database;
 use League\OAuth2\Client\Provider\Google;
 use Libraries\Auth;
 use Libraries\Controller;
+use Libraries\FacebookOAuthClient;
 use Libraries\GoogleOAuthClient;
 use Libraries\Request;
 use Libraries\Response;
@@ -15,14 +16,19 @@ use Libraries\Response;
 class AuthController extends Controller
 {
     private Authorization $author;
-    private $provider;
+    private $providerGoogle;
+    private $providerFacebook;
 
     public function __construct()
     {
         $this->layout = 'auth';
         $this->author = new Authorization();
+
         $googleOAuth = new GoogleOAuthClient();
-        $this->provider = $googleOAuth->provider;
+        $facebookOAuth = new FacebookOAuthClient();
+
+        $this->providerGoogle = $googleOAuth->provider;
+        $this->providerFacebook = $facebookOAuth->provider;
     }
 
     public function login()
@@ -49,6 +55,10 @@ class AuthController extends Controller
             $googleOAuth = new GoogleOAuthClient();
             $googleOAuth->getCode();
             exit();
+        } else if ($request->getFormData()['facebook']) {
+            $facebookOAuth = new FacebookOAuthClient();
+            $facebookOAuth->getCode();
+            exit();
         }
 
         Auth::initialize(new Database());
@@ -65,8 +75,12 @@ class AuthController extends Controller
             $googleOAuth = new GoogleOAuthClient();
             $googleOAuth->getCode();
             exit();
+        } else if ($request->getFormData()['facebook']) {
+            $facebookOAuth = new FacebookOAuthClient();
+            $facebookOAuth->getCode();
+            exit();
         }
-        
+
         $request = $request->getFormData();
         if ($request['password'] !== $request['confirm_password']) {
             return;
@@ -89,11 +103,11 @@ class AuthController extends Controller
     {
         if (isset($_GET['code'])) {
             try {
-                $accessToken = $this->provider->getAccessToken('authorization_code', [
+                $accessToken = $this->providerGoogle->getAccessToken('authorization_code', [
                     'code' => $_GET['code']
                 ]);
 
-                $resourceOwner = $this->provider->getResourceOwner($accessToken);
+                $resourceOwner = $this->providerGoogle->getResourceOwner($accessToken);
                 $user = $resourceOwner->toArray();
 
                 if (Auth::attemptOAuthGoogle($user)) {
@@ -119,6 +133,46 @@ class AuthController extends Controller
                 }
             } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
                 exit('Error during OAuth callback: ' . $e->getMessage());
+            }
+        } else {
+            exit('Authorization code not received');
+        }
+    }
+
+    public function facebookCallback()
+    {
+        if (isset($_GET['code'])) {
+            try {
+                $accessToken = $this->providerFacebook->getAccessToken('authorization_code', [
+                    'code' => $_GET['code']
+                ]);
+
+                $resourceOwner = $this->providerFacebook->getResourceOwner($accessToken);
+                $user = $resourceOwner->toArray();
+
+                if (Auth::attemptOAuthFacebook($user)) {
+                    Response::redirect('/');
+                } else {
+                    $userModel = new User();
+                    $username = explode(' ', $user['name']);
+
+                    $googleData = [
+                        'username' => strtolower(end($username)),
+                        'nama' => $user['name'],
+                        'email' => $user['email'],
+                        'foto_profile' => $user['picture'] ?? '',
+                    ];
+
+                    $userModel->insert($googleData);
+
+                    if (Auth::attemptOAuthFacebook($user)) {
+                        Response::redirect('/');
+                    } else {
+                        exit('Failed to authenticate new user');
+                    }
+                }
+            } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
+                exit($e->getMessage());
             }
         } else {
             exit('Authorization code not received');

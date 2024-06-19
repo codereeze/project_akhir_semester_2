@@ -2,9 +2,9 @@
 
 namespace Libraries;
 
-use League\OAuth2\Client\Provider\Google;
+use League\OAuth2\Client\Provider\Facebook;
 
-class GoogleOAuthClient
+class FacebookOAuthClient
 {
     public $provider;
 
@@ -13,10 +13,12 @@ class GoogleOAuthClient
         $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
         $dotenv->load();
 
-        $this->provider = new Google([
-            'clientId' => $_ENV['GOOGLE_CLIENT_ID'],
-            'clientSecret' => $_ENV['GOOGLE_CLIENT_SECRET'],
-            'redirectUri' => $_ENV['GOOGLE_REDIRECT_URI']
+        $this->provider = new Facebook([
+            'clientId' => $_ENV['FACEBOOK_APP_ID'],
+            'clientSecret' => $_ENV['FACEBOOK_APP_SECRET'],
+            'redirectUri' => $_ENV['FACEBOOK_REDIRECT_URI'],
+            'graphApiVersion' => $_ENV['GRAPH_API_VERSION'],
+            'scopes' => ['email', 'public_profile', 'user_phonenumbers']
         ]);
     }
 
@@ -25,6 +27,7 @@ class GoogleOAuthClient
         if (!isset($_GET['code'])) {
             $authorizationUrl = $this->provider->getAuthorizationUrl();
             $_SESSION['oauth2state'] = $this->provider->getState();
+
             Response::redirect($authorizationUrl);
         } elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
             unset($_SESSION['oauth2state']);

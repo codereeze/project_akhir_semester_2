@@ -18,9 +18,6 @@
     <section>
         <div class="container mx-auto">
             <div class="flex flex-wrap gap-24 justify-center items-center h-screen">
-                <div class="self-center">
-                    <img src="https://www.static-src.com/siva/asset/10_2023/loginregis_web_2x_2.png?w=687" width="400" alt="" srcset="">
-                </div>
                 {{ content }}
             </div>
         </div>

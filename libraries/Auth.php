@@ -50,6 +50,25 @@ class Auth
         return false;
     }
 
+    public static function attemptOAuthFacebook(array $data)
+    {
+        // belum jadi
+        self::initialize();
+        $stmt = self::$db->prepare("SELECT * FROM " . self::$tableName . " WHERE email = :email");
+        $stmt->bindValue(':email', $data['email']);
+        $stmt->execute();
+
+        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if ($user) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            return true;
+        }
+
+        return false;
+    }
+
     public static function user()
     {
         self::initialize();
