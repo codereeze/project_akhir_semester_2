@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+.store-bg {
+    background-image: url('https://img.freepik.com/free-vector/gradient-abstract-hexagon-shapes-background_23-2149120168.jpg?t=st=1718884828~exp=1718888428~hmac=d015153552d184fe6809ed37bb3db268157ec5742d789caf51fda7ae9d8a12a0&w=826');
+    background-size: cover;
+    position: bottom;
+}

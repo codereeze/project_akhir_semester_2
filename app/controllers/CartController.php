@@ -4,9 +4,6 @@ namespace App\Controllers;
 
 use App\Middleware\Authorization;
 use App\Models\Cart;
-use App\Models\Product;
-use App\Models\Store;
-use App\Models\User;
 use Libraries\Controller;
 use Libraries\Request;
 use Libraries\Response;

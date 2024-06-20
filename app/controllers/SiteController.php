@@ -24,6 +24,13 @@ class SiteController extends Controller
         ]);
     }
 
+    public function store()
+    {
+        return $this->render('store', [
+            'title' => 'Toko',
+        ]);
+    }
+
     public function search_result()
     {
         return $this->render('search_result', [

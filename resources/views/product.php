@@ -15,7 +15,7 @@
                             <label for="size_s">
                                 <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
                                     <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_s" value="S" required> S
+                                        <input type="radio" name="size" id="size_s" value="S" class="cursor-pointer" required> S
                                     </div>
                                 </div>
                             </label>
@@ -24,7 +24,7 @@
                             <label for="size_m">
                                 <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
                                     <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_m" value="M" required> M
+                                        <input type="radio" name="size" id="size_m" value="M" class="cursor-pointer" required> M
                                     </div>
                                 </div>
                             </label>
@@ -33,7 +33,7 @@
                             <label for="size_l">
                                 <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
                                     <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_l" value="L" required> L
+                                        <input type="radio" name="size" id="size_l" value="L" class="cursor-pointer" required> L
                                     </div>
                                 </div>
                             </label>
@@ -42,7 +42,7 @@
                             <label for="size_xl">
                                 <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
                                     <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_xl" value="XL" required> XL
+                                        <input type="radio" name="size" id="size_xl" value="XL" class="cursor-pointer" required> XL
                                     </div>
                                 </div>
                             </label>
@@ -51,7 +51,7 @@
                             <label for="size_xxl">
                                 <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
                                     <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_xxl" value="XXL" required> XXL
+                                        <input type="radio" name="size" id="size_xxl" value="XXL" class="cursor-pointer" required> XXL
                                     </div>
                                 </div>
                             </label>

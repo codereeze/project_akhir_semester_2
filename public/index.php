@@ -3,6 +3,7 @@
 use App\Controllers\AdminController;
 use App\Controllers\AuthController;
 use App\Controllers\CartController;
+use App\Controllers\ChatController;
 use App\Controllers\ErrorController;
 use App\Controllers\NotificationController;
 use App\Controllers\PaymentController;
@@ -36,6 +37,8 @@ $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 $app->route::get('/detail_produk', [StoreController::class, 'detail_product']);
 $app->route::get('/menjadi_seller', [SiteController::class, 'register_seller']);
+$app->route::get('/toko', [SiteController::class, 'store']);
+$app->route::get('/chat-penjual', [ChatController::class, 'chat_seller']);
 
 
 // User & Seller route (post)
