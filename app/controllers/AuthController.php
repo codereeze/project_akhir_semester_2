@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Middleware\Authorization;
 use App\Models\User;
 use Database\Database;
-use League\OAuth2\Client\Provider\Google;
 use Libraries\Auth;
 use Libraries\Controller;
 use Libraries\FacebookOAuthClient;
@@ -65,7 +64,7 @@ class AuthController extends Controller
         if (Auth::attempt($request->getFormData())) {
             Response::redirect('/');
         } else {
-            echo "NT Bang";
+            Response::redirect('/login')->withError('Email atau password yang Anda masukkan tidak valid');
         }
     }
 
@@ -96,7 +95,7 @@ class AuthController extends Controller
 
         $user = new User();
         $user->insert($sanitized);
-        Response::redirect('/login');
+        Response::redirect('/login')->withSuccess('Akun berhasil dibuat, silahkan login dengan akun yang dibuat');
     }
 
     public function googleCallback()

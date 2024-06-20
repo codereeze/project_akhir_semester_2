@@ -12,11 +12,12 @@ class View
         if (Application::$app->controller) {
             $layoutName = Application::$app->controller->layout;
         }
+        $session = new Response();
         if (!isset($_SESSION['user_id'])) {
-            $viewContent = $this->renderViewOnly($view, $params, []);
+            $viewContent = $this->renderViewOnly($view, $params, [], $session);
         } else {
             $dataUser = Auth::user();
-            $viewContent = $this->renderViewOnly($view, $params, $dataUser);
+            $viewContent = $this->renderViewOnly($view, $params, $dataUser, $session);
         }
         ob_start();
         include_once Application::$ROOT_DIR . "/resources/views/layouts/$layoutName.php";
@@ -24,7 +25,7 @@ class View
         return str_replace("{{ content }}", $viewContent, $layoutContent);
     }
 
-    public function renderViewOnly($view, array $params, array $dataUser)
+    public function renderViewOnly($view, array $params, array $dataUser, $session)
     {
         foreach ($params as $key => $value) {
             $$key = $value;
@@ -35,6 +36,8 @@ class View
                 $$user = $data;
             }
         }
+        
+        $session;
 
         ob_start();
         include_once Application::$ROOT_DIR . "/resources/views/$view.php";

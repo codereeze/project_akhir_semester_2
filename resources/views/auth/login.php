@@ -6,6 +6,19 @@
         <h2 class="text-xl font-bold">Login to Application</h2>
         <span class="font-medium mb-4 block">Masukkan data akun kamu untuk melanjutkan</span>
     </div>
+    <?php if ($session->indicatorMessage() == 'success') : ?>
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+            <div class="text-sm font-medium">
+                <?= $session->displaySuccessMessage(); ?>
+            </div>
+        </div>
+    <?php elseif ($session->indicatorMessage() == 'error') : ?>
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+            <div class="text-sm font-medium">
+                <?= $session->displayErrorMessage(); ?>
+            </div>
+        </div>
+    <?php endif; ?>
     <form action="" method="post">
         <label for="" class="font-semibold text-sm mb-1 block">Alamat Email</label>
         <input type="email" name="email" id="" class="border border-gray-400 rounded-sm w-full p-1.5 mb-3" required>
