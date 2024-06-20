@@ -39,7 +39,7 @@ class CartController extends Controller
     {
         $request = $request->getFormData();
         $cart = new Cart();
-        $cart->delete((int)$request['id_keranjang']);
+        $cart->delete('id', (int)$request['id_keranjang']);
 
         Response::redirect('/keranjang');
     }

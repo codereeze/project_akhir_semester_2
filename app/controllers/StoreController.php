@@ -129,7 +129,7 @@ class StoreController extends Controller
     {
         $request = $request->getFormData();
         $product = new Product();
-        $product->delete($request['product_id']);
+        $product->delete('id', $request['product_id']);
         Response::redirect('/manajemen_produk');
     }
 

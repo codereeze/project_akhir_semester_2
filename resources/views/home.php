@@ -23,7 +23,7 @@
         </div>
         <div class="px-8">
             <h1 class="text-2xl mb-4 font-bold">Rekomendasi untuk mu</h1>
-            <div class="flex gap-3">
+            <div class="grid grid-cols-7 gap-3">
                 <?php foreach ($params['recomended_products'] as $item) : ?>
                     <div class="w-40">
                         <a href="/produk/<?= $item['id'] ?>">

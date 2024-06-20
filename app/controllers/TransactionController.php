@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Middleware\Authorization;
 use App\Models\Transaction;
-use App\Models\User;
 use Libraries\Controller;
 
 class TransactionController extends Controller

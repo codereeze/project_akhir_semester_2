@@ -3,12 +3,10 @@
 namespace App\Controllers;
 
 use App\Middleware\Authorization;
-use App\Models\Address;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Follower;
 use App\Models\Product;
-use App\Models\ProductImage;
 use App\Models\Store;
 use Libraries\Controller;
 use Libraries\Request;
@@ -62,7 +60,7 @@ class ProductController extends Controller
             $follower->insert($sanitized);
             Response::redirect("/produk/{$request['produk_id']}");
         }else if($request['form'] === 'unfollow'){
-            $follower->delete($_SESSION['user_id']);
+            $follower->delete('user_id', $_SESSION['user_id']);
             Response::redirect("/produk/{$request['produk_id']}");
         }
     }

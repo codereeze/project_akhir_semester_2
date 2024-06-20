@@ -93,7 +93,7 @@ class ProfileController extends Controller
         }
 
         if ($request['delete_address_id']) {
-            $address->delete($request['delete_address_id']);
+            $address->delete('id', $request['delete_address_id']);
             Response::redirect('/atur_alamat');
             exit();
         }

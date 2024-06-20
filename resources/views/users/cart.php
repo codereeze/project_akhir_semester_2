@@ -13,9 +13,11 @@
                         <h1 class="text-lg font-bold text-red-primary">Rp.<?= $item['harga'] ?></h1>
                         <p class="font-bold">By <?= $item['nama_toko'] ?></p>
                     </div>
-                    <button class="p-2 mr-2 rounded-md bg-red-primary hover:bg-red-500 text-white font-bold text-base text-end self-center">
-                        Checkout
-                    </button>
+                    <a href="/produk/<?= $item['produk_id'] ?>">
+                        <button class="p-2 mr-2 rounded-md bg-red-primary hover:bg-red-500 text-white font-bold text-base text-end self-center">
+                            Checkout
+                        </button>
+                    </a>
                     <form action="" method="post">
                         <input type="hidden" name="id_keranjang" value="<?= $item['cart_id'] ?>">
                         <button type="submit" class="p-2 rounded-md border text-red-primary border-red-primary duration-300 hover:bg-red-primary hover:text-white font-bold text-base"><i class="fas fa-trash"></i> Hapus</button>

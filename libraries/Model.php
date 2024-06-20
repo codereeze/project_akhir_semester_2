@@ -135,11 +135,11 @@ abstract class Model
         }
     }
 
-    public function delete($id)
+    public function delete($column, $id)
     {
         try {
             $this->initialize();
-            $stmt = $this->db->prepare("DELETE FROM {$this->table_name} WHERE id = :id");
+            $stmt = $this->db->prepare("DELETE FROM {$this->table_name} WHERE $column = :id");
             $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -331,9 +331,9 @@ abstract class Model
                 FROM 
                     notifications n
                 LEFT JOIN 
-                    stores s ON n.id_pengirim = s.id
+                    stores s ON n.store_id = s.id
                 LEFT JOIN 
-                    users u ON n.id_penerima = u.id
+                    users u ON n.user_id = u.id
                 WHERE 
                     n.{$column} = :condition;
             ";

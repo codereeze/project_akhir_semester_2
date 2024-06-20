@@ -24,7 +24,7 @@ class NotificationController extends Controller
 
         return $this->render('users/notification', [
             'title' => 'Notifikasi Saya',
-            'notification' => $notification->notification('id_penerima', $_SESSION['user_id'])
+            'notification' => $notification->notification('user_id', $_SESSION['user_id'])
         ]);
     }
 
