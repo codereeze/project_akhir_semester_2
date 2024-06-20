@@ -6,13 +6,13 @@
         <h2 class="text-xl font-bold">Login to Application</h2>
         <span class="font-medium mb-4 block">Masukkan data akun kamu untuk melanjutkan</span>
     </div>
-    <?php if ($session->indicatorMessage() == 'success') : ?>
+    <?php if ($session->indicatorMessage('success')) : ?>
         <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
             <div class="text-sm font-medium">
                 <?= $session->displaySuccessMessage(); ?>
             </div>
         </div>
-    <?php elseif ($session->indicatorMessage() == 'error') : ?>
+    <?php elseif ($session->indicatorMessage('error')) : ?>
         <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
             <div class="text-sm font-medium">
                 <?= $session->displayErrorMessage(); ?>

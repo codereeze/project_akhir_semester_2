@@ -25,12 +25,20 @@ class Response
         $_SESSION['error'] = $message;
     }
 
-    public function indicatorMessage()
+    public function indicatorMessage($session)
     {
-        if (isset($_SESSION['success'])) {
-            return 'success';
-        } else if (isset($_SESSION['error'])) {
-            return 'error';
+        if ($session === 'success') {
+            if (isset($_SESSION['success'])) {
+                return true;
+            }
+
+            return false;
+        } else if ($session === 'error') {
+            if (isset($_SESSION['error'])) {
+                return true;
+            }
+            
+            return false;
         } else {
             return false;
         }
