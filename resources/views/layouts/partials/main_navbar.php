@@ -28,6 +28,11 @@
                         <i class="fas fa-bell text-white text-sm"></i>
                     </div>
                 </a>
+                <a href="/chat-penjual">
+                    <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
+                        <i class="fas fa-comments text-white text-sm"></i>
+                    </div>
+                </a>
             </div>
             <?php if (isset($_SESSION['user_id'])) : ?>
                 <div class="flex items-center gap-3 cursor-pointer group" id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="100" data-dropdown-trigger="hover">

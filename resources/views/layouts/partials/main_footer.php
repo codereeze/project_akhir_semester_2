@@ -23,6 +23,9 @@
                     <a href="/notifikasi" class="inline-block font-medium">Notifikasi</a>
                 </div>
                 <div class="mb-3">
+                    <a href="/chat-penjual" class="inline-block font-medium">Chat Penjual</a>
+                </div>
+                <div class="mb-3">
                     <a href="/profile" class="inline-block font-medium">Profile</a>
                 </div>
             </div>
