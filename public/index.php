@@ -39,6 +39,7 @@ $app->route::get('/detail_produk', [StoreController::class, 'detail_product']);
 $app->route::get('/menjadi_seller', [SiteController::class, 'register_seller']);
 $app->route::get('/toko', [SiteController::class, 'store']);
 $app->route::get('/chat-penjual', [ChatController::class, 'chat_seller']);
+$app->route::get('/edit-alamat/{id}', [ProfileController::class, 'edit_address']);
 
 
 // User & Seller route (post)
@@ -51,6 +52,7 @@ $app->route::post('/edit_toko', [StoreController::class, 'editStoreHandler']);
 $app->route::post('/produk/{id}', [ProductController::class, 'postHandler']);
 $app->route::post('/menjadi_seller', [SiteController::class, 'register_seller']);
 $app->route::post('/keranjang', [CartController::class, 'deleteHandler']);
+$app->route::post('/edit-alamat/{id}', [ProfileController::class, 'editAddressHandler']);
 
 
 // Auth route

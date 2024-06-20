@@ -125,6 +125,38 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function edit_address(Request $request)
+    {
+        $this->author->userAndSeller();
+
+        $address = new Address();
+        $id = $request->getRouteParams()['id'];
+        return $this->render('users/profile/edit_alamat', [
+            'title' => 'Edit Alamat',
+            'address' => $address->find('id', $id)
+        ]);
+    }
+
+    public function editAddressHandler(Request $request)
+    {
+        $request = $request->getFormData();
+        $address = new Address();
+        $sanitized = [
+            'nama_penerima' => htmlspecialchars(trim($request['nama_penerima'])),
+            'telepon' => htmlspecialchars(trim($request['telepon'])),
+            'nama_jalan' => htmlspecialchars(trim($request['nama_jalan'])),
+            'rt_rw' => htmlspecialchars(trim($request['rt_rw'])),
+            'kelurahan' => htmlspecialchars(trim($request['kelurahan'])),
+            'kecamatan' => htmlspecialchars(trim($request['kecamatan'])),
+            'kab_kot' => htmlspecialchars(trim($request['kab_kot'])),
+            'provinsi' => htmlspecialchars(trim($request['provinsi'])),
+            'kode_pos' => htmlspecialchars(trim($request['kode_pos'])),
+        ];
+
+        $address->update($sanitized, $_SESSION['user_id'], 'user_id');
+        Response::redirect('/atur_alamat')->withSuccess("Alamat berhasil diperbarui");
+    }
+
     public function changePasswordHandler(Request $request)
     {
         $request = $request->getFormData();

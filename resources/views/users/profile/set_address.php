@@ -6,18 +6,20 @@
                 <h1 class="text-xl font-bold mb-1">Atur alamat</h1>
                 <hr class="mb-3">
                 <div class="mb-5">
-                    <?php if(count($params['addresses']) > 0): ?>
-                    <div class="flex gap-5 font-bold">
-                        <p id="slide1" class="cursor-pointer text-red-primary border-b-2 border-red-primary pb-1 hover:text-red-primary">Alamat saya</p>
-                        <p id="slide2" class="cursor-pointer hover:text-red-primary">Tambah alamat</p>
-                    </div>
+                    <?php if (count($params['addresses']) > 0) : ?>
+                        <div class="flex gap-5 font-bold">
+                            <p id="slide1" class="cursor-pointer text-red-primary border-b-2 border-red-primary pb-1 hover:text-red-primary">Alamat saya</p>
+                            <p id="slide2" class="cursor-pointer hover:text-red-primary">Tambah alamat</p>
+                        </div>
                     <?php endif; ?>
                 </div>
                 <div id="slide-display1" class="<?= count($params['addresses']) < 0 ? 'hidden' : 'block' ?>">
                     <?php foreach ($params['addresses'] as $key => $item) : ?>
                         <div class="flex justify-between items-center border p-3 rounded-md mb-3">
                             <div>
-                                <h4 class="text-lg font-bold">Nama penerima: <?= $item['nama_penerima'] ?></h4>
+                                <a href="/edit-alamat/<?= $item['id'] ?>">
+                                    <h4 class="text-lg font-bold">Nama penerima: <?= $item['nama_penerima'] ?></h4>
+                                </a>
                                 <p class="text-xs">Telepon: <?= $item['telepon'] ?></p>
                                 <p class="text-xs"><?= $item['nama_jalan'] ?>, <?= $item['rt_rw'] ?>, <?= $item['kelurahan'] ?>, <?= $item['kecamatan'] ?>, <?= $item['kab_kot'] ?>, <?= $item['provinsi'] ?> <?= $item['kode_pos'] ?></p>
                             </div>
@@ -92,7 +94,7 @@
                                 <p class="font-semibold mb-1">Kode pos</p>
                                 <input type="text" class="p-2 rounded-md border w-full font-medium" value="" name="kode_pos" required>
                             </div>
-                            <?php if(count($params['addresses']) == 0): ?>
+                            <?php if (count($params['addresses']) == 0) : ?>
                                 <input type="hidden" name="status" value="Utama" required>
                             <?php endif; ?>
                         </div>
