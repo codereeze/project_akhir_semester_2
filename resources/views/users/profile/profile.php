@@ -1,6 +1,19 @@
 <section class="container mx-auto px-12 text-gray-600">
     <form action="" method="post" enctype="multipart/form-data">
         <div class="pt-36">
+            <?php if ($session->indicatorMessage('success')) : ?>
+                <div id="alert-1" class="flex items-center p-4 mb-4 text-indigo-800 rounded-lg bg-indigo-100" role="alert">
+                    <div class="text-sm font-semibold">
+                        <?= $session->displaySuccessMessage(); ?>
+                    </div>
+                </div>
+            <?php elseif ($session->indicatorMessage('error')) : ?>
+                <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-100" role="alert">
+                    <div class="text-sm font-semibold">
+                        <?= $session->displayErrorMessage(); ?>
+                    </div>
+                </div>
+            <?php endif; ?>
             <div class="flex gap-3">
                 <?php include_once 'partials/profile_nav.php' ?>
                 <div class="self-start w-full border shadow-md rounded-md p-4">

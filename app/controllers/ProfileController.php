@@ -63,7 +63,7 @@ class ProfileController extends Controller
         }
 
         $user->update($sanitized, $_SESSION['user_id']);
-        Response::redirect('/profile');
+        Response::redirect('/profile')->withSuccess('Profile berhasil di perbarui');
     }
 
     public function set_address()

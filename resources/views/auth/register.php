@@ -5,6 +5,19 @@
     <div class="text-center mb-3">
         <h2 class="text-xl font-bold">Register your account</h2>
     </div>
+    <?php if ($session->indicatorMessage('success')) : ?>
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-indigo-800 rounded-lg bg-indigo-100" role="alert">
+            <div class="text-sm font-semibold">
+                <?= $session->displaySuccessMessage(); ?>
+            </div>
+        </div>
+    <?php elseif ($session->indicatorMessage('error')) : ?>
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-100" role="alert">
+            <div class="text-sm font-semibold">
+                <?= $session->displayErrorMessage(); ?>
+            </div>
+        </div>
+    <?php endif; ?>
     <form action="" method="post">
         <label for="" class="font-semibold text-sm mb-1 block">Nama</label>
         <input type="text" name="nama" id="" class="border border-gray-400 rounded-sm w-full p-1.5 mb-3" required>

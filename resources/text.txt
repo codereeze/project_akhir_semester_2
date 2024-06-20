@@ -8,3 +8,19 @@ https://img.freepik.com/free-vector/ecommerce-campaign-concept-illustration_1143
 
 background
 https://img.freepik.com/free-psd/modern-abstract-blue-gradient-background_84443-3771.jpg?t=st=1718882196~exp=1718885796~hmac=93d298f2f81f74031c776f2b91b4f3fd9f90ce5f0658554709df730f84c375f7&w=996
+
+
+template html flash message
+<?php if ($session->indicatorMessage('success')) : ?>
+                <div id="alert-1" class="flex items-center p-4 mb-4 text-indigo-800 rounded-lg bg-indigo-100" role="alert">
+                    <div class="text-sm font-semibold">
+                        <?= $session->displaySuccessMessage(); ?>
+                    </div>
+                </div>
+            <?php elseif ($session->indicatorMessage('error')) : ?>
+                <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-100" role="alert">
+                    <div class="text-sm font-semibold">
+                        <?= $session->displayErrorMessage(); ?>
+                    </div>
+                </div>
+            <?php endif; ?>

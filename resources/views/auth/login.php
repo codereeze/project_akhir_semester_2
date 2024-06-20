@@ -7,14 +7,14 @@
         <span class="font-medium mb-4 block">Masukkan data akun kamu untuk melanjutkan</span>
     </div>
     <?php if ($session->indicatorMessage('success')) : ?>
-        <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-            <div class="text-sm font-medium">
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-indigo-800 rounded-lg bg-indigo-100" role="alert">
+            <div class="text-sm font-semibold">
                 <?= $session->displaySuccessMessage(); ?>
             </div>
         </div>
     <?php elseif ($session->indicatorMessage('error')) : ?>
-        <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-            <div class="text-sm font-medium">
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-100" role="alert">
+            <div class="text-sm font-semibold">
                 <?= $session->displayErrorMessage(); ?>
             </div>
         </div>
