@@ -7,6 +7,7 @@ use App\Models\Address;
 use App\Models\User;
 use Libraries\Auth;
 use Libraries\Controller;
+use Libraries\FileManagement;
 use Libraries\Request;
 use Libraries\Response;
 
@@ -30,15 +31,37 @@ class ProfileController extends Controller
 
     public function profileUpdateHandler(Request $request)
     {
-        $request = $request->getFormData();
+        $requestData = $request->getFormData();
         $sanitized = [
-            'nama' => htmlspecialchars(trim($request['nama'])),
-            'username' => htmlspecialchars(trim($request['username'])),
-            'email' => htmlspecialchars(trim($request['email'])),
-            'jk' => htmlspecialchars(trim($request['jk'])),
+            'nama' => htmlspecialchars(trim($requestData['nama'])),
+            'username' => htmlspecialchars(trim($requestData['username'])),
+            'email' => htmlspecialchars(trim($requestData['email'])),
+            'jk' => htmlspecialchars(trim($requestData['jk'])),
         ];
 
+        $uploadDir = '/img/profile/';
+        $fileManager = new FileManagement(['jpg', 'jpeg', 'png']);
+
         $user = new User();
+        $currentUser = $user->find('id', $_SESSION['user_id']);
+
+        try {
+            if (!empty($_FILES['foto_profile']['name'])) {
+                if (!empty($currentUser['foto_profile'])) {
+                    $oldProfilePicture = $_SERVER['DOCUMENT_ROOT'] . $currentUser['foto_profile'];
+                    if (file_exists($oldProfilePicture)) {
+                        unlink("$oldProfilePicture");
+                    }
+                }
+
+                $uniqueFileName = $fileManager->handleFileUpload('foto_profile', $uploadDir);
+                $sanitized['foto_profile'] = $uploadDir . $uniqueFileName;
+            }
+        } catch (\Exception $e) {
+            echo 'File Upload Error: ' . $e->getMessage();
+            return;
+        }
+
         $user->update($sanitized, $_SESSION['user_id']);
         Response::redirect('/profile');
     }
