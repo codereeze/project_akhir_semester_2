@@ -1,8 +1,7 @@
 <div class="main-header">
     <div class="main-header-logo">
         <div class="logo-header" data-background-color="dark">
-
-            <a href="index.html" class="logo">
+            <a href="" class="logo">
                 <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20">
             </a>
             <div class="nav-toggle">
@@ -56,6 +55,7 @@
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/">Home</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </li>
                         </div>

@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title><?= $params['title']; ?></title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
     <!-- Fonts and icons -->
+
     <script src="/assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
         WebFont.load({
@@ -33,7 +35,7 @@
         <!-- Sidebar -->
         <?php include_once 'partials/sidebar_admin.php' ?>
         <!-- End Sidebar -->
-        
+
         <div class="main-panel">
             <?php include_once 'partials/navbar_admin.php' ?>
             <div class="container">
@@ -92,6 +94,10 @@
             lineColor: '#ffa534',
             fillColor: 'rgba(255, 165, 52, .14)'
         });
+    </script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script>
+        let table = new DataTable('#data-table');
     </script>
 </body>
 

@@ -106,10 +106,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body p-4">
                     <div class="table-responsive">
                         <!-- Projects table -->
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0" id="data-table">
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Payment Number</th>

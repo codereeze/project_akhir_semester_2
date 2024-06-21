@@ -9,13 +9,7 @@
         <div class="card">
             <div class="card-body">
                 <div>
-                    <div class="d-flex justify-content-end">
-                        <div class="input-group mb-4 w-25">
-                            <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Cari admin...">
-                        </div>
-                    </div>
-                    <table class="table">
+                    <table class="table" id="data-table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>

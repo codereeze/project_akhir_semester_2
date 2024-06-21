@@ -11,13 +11,7 @@
                 <div>
                     <div class="row">
                         <div class="col-md-7">
-                            <div class="d-flex justify-content-end">
-                                <div class="input-group mb-4 w-50">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                    <input type="text" class="form-control" placeholder="Cari kategori...">
-                                </div>
-                            </div>
-                            <table class="table">
+                            <table class="table" id="data-table">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
