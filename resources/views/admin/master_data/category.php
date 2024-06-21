@@ -14,43 +14,28 @@
                             <table class="table" id="data-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Nama kategori</th>
                                         <th scope="col">Produk terkait</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Jaket Tracker</td>
-                                        <td>20</td>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                <a href="">
-                                                    <button class="btn btn-primary"><i class="fas fa-info"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Baju Distro</td>
-                                        <td>20</td>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                <a href="">
-                                                    <button class="btn btn-primary"><i class="fas fa-info"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($params['categories'] as $item) : ?>
+                                        <tr>
+                                            <td><?= $item['nama_kategori'] ?></td>
+                                            <td>20</td>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    <a href="">
+                                                        <button class="btn btn-primary"><i class="fas fa-info"></i></button>
+                                                    </a>
+                                                    <a href="">
+                                                        <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

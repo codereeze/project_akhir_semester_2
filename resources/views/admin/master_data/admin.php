@@ -12,39 +12,27 @@
                     <table class="table" id="data-table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Nama lengkap</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Telepon</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach($params['admins'] as $item): ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Karina Elfira</td>
-                                <td>karina123@gmail.com</td>
-                                <td>0812988973666</td>
-                                <td>Perempuan</td>
+                                <td><?= $item['username'] ?></td>
+                                <td><?= $item['nama'] ?></td>
+                                <td><?= $item['email'] ?></td>
+                                <td><?= $item['jk'] ?></td>
                                 <td>
                                     <a href="">
                                         <button class="btn btn-primary"><i class="fas fa-info"></i></button>
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Ahmad Ramadhan</td>
-                                <td>ahmad998@gmail.com</td>
-                                <td>0812988973777</td>
-                                <td>Laki-laki</td>
-                                <td>
-                                    <a href="">
-                                        <button class="btn btn-primary"><i class="fas fa-info"></i></button>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

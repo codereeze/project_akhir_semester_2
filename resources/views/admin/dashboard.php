@@ -21,7 +21,7 @@
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
                                 <p class="card-category">Users</p>
-                                <h4 class="card-title">1,294</h4>
+                                <h4 class="card-title"><?= $params['users'] ?></h4>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
                                 <p class="card-category">Sellers</p>
-                                <h4 class="card-title">1303</h4>
+                                <h4 class="card-title"><?= $params['sellers'] ?></h4>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
                                 <p class="card-category">Admins</p>
-                                <h4 class="card-title">1,345</h4>
+                                <h4 class="card-title"><?= $params['admins'] ?></h4>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
                                 <p class="card-category">Category</p>
-                                <h4 class="card-title">576</h4>
+                                <h4 class="card-title"><?= $params['categories'] ?></h4>
                             </div>
                         </div>
                     </div>
@@ -112,30 +112,42 @@
                         <table class="table align-items-center mb-0" id="data-table">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Payment Number</th>
-                                    <th scope="col" class="text-end">Date & Time</th>
-                                    <th scope="col" class="text-end">Amount</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col" class="text-end">Produk</th>
+                                    <th scope="col" class="text-end">Qty</th>
+                                    <th scope="col" class="text-end">Size</th>
+                                    <th scope="col" class="text-end">Payment</th>
+                                    <th scope="col" class="text-end">Total</th>
                                     <th scope="col" class="text-end">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">
-                                        <button class="btn btn-icon btn-round btn-success btn-sm me-2">
-                                            <i class="fa fa-check"></i>
-                                        </button>
-                                        Payment from #10231
-                                    </th>
-                                    <td class="text-end">
-                                        Mar 19, 2020, 2.45pm
-                                    </td>
-                                    <td class="text-end">
-                                        $250.00
-                                    </td>
-                                    <td class="text-end">
-                                        <span class="badge badge-success">Completed</span>
-                                    </td>
-                                </tr>
+                                <?php foreach ($params['transactions'] as $item) : ?>
+                                    <tr>
+                                        <td scope="row">
+                                            <?= $item['username'] ?>
+                                        </td>
+                                        <td class="text-end">
+                                            <?= $item['nama_produk'] ?>
+                                        </td>
+                                        <td class="text-end">
+                                            <?= $item['qty'] ?>
+                                        </td>
+                                        <td class="text-end">
+                                            <?= $item['size'] ?>
+                                        </td>
+                                        <td class="text-end">
+                                            <?= $item['pembayaran'] ?>
+                                        </td>
+                                        <td class="text-end">
+                                            Rp.<?= $item['total_harga'] ?>
+                                        </td>
+                                        <td class="text-end">
+                                            <span class="badge badge-success"> <?= $item['status'] ?>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

@@ -12,21 +12,20 @@
                     <table class="table" id="data-table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Nama pengguna</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Telepon</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach($params['users'] as $item): ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Karina Elfira</td>
-                                <td>karinaefira@gmail.com</td>
-                                <td>0812988973666</td>
-                                <td>Perempuan</td>
+                                <th scope="row"><?= $item['username'] ?></th>
+                                <td><?= $item['nama'] ?></td>
+                                <td><?= $item['email'] ?></td>
+                                <td><?= $item['jk'] ?></td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="">
@@ -38,23 +37,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Karina Elfira</td>
-                                <td>karinaefira@gmail.com</td>
-                                <td>0812988973666</td>
-                                <td>Perempuan</td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="">
-                                            <button class="btn btn-primary"><i class="fas fa-info"></i></button>
-                                        </a>
-                                        <a href="">
-                                            <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

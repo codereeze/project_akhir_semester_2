@@ -3,6 +3,12 @@
 namespace App\Controllers;
 
 use App\Middleware\Authorization;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\SellerRegistration;
+use App\Models\Store;
+use App\Models\Transaction;
+use App\Models\User;
 use Libraries\Controller;
 
 class AdminController extends Controller
@@ -19,8 +25,16 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $user = new User();
+        $category = new Category();
+        $transaction = new Transaction();
         return $this->render('admin/dashboard', [
-            'title' => 'Dashboard Admin'
+            'title' => 'Dashboard Admin',
+            'users' => count($user->findAllWhere('role', 'User')),
+            'admins' => count($user->findAllWhere('role', 'Admin')),
+            'sellers' => count($user->findAllWhere('role', 'Seller')),
+            'categories' => count($category->selectAll()),
+            'transactions' => $transaction->leftJoinAll(['user_id', 'produk_id'], ['users', 'products'])
         ]);
     }
 
@@ -28,8 +42,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $admin = new User();
         return $this->render('admin/master_data/admin', [
-            'title' => 'Master Data Admin'
+            'title' => 'Master Data Admin',
+            'admins' => $admin->findAllWhere('role', 'Admin')
         ]);
     }
 
@@ -37,8 +53,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $store = new Store();
         return $this->render('admin/master_data/seller', [
-            'title' => 'Master Data Seller'
+            'title' => 'Master Data Seller',
+            'sellers' => $store->leftJoinAll(['seller_id'], ['users'])
         ]);
     }
 
@@ -46,8 +64,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
         
+        $user = new User();
         return $this->render('admin/master_data/user', [
-            'title' => 'Master Data User'
+            'title' => 'Master Data User',
+            'users' => $user->findAllWhere('role', 'User')
         ]);
     }
 
@@ -55,8 +75,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $category = new Category();
         return $this->render('admin/master_data/category', [
-            'title' => 'Master Data Kategori'
+            'title' => 'Master Data Kategori',
+            'categories' => $category->selectAll()
         ]);
     }
 
@@ -64,8 +86,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $product = new Product();
         return $this->render('admin/master_data/product', [
-            'title' => 'Master Data Produk'
+            'title' => 'Master Data Produk',
+            'products' => $product->leftJoinAll(['toko_id', 'kategori_id'], ['stores', 'categories'])
         ]);
     }
 
@@ -73,8 +97,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $registration = new SellerRegistration();
         return $this->render('admin/master_data/seller_register', [
-            'title' => 'Pendaftaran Seller'
+            'title' => 'Pendaftaran Seller',
+            'registrations' => $registration->leftJoinAll(['user_id'], ['users'], 'status', 'Menunggu persetujuan')
         ]);
     }
 
@@ -82,8 +108,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $transaction = new Transaction();
         return $this->render('admin/master_data/transaction', [
-            'title' => 'Manajemen Transaksi'
+            'title' => 'Manajemen Transaksi',
+            'transactions' => $transaction->leftJoinAll(['user_id', 'produk_id'], ['users', 'products'])
         ]);
     }
 

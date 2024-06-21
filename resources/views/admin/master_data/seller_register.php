@@ -12,39 +12,25 @@
                     <table class="table" id="data-table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nama seller</th>
-                                <th scope="col">Nama toko</th>
-                                <th scope="col">Telepon</th>
-                                <th scope="col">Alamat toko</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Karina Elfira</td>
-                                <td>Toko pakaian Karina</td>
-                                <td>0812988973666</td>
-                                <td>Jl. Tanuwijaya Kota Tasikmalaya, Jawa barat</td>
-                                <td>
-                                    <a href="/admin/lihat-berkas">
-                                        <button class="btn btn-primary">Cek berkas</button>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Karina Elfira</td>
-                                <td>Toko pakaian Karina</td>
-                                <td>0812988973666</td>
-                                <td>Jl. Tanuwijaya Kota Tasikmalaya, Jawa barat</td>
-                                <td>
-                                    <a href="/admin/lihat-berkas">
-                                        <button class="btn btn-primary">Cek berkas</button>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php foreach ($params['registrations'] as $item) : ?>
+                                <tr>
+                                    <td><?= $item['username'] ?></td>
+                                    <td><?= $item['nama'] ?></td>
+                                    <td><?= $item['email'] ?></td>
+                                    <td>
+                                        <a href="">
+                                            <button class="btn btn-primary">Cek berkas</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

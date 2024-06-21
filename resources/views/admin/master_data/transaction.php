@@ -12,39 +12,33 @@
                     <table class="table" id="data-table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nama seller</th>
-                                <th scope="col">Nama toko</th>
-                                <th scope="col">Telepon</th>
-                                <th scope="col">Alamat toko</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Produk</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Payment</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Karina Elfira</td>
-                                <td>Toko pakaian Karina</td>
-                                <td>0812988973666</td>
-                                <td>Jl. Tanuwijaya Kota Tasikmalaya, Jawa barat</td>
-                                <td>
-                                    <a href="/admin/detail-transaksi">
-                                        <button class="btn btn-primary">Cek</button>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Karina Elfira</td>
-                                <td>Toko pakaian Karina</td>
-                                <td>0812988973666</td>
-                                <td>Jl. Tanuwijaya Kota Tasikmalaya, Jawa barat</td>
-                                <td>
-                                    <a href="/admin/detail-transaksi">
-                                        <button class="btn btn-primary">Cek</button>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php foreach ($params['transactions'] as $item) : ?>
+                                <tr>
+                                    <td><?= $item['username'] ?></td>
+                                    <td><?= $item['nama_produk'] ?></td>
+                                    <td><?= $item['qty'] ?></td>
+                                    <td><?= $item['size'] ?></td>
+                                    <td><?= $item['pembayaran'] ?></td>
+                                    <td><?= $item['total_harga'] ?></td>
+                                    <td><?= $item['status'] ?></td>
+                                    <td>
+                                        <a href="/admin/detail-transaksi">
+                                            <button class="btn btn-primary">Cek</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

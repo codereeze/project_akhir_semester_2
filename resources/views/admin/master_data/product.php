@@ -12,9 +12,7 @@
                     <table class="table" id="data-table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Nama produk</th>
-                                <th scope="col">Ukuran</th>
                                 <th scope="col">Kategori</th>
                                 <th scope="col">Stock</th>
                                 <th scope="col">Harga</th>
@@ -23,44 +21,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Baju tidur pria lengan panjang lengkap...</td>
-                                <td>S, M, L, XL</td>
-                                <td>Baju tidur</td>
-                                <td>200</td>
-                                <td>Rp.200.000</td>
-                                <td>Toko pakaian Karina</td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="">
-                                            <button class="btn btn-primary"><i class="fas fa-info"></i></button>
-                                        </a>
-                                        <a href="">
-                                            <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Baju tidur pria lengan panjang lengkap...</td>
-                                <td>S, M, L, XL</td>
-                                <td>Baju tidur</td>
-                                <td>200</td>
-                                <td>Rp.200.000</td>
-                                <td>Toko pakaian Karina</td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="">
-                                            <button class="btn btn-primary"><i class="fas fa-info"></i></button>
-                                        </a>
-                                        <a href="">
-                                            <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php foreach ($params['products'] as $item) : ?>
+                                <tr>
+                                    <td><?= $item['nama_produk'] ?></td>
+                                    <td><?= $item['nama_kategori'] ?></td>
+                                    <td><?= $item['stock'] ?></td>
+                                    <td>Rp.<?= $item['harga'] ?></td>
+                                    <td><?= $item['nama_toko'] ?></td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                                            <a href="">
+                                                <button class="btn btn-primary"><i class="fas fa-info"></i></button>
+                                            </a>
+                                            <a href="">
+                                                <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

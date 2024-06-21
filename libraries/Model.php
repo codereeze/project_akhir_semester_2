@@ -98,6 +98,21 @@ abstract class Model
         }
     }
 
+    public function findAllWhere($column, $condition)
+    {
+        try {
+            $this->initialize();
+            $stmt = $this->db->prepare("SELECT * FROM " . $this->table_name . " WHERE $column = :condition");
+            $stmt->bindValue(':condition', $condition);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
     public function find($column, $id, $column2 = '', $condition = '')
     {
         $sql = '';
@@ -152,6 +167,40 @@ abstract class Model
             echo "Maaf error: " . $e->getMessage();
         }
     }
+
+    public function leftJoinAll($foreign_key, $destination_table, $column = '', $condition = '')
+    {
+        try {
+            if (count($foreign_key) !== count($destination_table)) {
+                throw new \Exception('Jumlah foreign key dan tabel tujuan harus sama.');
+            }
+
+            $this->initialize();
+
+            $query = "SELECT * FROM {$this->table_name}";
+
+            for ($i = 0; $i < count($destination_table); $i++) {
+                if ($condition && $column) {
+                    $query .= " LEFT JOIN {$destination_table[$i]} ON {$destination_table[$i]}.id = {$this->table_name}.{$foreign_key[$i]} WHERE $column = :condition";
+                } else {
+                    $query .= " LEFT JOIN {$destination_table[$i]} ON {$destination_table[$i]}.id = {$this->table_name}.{$foreign_key[$i]}";
+                }
+            }
+
+            $stmt = $this->db->prepare($query);
+            if ($condition && $column) {
+                $stmt->bindValue(':condition', $condition);
+            }
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            return !empty($result) ? $result : null;
+        } catch (\Exception $e) {
+            echo "Maaf, error: " . $e->getMessage();
+        }
+    }
+
 
     public function joinWhere($destination_table, string $primary_key, string $foreign_key, string $column, $condition)
     {
