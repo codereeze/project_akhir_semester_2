@@ -18,7 +18,7 @@ class TransactionController extends Controller
     public function transaction()
     {
         $this->author->userAndSeller();
-        
+
         $transaction = new Transaction();
         return $this->render('users/transaction', [
             'title' => 'Transaksi Saya',
@@ -26,6 +26,13 @@ class TransactionController extends Controller
             'dikirim' => $transaction->transaction($_SESSION['user_id'], 'Dikirim'),
             'selesai' => $transaction->transaction($_SESSION['user_id'], 'Selesai'),
             'diulas' => $transaction->transaction($_SESSION['user_id'], 'Ulasan'),
+        ]);
+    }
+
+    public function detail_transaction()
+    {
+        return $this->render('users/detail_transaction', [
+            'title' => 'Detail Transaksi'
         ]);
     }
 }

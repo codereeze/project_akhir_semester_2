@@ -40,6 +40,7 @@ $app->route::get('/menjadi_seller', [SiteController::class, 'register_seller']);
 $app->route::get('/toko', [SiteController::class, 'store']);
 $app->route::get('/chat-penjual', [ChatController::class, 'chat_seller']);
 $app->route::get('/edit-alamat/{id}', [ProfileController::class, 'edit_address']);
+$app->route::get('/detail-transaksi/{id}', [TransactionController::class, 'detail_transaction']);
 
 
 // User & Seller route (post)
