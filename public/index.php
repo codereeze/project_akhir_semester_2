@@ -4,6 +4,7 @@ use App\Controllers\AdminController;
 use App\Controllers\AuthController;
 use App\Controllers\CartController;
 use App\Controllers\ChatController;
+use App\Controllers\CompanyController;
 use App\Controllers\ErrorController;
 use App\Controllers\NotificationController;
 use App\Controllers\PaymentController;
@@ -41,7 +42,11 @@ $app->route::get('/toko', [SiteController::class, 'store']);
 $app->route::get('/chat-penjual', [ChatController::class, 'chat_seller']);
 $app->route::get('/edit-alamat/{id}', [ProfileController::class, 'edit_address']);
 $app->route::get('/detail-transaksi/{id}', [TransactionController::class, 'detail_transaction']);
-
+$app->route::get('/syarat-ketentuan', [CompanyController::class, 'terms_conditions']);
+$app->route::get('/kebijakan-privasi', [CompanyController::class, 'privacy_policy']);
+$app->route::get('/kontak-kami', [CompanyController::class, 'contact']);
+$app->route::get('/tentang-kami', [CompanyController::class, 'about']);
+$app->route::get('/berita-artikel', [CompanyController::class, 'news']);
 
 // User & Seller route (post)
 $app->route::post('/profile', [ProfileController::class, 'profileUpdateHandler']);

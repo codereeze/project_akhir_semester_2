@@ -47,22 +47,22 @@
             <div>
                 <h3 class="font-bold text-xl mb-4">Bantuan & Panduan</h3>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Syarat & Ketentuan</a>
+                    <a href="/syarat-ketentuan" class="inline-block font-medium">Syarat & Ketentuan</a>
                 </div>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Kebijakan Privasi</a>
+                    <a href="/kebijakan-privasi" class="inline-block font-medium">Kebijakan Privasi</a>
                 </div>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Tentang Kami</a>
+                    <a href="/tentang-kami" class="inline-block font-medium">Tentang Kami</a>
                 </div>
             </div>
             <div>
                 <h3 class="font-bold text-xl mb-4">Informasi</h3>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Kontak Kami</a>
+                    <a href="/kontak-kami" class="inline-block font-medium">Kontak Kami</a>
                 </div>
                 <div class="mb-3">
-                    <a href="" class="inline-block font-medium">Berita</a>
+                    <a href="/berita-artikel" class="inline-block font-medium">Berita</a>
                 </div>
             </div>
         </div>

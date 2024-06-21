@@ -31,6 +31,8 @@ class TransactionController extends Controller
 
     public function detail_transaction()
     {
+        $this->author->userAndSeller();
+
         return $this->render('users/detail_transaction', [
             'title' => 'Detail Transaksi'
         ]);
