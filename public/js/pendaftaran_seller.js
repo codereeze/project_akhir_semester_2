@@ -70,3 +70,46 @@ previous_button.addEventListener('click', () => {
         next_button.setAttribute('type', 'button');
     }
 });
+
+let previewPhoto = document.getElementById('preview-photo');
+let previewKTP = document.getElementById('preview-ktp');
+let previewStore = document.getElementById('preview-store');
+
+let fileInput1 = document.getElementById('file-input1');
+let fileInput2 = document.getElementById('file-input2');
+let fileInput3 = document.getElementById('file-input3');
+
+
+fileInput1.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewPhoto.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+fileInput2.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewKTP.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+fileInput3.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewStore.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+});
+

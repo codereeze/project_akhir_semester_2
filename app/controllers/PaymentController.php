@@ -31,4 +31,14 @@ class PaymentController extends Controller
             'address' => $address->find('user_id', $_SESSION['user_id'], 'status', 'Utama')
         ]);
     }
+
+    public function payment_success()
+    {
+        $this->author->userAndSeller();
+        $this->layout = 'blank';
+
+        return $this->render('payment', [
+            'title' => 'Pembayaran Sukses',
+        ]);
+    }
 }

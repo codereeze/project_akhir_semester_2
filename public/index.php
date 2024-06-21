@@ -47,6 +47,7 @@ $app->route::get('/kebijakan-privasi', [CompanyController::class, 'privacy_polic
 $app->route::get('/kontak-kami', [CompanyController::class, 'contact']);
 $app->route::get('/tentang-kami', [CompanyController::class, 'about']);
 $app->route::get('/berita-artikel', [CompanyController::class, 'news']);
+$app->route::get('/pembayaran-sukses', [PaymentController::class, 'payment_success']);
 
 // User & Seller route (post)
 $app->route::post('/profile', [ProfileController::class, 'profileUpdateHandler']);

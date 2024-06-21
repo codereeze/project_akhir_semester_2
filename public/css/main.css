@@ -728,10 +728,6 @@ video {
   margin-inline-end: 0px;
 }
 
-.me-2 {
-  margin-inline-end: 0.5rem;
-}
-
 .me-3 {
   margin-inline-end: 0.75rem;
 }
@@ -914,6 +910,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-20 {
+  height: 5rem;
 }
 
 .w-10 {

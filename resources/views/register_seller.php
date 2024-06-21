@@ -87,19 +87,23 @@
                         <div class="hidden" id="information-store">
                             <h1 class="text-2xl font-bold">Input Informasi Toko</h1>
                             <p class="mb-7 text-sm">Pastikan Anda memasukan informasi toko dengan benar</p>
-                            <div class="grid grid-cols-2 gap-3">
+                            <div class="grid grid-cols-2 gap-3 mb-1">
                                 <div>
                                     <p class="font-semibold mb-1">Nama toko</p>
                                     <input type="text" class="p-2 rounded-md border w-full font-medium" name="nama_toko" required>
                                 </div>
                                 <div>
-                                    <p class="font-semibold mb-1">NIK</p>
-                                    <input type="text" class="p-2 rounded-md border w-full font-medium" name="nik" required>
+                                    <p class="font-semibold mb-1">Jam buka</p>
+                                    <input type="time" class="p-2 rounded-md border w-full font-medium" name="jam_buka" required>
                                 </div>
                                 <div>
-                                    <p class="font-semibold mb-1">Email</p>
-                                    <input type="email" class="p-2 rounded-md border w-full font-medium" name="email" required>
+                                    <p class="font-semibold mb-1">Jam tutup</p>
+                                    <input type="time" class="p-2 rounded-md border w-full font-medium" name="jam_tutup" required>
                                 </div>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-1">Deskripsi toko</p>
+                                <textarea class="p-2 rounded-md border w-full font-medium" name="deskripsi" required></textarea>
                             </div>
                         </div>
                         <div class="hidden" id="upload-document">
@@ -107,16 +111,25 @@
                             <p class="mb-7 text-sm">Pastikan Anda mengupload dokumen file yang benar</p>
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
+                                    <div class="flex justify-center mb-2">
+                                        <img id="preview-photo" src="https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636" alt="" srcset="" width="100" class="h-20">
+                                    </div>
                                     <p class="font-semibold mb-1">Foto diri</p>
-                                    <input type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_diri" required>
+                                    <input id="file-input1" type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_diri" required>
                                 </div>
                                 <div>
+                                    <div class="flex justify-center mb-2">
+                                        <img id="preview-ktp" src="https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636" alt="" srcset="" width="100" class="h-20">
+                                    </div>
                                     <p class="font-semibold mb-1">Foto KTP</p>
-                                    <input type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_ktp" required>
+                                    <input id="file-input2" type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_ktp" required>
                                 </div>
                                 <div>
+                                    <div class="flex justify-center mb-2">
+                                        <img id="preview-store" src="https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636" alt="" srcset="" width="100" class="h-20">
+                                    </div>
                                     <p class="font-semibold mb-1">Foto toko atau produk</p>
-                                    <input type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_toko_produk" required>
+                                    <input id="file-input3" type="file" class="p-2 rounded-md border w-full font-medium cursor-pointer" name="foto_toko_produk" required>
                                 </div>
                             </div>
                         </div>

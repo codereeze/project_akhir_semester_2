@@ -14,7 +14,6 @@ class StoresTable extends Migration
             $attribute->id();
             $attribute->integer('seller_id');
             $attribute->varchar('nama_toko', 50, false);
-            $attribute->varchar('copywriting', 255, false);
             $attribute->varchar('jam_buka', 5, false);
             $attribute->varchar('jam_tutup', 5, false);
             $attribute->varchar('tahun_bergabung', 4, false);

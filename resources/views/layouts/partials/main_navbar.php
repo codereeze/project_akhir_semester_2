@@ -13,7 +13,7 @@
                         </button>
                     </div>
                 </div>
-                <?php if ($dataUser['role'] != 'Admin') : ?>
+                <?php if (isset($dataUser['role']) && $dataUser['role'] != 'Admin') : ?>
                     <a href="/keranjang">
                         <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
                             <i class="fas fa-shopping-cart text-white text-sm"></i>
