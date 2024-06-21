@@ -6,7 +6,7 @@
         </div>
     </div>
     <form action="" method="post">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-md-6">
                 <label for="" class="fw-bold mb-2">Judul notifikasi</label>
                 <input type="text" name="judul" class="form-control mb-4" required>
@@ -17,9 +17,9 @@
                     <option selected>-- Pilih penerima --</option>
                 </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <label for="" class="fw-bold mb-2">Pesan notifikasi</label>
-                <input type="text" name="pesan" class="form-control mb-4" required>
+                <textarea name="pesan" class="form-control" id=""></textarea>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Kirim notifikasi</button>
