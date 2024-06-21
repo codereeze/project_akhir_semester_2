@@ -4,9 +4,6 @@
             <h3 class="fw-bold mb-3">Master Data Seller</h3>
             <h6 class="op-7 mb-2">Konten ini menampilkan daftar seller</h6>
         </div>
-        <div class="ms-md-auto py-2 py-md-0">
-            <a href="#" class="btn btn-primary btn-round">Tambah Seller</a>
-        </div>
     </div>
     <div>
         <div class="card">

@@ -1,8 +1,8 @@
 <div class="page-inner">
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
         <div>
-            <h3 class="fw-bold mb-3">Master Data User</h3>
-            <h6 class="op-7 mb-2">Konten ini menampilkan daftar user</h6>
+            <h3 class="fw-bold mb-3">Manajemen Transaksi</h3>
+            <h6 class="op-7 mb-2">Konten ini menampilkan daftar transaksi</h6>
         </div>
     </div>
     <div>
@@ -19,10 +19,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Nama pengguna</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">Nama seller</th>
+                                <th scope="col">Nama toko</th>
                                 <th scope="col">Telepon</th>
-                                <th scope="col">Gender</th>
+                                <th scope="col">Alamat toko</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -30,9 +30,9 @@
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Karina Elfira</td>
-                                <td>karinaefira@gmail.com</td>
+                                <td>Toko pakaian Karina</td>
                                 <td>0812988973666</td>
-                                <td>Perempuan</td>
+                                <td>Jl. Tanuwijaya Kota Tasikmalaya, Jawa barat</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="">
@@ -47,9 +47,9 @@
                             <tr>
                                 <th scope="row">2</th>
                                 <td>Karina Elfira</td>
-                                <td>karinaefira@gmail.com</td>
+                                <td>Toko pakaian Karina</td>
                                 <td>0812988973666</td>
-                                <td>Perempuan</td>
+                                <td>Jl. Tanuwijaya Kota Tasikmalaya, Jawa barat</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="">

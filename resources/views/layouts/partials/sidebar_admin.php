@@ -24,10 +24,16 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
-                <li class="nav-item active">
+                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/dashboard' ? 'active' : '' ?>">
                     <a href="/admin/dashboard">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/pendaftaran-seller' ? 'active' : '' ?>">
+                    <a href="/admin/pendaftaran-seller">
+                        <i class="fas fa-envelope"></i>
+                        <p>Pendaftaran Seller</p>
                     </a>
                 </li>
                 <li class="nav-section">
@@ -62,16 +68,22 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/master_data_kategori' ? 'active' : '' ?>">
                     <a href="/admin/master_data_kategori">
                         <i class="fas fa-tag"></i>
                         <p>Kategori</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/master_data_produk' ? 'active' : '' ?>">
                     <a href="/admin/master_data_produk">
                         <i class="fas fa-box"></i>
                         <p>Produk</p>
+                    </a>
+                </li>
+                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/manajemen-transaksi' ? 'active' : '' ?>">
+                    <a href="/admin/manajemen-transaksi">
+                    <i class="fas fa-money-bill-wave"></i>
+                        <p>Manajemen Transaksi</p>
                     </a>
                 </li>
                 <li class="nav-section">
@@ -80,13 +92,13 @@
                     </span>
                     <h4 class="text-section">Informasi</h4>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/buat_notifikasi' ? 'active' : '' ?>">
                     <a href="/admin/buat_notifikasi">
                         <i class="fas fa-bell"></i>
                         <p>Buat Notifikasi</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/kirim_email' ? 'active' : '' ?>">
                     <a href="/admin/kirim_email">
                         <i class="fas fa-envelope"></i>
                         <p>Kirim Email</p>
