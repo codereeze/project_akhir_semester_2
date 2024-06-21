@@ -38,7 +38,7 @@ $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
 $app->route::get('/detail_produk', [StoreController::class, 'detail_product']);
 $app->route::get('/menjadi_seller', [SiteController::class, 'register_seller']);
-$app->route::get('/toko', [SiteController::class, 'store']);
+$app->route::get('/toko/{id}', [SiteController::class, 'store']);
 $app->route::get('/chat-penjual', [ChatController::class, 'chat_seller']);
 $app->route::get('/edit-alamat/{id}', [ProfileController::class, 'edit_address']);
 $app->route::get('/detail-transaksi/{id}', [TransactionController::class, 'detail_transaction']);

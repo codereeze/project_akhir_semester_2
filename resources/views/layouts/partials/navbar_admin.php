@@ -1,6 +1,5 @@
 <div class="main-header">
     <div class="main-header-logo">
-        <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
 
             <a href="index.html" class="logo">
@@ -19,9 +18,7 @@
             </button>
 
         </div>
-        <!-- End Logo Header -->
     </div>
-    <!-- Navbar Header -->
     <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
         <div class="container-fluid">
             <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
@@ -66,7 +63,6 @@
                         </div>
                     </div>
                 </li>
-
                 <li class="nav-item topbar-user dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
@@ -97,5 +93,4 @@
             </ul>
         </div>
     </nav>
-    <!-- End Navbar -->
 </div>

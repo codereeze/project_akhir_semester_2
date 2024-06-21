@@ -68,7 +68,7 @@ class Authorization
             return true;
         } else {
             if ($role === 'Admin') {
-                Response::redirect('/303');
+                Response::redirect('/403');
             } else {
                 Response::redirect('/login');
             }

@@ -13,26 +13,28 @@
                         </button>
                     </div>
                 </div>
-                <a href="/keranjang">
-                    <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
-                        <i class="fas fa-shopping-cart text-white text-sm"></i>
-                    </div>
-                </a>
-                <a href="/transaksi">
-                    <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
-                        <i class="fas fa-shopping-bag text-white text-sm"></i>
-                    </div>
-                </a>
-                <a href="/notifikasi">
-                    <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
-                        <i class="fas fa-bell text-white text-sm"></i>
-                    </div>
-                </a>
-                <a href="/chat-penjual">
-                    <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
-                        <i class="fas fa-comments text-white text-sm"></i>
-                    </div>
-                </a>
+                <?php if ($dataUser['role'] != 'Admin') : ?>
+                    <a href="/keranjang">
+                        <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
+                            <i class="fas fa-shopping-cart text-white text-sm"></i>
+                        </div>
+                    </a>
+                    <a href="/transaksi">
+                        <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
+                            <i class="fas fa-shopping-bag text-white text-sm"></i>
+                        </div>
+                    </a>
+                    <a href="/notifikasi">
+                        <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
+                            <i class="fas fa-bell text-white text-sm"></i>
+                        </div>
+                    </a>
+                    <a href="/chat-penjual">
+                        <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">
+                            <i class="fas fa-comments text-white text-sm"></i>
+                        </div>
+                    </a>
+                <?php endif; ?>
             </div>
             <?php if (isset($_SESSION['user_id'])) : ?>
                 <div class="flex items-center gap-3 cursor-pointer group" id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="100" data-dropdown-trigger="hover">
@@ -44,9 +46,11 @@
                         <li>
                             <a href="/" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-home"></i> Beranda</a>
                         </li>
-                        <li>
-                            <a href="/profile" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-user"></i> Profile</a>
-                        </li>
+                        <?php if ($dataUser['role'] == 'User' || $dataUser['role'] == 'Seller') : ?>
+                            <li>
+                                <a href="/profile" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-user"></i> Profile</a>
+                            </li>
+                        <?php endif; ?>
                         <?php if ($dataUser['role'] == 'User') : ?>
                             <li>
                                 <a href="/menjadi_seller" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-coins"></i> Menjadi Seller</a>
@@ -55,6 +59,11 @@
                         <?php if ($dataUser['role'] == 'Seller') : ?>
                             <li>
                                 <a href="/toko_saya" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-store"></i> Toko Saya</a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($dataUser['role'] == 'Admin') : ?>
+                            <li>
+                                <a href="/admin/dashboard" class="block px-4 py-2 hover:bg-gray-100"><i class="fas fa-user-cog"></i> Dashboard</a>
                             </li>
                         <?php endif; ?>
                         <hr class="border">

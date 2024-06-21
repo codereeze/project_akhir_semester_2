@@ -1,6 +1,7 @@
 <section class="container mx-auto px-12 text-gray-600">
     <div class="pt-36">
         <div class="border rounded-md p-6 shadow-sm mb-7">
+            <h1 class="text-2xl mb-4 font-bold">Informasi Toko</h1>
             <div class="flex items-center gap-20">
                 <div class="rounded-md p-5 flex items-center gap-4 store-bg brightness-100 text-white self-center">
                     <img src="https://avatars.githubusercontent.com/u/159593076?v=4" width="80" alt="" srcset="" class="rounded-full border-4 border-slate-400">
