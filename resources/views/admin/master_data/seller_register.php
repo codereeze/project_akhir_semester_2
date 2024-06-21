@@ -1,8 +1,8 @@
 <div class="page-inner">
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
         <div>
-            <h3 class="fw-bold mb-3">Manajemen Transaksi</h3>
-            <h6 class="op-7 mb-2">Konten ini menampilkan daftar transaksi</h6>
+            <h3 class="fw-bold mb-3">Pendaftaran Seller</h3>
+            <h6 class="op-7 mb-2">Konten ini menampilkan daftar pendaftaran calon seller</h6>
         </div>
     </div>
     <div>
@@ -12,7 +12,7 @@
                     <div class="d-flex justify-content-end">
                         <div class="input-group mb-4 w-25">
                             <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Cari transaksi...">
+                            <input type="text" class="form-control" placeholder="Cari berkas...">
                         </div>
                     </div>
                     <table class="table">
@@ -34,8 +34,8 @@
                                 <td>0812988973666</td>
                                 <td>Jl. Tanuwijaya Kota Tasikmalaya, Jawa barat</td>
                                 <td>
-                                    <a href="/admin/detail-transaksi">
-                                        <button class="btn btn-primary">Cek</button>
+                                    <a href="/admin/lihat-berkas">
+                                        <button class="btn btn-primary">Cek berkas</button>
                                     </a>
                                 </td>
                             </tr>
@@ -46,8 +46,8 @@
                                 <td>0812988973666</td>
                                 <td>Jl. Tanuwijaya Kota Tasikmalaya, Jawa barat</td>
                                 <td>
-                                    <a href="/admin/detail-transaksi">
-                                        <button class="btn btn-primary">Cek</button>
+                                    <a href="/admin/lihat-berkas">
+                                        <button class="btn btn-primary">Cek berkas</button>
                                     </a>
                                 </td>
                             </tr>

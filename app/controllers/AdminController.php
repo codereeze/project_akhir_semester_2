@@ -69,6 +69,24 @@ class AdminController extends Controller
         ]);
     }
 
+    public function seller_register()
+    {
+        $this->author->onlyAdmin();
+
+        return $this->render('admin/master_data/seller_register', [
+            'title' => 'Pendaftaran Seller'
+        ]);
+    }
+
+    public function transaction_management()
+    {
+        $this->author->onlyAdmin();
+
+        return $this->render('admin/master_data/transaction', [
+            'title' => 'Manajemen Transaksi'
+        ]);
+    }
+
     public function profile()
     {
         $this->author->onlyAdmin();

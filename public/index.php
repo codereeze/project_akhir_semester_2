@@ -79,6 +79,8 @@ $app->route::get('/admin/master_data_seller', [AdminController::class, 'master_d
 $app->route::get('/admin/master_data_user', [AdminController::class, 'master_data_user']);
 $app->route::get('/admin/master_data_kategori', [AdminController::class, 'master_data_category']);
 $app->route::get('/admin/master_data_produk', [AdminController::class, 'master_data_product']);
+$app->route::get('/admin/pendaftaran-seller', [AdminController::class, 'seller_register']);
+$app->route::get('/admin/manajemen-transaksi', [AdminController::class, 'transaction_management']);
 $app->route::get('/admin/profile', [AdminController::class, 'profile']);
 $app->route::get('/admin/notifikasi', [AdminController::class, 'notification']);
 $app->route::get('/admin/buat_notifikasi', [AdminController::class, 'createNotification']);
