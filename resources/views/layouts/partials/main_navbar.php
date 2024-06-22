@@ -85,7 +85,7 @@
         </div>
         <div class="flex justify-between items-center text-black font-semibold text-sm">
             <div class="bg-white p-2 rounded-tr-md">
-                <?php if (isset($_SESSION['user_id'])) : ?>
+                <?php if (isset($_SESSION['user_id']) && $dataUser['role'] !== 'Admin') : ?>
                     <a href="/atur_alamat">
                         <i class="fas fa-map-marker-alt text-red-primary"></i>
                         <?= isset($dataUser['nama_penerima']) ? "Penerima: " . ($dataUser['nama_penerima']) : 'Atur alamat pengiriman' ?>

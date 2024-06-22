@@ -65,12 +65,13 @@ $app->route::post('/edit-alamat/{id}', [ProfileController::class, 'editAddressHa
 // Auth route
 $app->route::get('/login', [AuthController::class, 'login']);
 $app->route::get('/register', [AuthController::class, 'register']);
+$app->route::get('/lupa-password', [AuthController::class, 'forgot_password']);
 $app->route::get('/logout', [AuthController::class, 'logout']);
+$app->route::get('/google-callback', [AuthController::class, 'googleCallback']);
+$app->route::get('/facebook-callback', [AuthController::class, 'facebookCallback']);
 
 $app->route::post('/login', [AuthController::class, 'loginHandler']);
 $app->route::post('/register', [AuthController::class, 'registerHandler']);
-$app->route::get('/google-callback', [AuthController::class, 'googleCallback']);
-$app->route::get('/facebook-callback', [AuthController::class, 'facebookCallback']);
 
 
 // Admin route

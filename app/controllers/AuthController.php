@@ -48,6 +48,15 @@ class AuthController extends Controller
         ]);
     }
 
+    public function forgot_password()
+    {
+        $this->author->onlyGuest();
+
+        return $this->render('auth/forgot_password', [
+            'title' => 'Lupa Password'
+        ]);
+    }
+
     public function loginHandler(Request $request)
     {
         if ($request->getFormData()['google']) {
