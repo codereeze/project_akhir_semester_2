@@ -916,6 +916,18 @@ video {
   height: 100vh;
 }
 
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-56 {
+  height: 14rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }

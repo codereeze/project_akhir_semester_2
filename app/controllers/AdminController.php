@@ -123,7 +123,7 @@ class AdminController extends Controller
         $this->author->onlyAdmin();
 
         return $this->render('admin/profile', [
-            'title' => 'Profile Admin'
+            'title' => 'Profile Admin',
         ]);
     }
 
@@ -169,10 +169,11 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $user = new User();
         $id = $request->getRouteParams()['id'];
         return $this->render('admin/detail_master_data/detail_admin', [
             'title' => 'Detail Admin',
-            'data' => ''
+            'dataAdmin' => $user->find('id', $id)
         ]);
     }
 
@@ -180,10 +181,13 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $user = new User();
+        $store = new Store();
         $id = $request->getRouteParams()['id'];
         return $this->render('admin/detail_master_data/detail_seller', [
             'title' => 'Detail Seller',
-            'data' => ''
+            'dataSeller' => $user->find('id', $id),
+            'dataStore' => $store->find('seller_id', $id)
         ]);
     }
 
@@ -191,10 +195,11 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $user = new User();
         $id = $request->getRouteParams()['id'];
         return $this->render('admin/detail_master_data/detail_user', [
             'title' => 'Detail User',
-            'data' => ''
+            'dataUser' => $user->find('id', $id),
         ]);
     }
 }

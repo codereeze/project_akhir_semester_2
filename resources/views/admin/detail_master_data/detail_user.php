@@ -6,6 +6,39 @@
         </div>
     </div>
     <div>
-        
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-circle" style="width: 8rem;" alt="" id="preview-profile">
+                    <input type="file" name="foto_profile" accept=".png, .jpg, .jpeg" class="d-none" id="file-input">
+                    <div>
+                        <h2><?= $params['dataUser']['nama'] ?></h2>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-4">
+                        <h3>Biodata</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="" class="fw-bold mb-2">Nama lengkap</label>
+                                <input type="text" name="nama" id="" class="form-control mb-4" value="<?= $params['dataUser']['nama'] ?>" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="fw-bold mb-2">Username</label>
+                                <input type="text" name="username" id="" class="form-control mb-4" value="<?= $params['dataUser']['username'] ?>" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="fw-bold mb-2">Email</label>
+                                <input type="text" name="email" id="" class="form-control mb-4" value="<?= $params['dataUser']['email'] ?>" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="fw-bold mb-2">Gender</label>
+                                <input type="text" name="jk" id="" class="form-control mb-4" value="<?= $params['dataUser']['jk'] ?>" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
