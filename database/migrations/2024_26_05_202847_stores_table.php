@@ -24,7 +24,8 @@ class StoresTable extends Migration
             $attribute->varchar('kecamatan', 30, false);
             $attribute->varchar('kab_kot', 30, false);
             $attribute->varchar('provinsi', 30, false);
-            $attribute->char('kode_pos', 7, false);   
+            $attribute->char('kode_pos', 7, false);  
+            $attribute->enum('status', ['Aktif', 'Diblokir'], 'Aktif'); 
             
             // foreign key
             $attribute->foreign('seller_id', 'users', 'id');

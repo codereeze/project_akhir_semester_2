@@ -31,7 +31,7 @@
                                     <td><?= $item['size'] ?></td>
                                     <td><?= $item['pembayaran'] ?></td>
                                     <td><?= $item['total_harga'] ?></td>
-                                    <td><?= $item['status'] ?></td>
+                                    <td><?= $item['status_pengiriman'] ?></td>
                                     <td>
                                         <a href="/admin/detail-transaksi/<?= $item['primary_id'] ?>">
                                             <button class="btn btn-primary">Cek</button>

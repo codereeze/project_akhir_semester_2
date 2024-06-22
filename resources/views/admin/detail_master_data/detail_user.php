@@ -41,4 +41,29 @@
             </div>
         </div>
     </div>
+    <div>
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h3>Alamat pengiriman</h3>
+                    <?php foreach ($params['addresses'] as $item) : ?>
+                        <div class="rounded-md p-1">
+                            <p class="d-inline-flex">
+                            <h6 type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="px-4 fw-bold border p-3 rounded">
+                                Nama Penerima: <?= $item['nama_penerima'] ?>
+                                <div class="badge bg-<?= $item['status'] == 'Utama' ? 'primary' : 'danger' ?>"><?= $item['status'] ?></div>
+                            </h6>
+                            </p>
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body">
+                                    Alamat: <?= $item['nama_jalan'] ?>, <?= $item['rt_rw'] ?>, <?= $item['kelurahan'] ?>, <?= $item['kecamatan'] ?>, <?= $item['kab_kot'] ?>, <?= $item['provinsi'] ?>, <?= $item['kode_pos'] ?> <br>
+                                    No. telepon: <?= $item['telepon'] ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

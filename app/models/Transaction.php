@@ -13,6 +13,6 @@ class Transaction extends Model
 
     public function transaction($id, $status)
     {
-        return $this->joinForTransaction('id', 'status', $id, $status);
+        return $this->joinForTransaction('id', 'status_pengiriman', $id, $status);
     }
 }

@@ -25,7 +25,7 @@ class TransactionController extends Controller
             'antrian' => $transaction->transaction($_SESSION['user_id'], 'Dalam antrian'),
             'dikirim' => $transaction->transaction($_SESSION['user_id'], 'Dikirim'),
             'selesai' => $transaction->transaction($_SESSION['user_id'], 'Selesai'),
-            'diulas' => $transaction->transaction($_SESSION['user_id'], 'Ulasan'),
+            'diulas' => $transaction->transaction($_SESSION['user_id'], 'Sudah diulas'),
         ]);
     }
 

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Middleware\Authorization;
+use App\Models\Address;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\SellerRegistration;
@@ -159,9 +160,10 @@ class AdminController extends Controller
         $this->author->onlyAdmin();
 
         $id = $request->getRouteParams()['id'];
+        $register = new SellerRegistration();
         return $this->render('admin/detail_master_data/detail_register', [
             'title' => 'Detail Pendaftaran Calon Seller',
-            'data' => ''
+            'data' => $register->find('id', $id),
         ]);
     }
 
@@ -183,11 +185,13 @@ class AdminController extends Controller
 
         $user = new User();
         $store = new Store();
+        $address = new Address();
         $id = $request->getRouteParams()['id'];
         return $this->render('admin/detail_master_data/detail_seller', [
             'title' => 'Detail Seller',
             'dataSeller' => $user->find('id', $id),
-            'dataStore' => $store->find('seller_id', $id)
+            'dataStore' => $store->find('seller_id', $id),
+            'addresses' => $address->findAllById('user_id', $id)
         ]);
     }
 
@@ -196,10 +200,12 @@ class AdminController extends Controller
         $this->author->onlyAdmin();
 
         $user = new User();
+        $address = new Address();
         $id = $request->getRouteParams()['id'];
         return $this->render('admin/detail_master_data/detail_user', [
             'title' => 'Detail User',
             'dataUser' => $user->find('id', $id),
+            'addresses' => $address->findAllById('user_id', $id)
         ]);
     }
 }

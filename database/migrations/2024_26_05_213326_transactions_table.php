@@ -22,7 +22,7 @@ class TransactionsTable extends Migration
             $attribute->varchar('pengiriman', 30, false);
             $attribute->varchar('pembayaran', 20, false);
             $attribute->varchar('total_harga', 20, false);
-            $attribute->enum('status', ['Dalam antrian', 'Dikirim', 'Ulasan', 'Selesai'], 'Dalam antrian');
+            $attribute->enum('status_pengiriman', ['Dalam antrian', 'Dikirim', 'Selesai', 'Sudah diulas'], 'Dalam antrian');
 
             // foreign key
             $attribute->foreign('user_id', 'users', 'id');

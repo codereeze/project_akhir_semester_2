@@ -25,6 +25,7 @@ class ProductsTable extends Migration
             $attribute->varchar('harga', 20, false);
             $attribute->text('deskripsi', false);
             $attribute->text('cover', false);
+            $attribute->enum('status_produk', ['Tersedia', 'Tidak tersedia'], 'Tersedia');
 
             // foreign key
             $attribute->foreign('toko_id', 'stores', 'id');

@@ -828,6 +828,10 @@ video {
   margin-top: 1.75rem;
 }
 
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
 .block {
   display: block;
 }
@@ -914,18 +918,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-5 {
-  height: 1.25rem;
-}
-
-.h-56 {
-  height: 14rem;
-}
-
-.h-2 {
-  height: 0.5rem;
 }
 
 .w-10 {

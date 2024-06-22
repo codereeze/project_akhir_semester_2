@@ -19,6 +19,7 @@ class UsersTable extends Migration
             $attribute->text('password', true);
             $attribute->text('foto_profile', true);
             $attribute->enum('role', ['Admin', 'Seller', 'User'], 'User');
+            $attribute->enum('status_user', ['Aktif', 'Diblokir'], 'Aktif');
         });
     }
 
