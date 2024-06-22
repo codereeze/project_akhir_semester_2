@@ -25,7 +25,7 @@
                                     <td><?= $item['nama'] ?></td>
                                     <td><?= $item['email'] ?></td>
                                     <td>
-                                        <a href="">
+                                        <a href="/admin/detail-register/<?= $item['primary_id'] ?>">
                                             <button class="btn btn-primary">Cek berkas</button>
                                         </a>
                                     </td>

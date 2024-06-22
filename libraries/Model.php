@@ -177,7 +177,7 @@ abstract class Model
 
             $this->initialize();
 
-            $query = "SELECT * FROM {$this->table_name}";
+            $query = "SELECT *, {$this->table_name}.id AS primary_id  FROM {$this->table_name}";
 
             for ($i = 0; $i < count($destination_table); $i++) {
                 if ($condition && $column) {

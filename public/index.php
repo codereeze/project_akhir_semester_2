@@ -84,8 +84,13 @@ $app->route::get('/admin/pendaftaran-seller', [AdminController::class, 'seller_r
 $app->route::get('/admin/manajemen-transaksi', [AdminController::class, 'transaction_management']);
 $app->route::get('/admin/profile', [AdminController::class, 'profile']);
 $app->route::get('/admin/notifikasi', [AdminController::class, 'notification']);
-$app->route::get('/admin/buat_notifikasi', [AdminController::class, 'createNotification']);
-$app->route::get('/admin/kirim_email', [AdminController::class, 'sendEmail']);
+$app->route::get('/admin/buat_notifikasi', [AdminController::class, 'create_notification']);
+$app->route::get('/admin/kirim_email', [AdminController::class, 'send_email']);
+$app->route::get('/admin/detail-register/{id}', [AdminController::class, 'detail_register']);
+$app->route::get('/admin/detail-admin/{id}', [AdminController::class, 'detail_admin']);
+$app->route::get('/admin/detail-seller/{id}', [AdminController::class, 'detail_seller']);
+$app->route::get('/admin/detail-user/{id}', [AdminController::class, 'detail_user']);
+$app->route::get('/admin/detail-produk/{id}', [AdminController::class, 'detail_produk']);
 
 // Error route
 $app->route::get('/403', [ErrorController::class, 'forbidden']);

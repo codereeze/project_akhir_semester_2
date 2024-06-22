@@ -28,7 +28,7 @@
                                 <td><?= $item['jk'] ?></td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="">
+                                        <a href="/admin/detail-user/<?= $item['id'] ?>">
                                             <button class="btn btn-primary"><i class="fas fa-info"></i></button>
                                         </a>
                                         <a href="">

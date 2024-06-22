@@ -23,12 +23,9 @@
                                     <?php foreach ($params['categories'] as $item) : ?>
                                         <tr>
                                             <td><?= $item['nama_kategori'] ?></td>
-                                            <td>20</td>
+                                            <td><?= $params['countProduct']($item['id']) ?></td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="">
-                                                        <button class="btn btn-primary"><i class="fas fa-info"></i></button>
-                                                    </a>
                                                     <a href="">
                                                         <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
                                                     </a>

@@ -27,7 +27,7 @@
                                 <td><?= $item['email'] ?></td>
                                 <td><?= $item['jk'] ?></td>
                                 <td>
-                                    <a href="">
+                                    <a href="/admin/detail-admin/<?= $item['id'] ?>">
                                         <button class="btn btn-primary"><i class="fas fa-info"></i></button>
                                     </a>
                                 </td>

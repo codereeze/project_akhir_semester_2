@@ -30,7 +30,7 @@
                                     <td><?= $item['nama_toko'] ?></td>
                                     <td>
                                         <div class="d-flex gap-2">
-                                            <a href="">
+                                            <a href="/admin/detail-produk/<?= $item['primary_id'] ?>">
                                                 <button class="btn btn-primary"><i class="fas fa-info"></i></button>
                                             </a>
                                             <a href="">

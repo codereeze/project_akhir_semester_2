@@ -28,7 +28,7 @@
                                     <td><?= $item['email'] ?></td>
                                     <td>
                                         <div class="d-flex gap-2">
-                                            <a href="">
+                                            <a href="/admin/detail-seller/<?= $item['primary_id'] ?>">
                                                 <button class="btn btn-primary"><i class="fas fa-info"></i></button>
                                             </a>
                                             <a href="">

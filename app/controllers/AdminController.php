@@ -10,11 +10,12 @@ use App\Models\Store;
 use App\Models\Transaction;
 use App\Models\User;
 use Libraries\Controller;
+use Libraries\Request;
 
 class AdminController extends Controller
 {
     private Authorization $author;
-    
+
     public function __construct()
     {
         $this->layout = 'admin';
@@ -63,7 +64,7 @@ class AdminController extends Controller
     public function master_data_user()
     {
         $this->author->onlyAdmin();
-        
+
         $user = new User();
         return $this->render('admin/master_data/user', [
             'title' => 'Master Data User',
@@ -76,9 +77,11 @@ class AdminController extends Controller
         $this->author->onlyAdmin();
 
         $category = new Category();
+        $product = new Product();
         return $this->render('admin/master_data/category', [
             'title' => 'Master Data Kategori',
-            'categories' => $category->selectAll()
+            'categories' => $category->selectAll(),
+            'countProduct' => fn($id) => count($product->findAllById('kategori_id', $id))
         ]);
     }
 
@@ -133,7 +136,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function createNotification()
+    public function create_notification()
     {
         $this->author->onlyAdmin();
 
@@ -142,12 +145,56 @@ class AdminController extends Controller
         ]);
     }
 
-    public function sendEmail()
+    public function send_email()
     {
         $this->author->onlyAdmin();
 
         return $this->render('admin/send_email', [
             'title' => 'Kirim Email'
+        ]);
+    }
+
+    public function detail_register(Request $request)
+    {
+        $this->author->onlyAdmin();
+
+        $id = $request->getRouteParams()['id'];
+        return $this->render('admin/detail_master_data/detail_register', [
+            'title' => 'Detail Pendaftaran Calon Seller',
+            'data' => ''
+        ]);
+    }
+
+    public function detail_admin(Request $request)
+    {
+        $this->author->onlyAdmin();
+
+        $id = $request->getRouteParams()['id'];
+        return $this->render('admin/detail_master_data/detail_admin', [
+            'title' => 'Detail Admin',
+            'data' => ''
+        ]);
+    }
+
+    public function detail_seller(Request $request)
+    {
+        $this->author->onlyAdmin();
+
+        $id = $request->getRouteParams()['id'];
+        return $this->render('admin/detail_master_data/detail_seller', [
+            'title' => 'Detail Seller',
+            'data' => ''
+        ]);
+    }
+
+    public function detail_user(Request $request)
+    {
+        $this->author->onlyAdmin();
+
+        $id = $request->getRouteParams()['id'];
+        return $this->render('admin/detail_master_data/detail_user', [
+            'title' => 'Detail User',
+            'data' => ''
         ]);
     }
 }

@@ -33,7 +33,7 @@
                                     <td><?= $item['total_harga'] ?></td>
                                     <td><?= $item['status'] ?></td>
                                     <td>
-                                        <a href="/admin/detail-transaksi">
+                                        <a href="/admin/detail-transaksi/<?= $item['primary_id'] ?>">
                                             <button class="btn btn-primary">Cek</button>
                                         </a>
                                     </td>
