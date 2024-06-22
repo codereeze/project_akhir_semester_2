@@ -375,17 +375,15 @@ abstract class Model
 
             $query = "
                 SELECT 
-                    s.id AS toko_id, 
-                    s.*, 
                     n.id AS notif_id, 
                     n.*, 
                     u.*
                 FROM 
                     notifications n
                 LEFT JOIN 
-                    stores s ON n.store_id = s.id
+                    users s ON n.pengirim_id = s.id
                 LEFT JOIN 
-                    users u ON n.user_id = u.id
+                    users u ON n.penerima_id = u.id
                 WHERE 
                     n.{$column} = :condition;
             ";

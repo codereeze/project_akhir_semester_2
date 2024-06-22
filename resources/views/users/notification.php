@@ -6,15 +6,15 @@
                 <hr class="mb-3">
                 <?php if ($params['notification']) : ?>
                     <?php foreach ($params['notification'] as $item) : ?>
-                        <div class="border rounded-lg p-2">
+                        <div class="border rounded-lg p-2 mb-3">
                             <div class="flex items-center gap-4">
                                 <img src="https://avatars.githubusercontent.com/u/159593076?v=4" width="70" class="rounded-full" alt="" srcset="">
                                 <div>
-                                    <a href="/baca_notifikasi/<?= $item['notif_id'] ?>/<?= $item['toko_id'] ?>">
+                                    <a href="/baca_notifikasi/<?= $item['notif_id'] ?>">
                                         <h1 class="text-lg font-bold"><?= $item['judul'] ?></h1>
                                     </a>
                                     <p class="text-sm"><?= $item['pesan'] ?></p>
-                                    <p class="text-xs font-bold">From: <?= $item['nama_toko'] ?></p>
+                                    <p class="text-xs font-bold">From: <?= $params['checkSender']($item['pengirim_id']) ?></p>
                                 </div>
                             </div>
                         </div>
