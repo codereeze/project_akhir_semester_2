@@ -82,7 +82,7 @@ class AdminController extends Controller
         return $this->render('admin/master_data/category', [
             'title' => 'Master Data Kategori',
             'categories' => $category->selectAll(),
-            'countProduct' => fn($id) => count($product->findAllById('kategori_id', $id))
+            'countProduct' => fn ($id) => count($product->findAllById('kategori_id', $id))
         ]);
     }
 
@@ -218,15 +218,27 @@ class AdminController extends Controller
         return $this->render('admin/detail_master_data/detail_product', [
             'title' => 'Detail Produk',
             'dataProduct' => $product->leftJoinAll(['toko_id', 'kategori_id'], ['stores', 'categories'], 'id', (int)$id)[0],
-            'checkSize' => function($size, $isYes){
-                switch($isYes){
+            'checkSize' => function ($size, $isYes) {
+                switch ($isYes) {
                     case 'Yes':
                         echo "$size ";
-                    break;
+                        break;
                     default:
                         echo '';
                 }
             }
+        ]);
+    }
+
+    public function detail_transaction(Request $request)
+    {
+        $this->author->onlyAdmin();
+
+        $transaction = new Transaction();
+        $id = $request->getRouteParams()['id'];
+        return $this->render('admin/detail_master_data/detail_transaction', [
+            'title' => 'Detail Transaksi',
+            'transaction' => $transaction->leftJoinAll(['user_id', 'produk_id', 'alamat_id'], ['users', 'products', 'addresses'], 'id', $id)[0]
         ]);
     }
 }

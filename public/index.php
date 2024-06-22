@@ -91,6 +91,7 @@ $app->route::get('/admin/detail-admin/{id}', [AdminController::class, 'detail_ad
 $app->route::get('/admin/detail-seller/{id}', [AdminController::class, 'detail_seller']);
 $app->route::get('/admin/detail-user/{id}', [AdminController::class, 'detail_user']);
 $app->route::get('/admin/detail-produk/{id}', [AdminController::class, 'detail_product']);
+$app->route::get('/admin/detail-transaksi/{id}', [AdminController::class, 'detail_transaction']);
 
 // Error route
 $app->route::get('/403', [ErrorController::class, 'forbidden']);
