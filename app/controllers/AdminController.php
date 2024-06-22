@@ -141,8 +141,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $user = new User();
         return $this->render('admin/create_notification', [
-            'title' => 'Buat Notifikasi'
+            'title' => 'Buat Notifikasi',
+            'receivers' => $user->findAllWhereAnd('role', ['User', 'Seller'])
         ]);
     }
 
@@ -150,8 +152,10 @@ class AdminController extends Controller
     {
         $this->author->onlyAdmin();
 
+        $user = new User();
         return $this->render('admin/send_email', [
-            'title' => 'Kirim Email'
+            'title' => 'Kirim Email',
+            'receivers' => $user->findAllWhereAnd('role', ['User', 'Seller'])
         ]);
     }
 

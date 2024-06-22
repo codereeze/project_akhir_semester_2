@@ -113,6 +113,22 @@ abstract class Model
         }
     }
 
+    public function findAllWhereAnd($column, $condition)
+    {
+        try {
+            $this->initialize();
+            $stmt = $this->db->prepare("SELECT * FROM users WHERE $column IN (:condition1, :condition2)");
+            $stmt->bindValue(':condition1', $condition[0]);
+            $stmt->bindValue(':condition2', $condition[1]);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
     public function find($column, $id, $column2 = '', $condition = '')
     {
         $sql = '';

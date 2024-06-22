@@ -13,8 +13,11 @@
             </div>
             <div class="col-md-6">
                 <label for="" class="fw-bold mb-2">Nama penerima</label>
-                <select name="user_id" class="form-select mb-2" required>
+                <select name="penerima_id" class="form-select mb-2" required>
                     <option selected>-- Pilih penerima --</option>
+                    <?php foreach ($params['receivers'] as $item) : ?>
+                        <option value="<?= $item['id'] ?>"><?= $item['nama'] ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <div class="col-md-12">
