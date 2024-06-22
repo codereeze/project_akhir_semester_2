@@ -177,20 +177,22 @@ abstract class Model
 
             $this->initialize();
 
-            $query = "SELECT *, {$this->table_name}.id AS primary_id  FROM {$this->table_name}";
+            $query = "SELECT *, {$this->table_name}.id AS primary_id FROM {$this->table_name}";
 
             for ($i = 0; $i < count($destination_table); $i++) {
-                if ($condition && $column) {
-                    $query .= " LEFT JOIN {$destination_table[$i]} ON {$destination_table[$i]}.id = {$this->table_name}.{$foreign_key[$i]} WHERE $column = :condition";
-                } else {
-                    $query .= " LEFT JOIN {$destination_table[$i]} ON {$destination_table[$i]}.id = {$this->table_name}.{$foreign_key[$i]}";
-                }
+                $query .= " LEFT JOIN {$destination_table[$i]} ON {$destination_table[$i]}.id = {$this->table_name}.{$foreign_key[$i]}";
+            }
+
+            if ($column && $condition) {
+                $query .= " WHERE {$this->table_name}.{$column} = :condition";
             }
 
             $stmt = $this->db->prepare($query);
-            if ($condition && $column) {
+
+            if ($column && $condition) {
                 $stmt->bindValue(':condition', $condition);
             }
+
             $stmt->execute();
 
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -200,6 +202,7 @@ abstract class Model
             echo "Maaf, error: " . $e->getMessage();
         }
     }
+
 
 
     public function joinWhere($destination_table, string $primary_key, string $foreign_key, string $column, $condition)

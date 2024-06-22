@@ -80,10 +80,10 @@
                         <p>Produk</p>
                     </a>
                 </li>
-                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/manajemen-transaksi' ? 'active' : '' ?>">
-                    <a href="/admin/manajemen-transaksi">
+                <li class="nav-item <?= $_SERVER['REQUEST_URI'] == '/admin/transaksi' ? 'active' : '' ?>">
+                    <a href="/admin/transaksi">
                     <i class="fas fa-money-bill-wave"></i>
-                        <p>Manajemen Transaksi</p>
+                        <p>Transaksi</p>
                     </a>
                 </li>
                 <li class="nav-section">

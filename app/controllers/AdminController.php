@@ -208,4 +208,25 @@ class AdminController extends Controller
             'addresses' => $address->findAllById('user_id', $id)
         ]);
     }
+
+    public function detail_product(Request $request)
+    {
+        $this->author->onlyAdmin();
+
+        $product = new Product();
+        $id = $request->getRouteParams()['id'];
+        return $this->render('admin/detail_master_data/detail_product', [
+            'title' => 'Detail Produk',
+            'dataProduct' => $product->leftJoinAll(['toko_id', 'kategori_id'], ['stores', 'categories'], 'id', (int)$id)[0],
+            'checkSize' => function($size, $isYes){
+                switch($isYes){
+                    case 'Yes':
+                        echo "$size ";
+                    break;
+                    default:
+                        echo '';
+                }
+            }
+        ]);
+    }
 }
