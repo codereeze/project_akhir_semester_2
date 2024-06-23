@@ -7,7 +7,7 @@
             <div class="border shadow-sm rounded-md p-4 mb-5">
                 <p class="font-bold mb-2 text-lg">Profile toko</p>
                 <div class="flex gap-4 items-center mb-1">
-                    <img src="https://assets.skilvul.com/users/cltqq5evn03jr01s4f3gdwlfz-1711958320000.jpg" width="90" alt="" class="rounded-full">
+                    <img src="https://avatars.githubusercontent.com/u/159593076?v=4" width="90" alt="" class="rounded-full">
                     <button class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2 font-bold"><i class="fas fa-upload"></i> Upload
                         foto</button>
                     <button class="border border-red-primary text-red-primary hover:bg-red-primary hover:text-white duration-300 rounded-md text-sm p-2 font-bold">Hapus
