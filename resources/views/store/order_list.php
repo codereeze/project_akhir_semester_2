@@ -20,14 +20,15 @@
                                 </div>
                             </div>
                         </div>
-                        <form class="flex gap-2">
-                            <select id="countries" class="bg-gray-50 self-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <form class="flex gap-2" method="post">
+                            <input type="hidden" name="trans_id" value="<?= $item['id'] ?>">
+                            <select name="status_pengiriman" class="bg-gray-50 self-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 <option value="<?= $item['status_pengiriman'] ?>" selected><?= $item['status_pengiriman'] ?></option>
                                 <option value="Dalam antrian">Dalam antrian</option>
                                 <option value="Dikirim">Dikirim</option>
                                 <option value="Selesai">Selesai</option>
                             </select>
-                            <button class="border-red-primary border p-2 rounded-md font-semibold text-sm text-red-primary hover:bg-red-500 duration-300 hover:text-white self-center w-full"></i> Ubah status</button>
+                            <button type="submit" class="border-red-primary border p-2 rounded-md font-semibold text-sm text-red-primary hover:bg-red-500 duration-300 hover:text-white self-center w-full"></i> Ubah status</button>
                         </form>
                     </div>
                 <?php endforeach; ?>

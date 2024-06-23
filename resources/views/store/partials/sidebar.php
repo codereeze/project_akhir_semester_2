@@ -12,7 +12,7 @@
             <div class="text-center">
                 <img src="https://avatars.githubusercontent.com/u/159593076?v=4" width="115" class="rounded-full" alt="" srcset="">
                 <div class="bg-red-primary py-1 px-1.5 w-auto text-white font-semibold text-center text-xs rounded-full -mt-4 absolute flex items-center gap-1 mx-9">
-                    <i class="fas fa-user"></i>200
+                    <i class="fas fa-user"></i><?= $params['followers'] ?>
                 </div>
             </div>
         </div>

@@ -8,47 +8,47 @@
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <p class="font-semibold mb-1">Nama produk</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['product']['nama_produk'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Harga per-pcs</p>
-                        <input type="number" class="p-2 rounded-md border w-full font-medium" disabled>
+                        <input type="number" class="p-2 rounded-md border w-full font-medium" value="<?= $params['product']['harga'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Nama Brand/Merk</p>
-                        <input type="text" class="p-2 rounded-md border w-full font-medium" disabled>
+                        <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['product']['merk'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Kategori</p>
                         <select class="p-2 rounded-md border w-full font-medium" disabled>
-                            <option selected>-- Pilih kategori --</option>
+                            <option value="<?= $params['category']['nama_kategori'] ?>" selected><?= $params['category']['nama_kategori'] ?></option>
                         </select>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Stock</p>
-                        <input type="number" class="p-2 rounded-md border w-full font-medium" disabled>
+                        <input type="number" class="p-2 rounded-md border w-full font-medium" value="<?= $params['product']['stock'] ?>" disabled>
                     </div>
                     <div>
                         <p class="font-semibold mb-1">Size Tersedia</p>
                         <div class="flex items-center gap-5">
                             <div class="flex items-center mb-4 h-10">
-                                <input id="default-checkbox1" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" disabled>
+                                <input id="default-checkbox1" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" <?= $params['product']['size_s'] == 'Yes' ? 'checked' : '' ?> disabled>
                                 <label for="default-checkbox1" class="ms-2 text-sm font-medium text-gray-900">S</label>
                             </div>
                             <div class="flex items-center mb-4 h-10">
-                                <input id="default-checkbox2" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" disabled>
+                                <input id="default-checkbox2" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" <?= $params['product']['size_m'] == 'Yes' ? 'checked' : '' ?> disabled>
                                 <label for="default-checkbox2" class="ms-2 text-sm font-medium text-gray-900">M</label>
                             </div>
                             <div class="flex items-center mb-4 h-10">
-                                <input id="default-checkbox3" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" disabled>
+                                <input id="default-checkbox3" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" <?= $params['product']['size_l'] == 'Yes' ? 'checked' : '' ?> disabled>
                                 <label for="default-checkbox3" class="ms-2 text-sm font-medium text-gray-900">L</label>
                             </div>
                             <div class="flex items-center mb-4 h-10">
-                                <input id="default-checkbox4" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" disabled>
+                                <input id="default-checkbox4" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" <?= $params['product']['size_xl'] == 'Yes' ? 'checked' : '' ?> disabled>
                                 <label for="default-checkbox4" class="ms-2 text-sm font-medium text-gray-900">XL</label>
                             </div>
                             <div class="flex items-center mb-4 h-10">
-                                <input id="default-checkbox5" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" disabled>
+                                <input id="default-checkbox5" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" <?= $params['product']['size_xxl'] == 'Yes' ? 'checked' : '' ?> disabled>
                                 <label for="default-checkbox5" class="ms-2 text-sm font-medium text-gray-900">XXL</label>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="mb-5">
                     <p class="font-semibold mb-1">Deskripsi Produk</p>
-                    <textarea rows="5" class="p-2 rounded-md border w-full font-medium block" disabled></textarea>
+                    <textarea rows="5" class="p-2 rounded-md border w-full font-medium block" disabled><?= $params['product']['deskripsi'] ?></textarea>
                 </div>
             </div>
             <div class="p-4 rounded-md shadow-md">
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="text-end">
-                    <a href="/edit_product">
+                    <a href="/edit_produk/<?= $params['product']['id'] ?>">
                         <button type="button" class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300">Edit Produk</button>
                     </a>
                 </div>

@@ -16,7 +16,8 @@ class TransactionsTable extends Migration
             $attribute->integer('produk_id');
             $attribute->integer('toko_id');
             $attribute->integer('alamat_id');
-            $attribute->char('size', 3, false);
+            $attribute->char('no_pesanan', 30, false);
+            $attribute->char('size', 3, false, true);
             $attribute->char('qty', 2, false);
             $attribute->varchar('estimasi', 30, false);
             $attribute->text('catatan_kurir', false);

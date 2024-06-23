@@ -16,6 +16,7 @@ class StoresTable extends Migration
             $attribute->varchar('nama_toko', 50, false);
             $attribute->varchar('jam_buka', 5, false);
             $attribute->varchar('jam_tutup', 5, false);
+            $attribute->char('telepon', 15, false);
             $attribute->varchar('tahun_bergabung', 4, false);
             $attribute->text('deskripsi', false);
             $attribute->text('nama_jalan', false);

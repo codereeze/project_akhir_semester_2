@@ -4,50 +4,63 @@
         <div class="px-4 sm:ml-64">
             <h1 class="font-bold text-2xl">Edit Produk Toko</h1>
             <span class="text-sm font-medium mb-7 block">Periksa kembali secara berkala untuk menghindari kesalahan input</span>
-            <div class="mb-5">
-                <form action="">
+            <form action="" method="post">
+                <div class="mb-5">
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <p class="font-semibold mb-1">Nama produk</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="">
+                            <input type="text" name="nama_produk" class="p-2 rounded-md border w-full font-medium" value="<?= $params['product']['nama_produk'] ?>">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Harga per-pcs</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="">
+                            <input type="text" name="harga" class="p-2 rounded-md border w-full font-medium" value="<?= $params['product']['harga'] ?>">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Nama Brand/Merk</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="">
+                            <input type="text" name="merk" class="p-2 rounded-md border w-full font-medium" value="<?= $params['product']['merk'] ?>">
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Kategori</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="">
+                            <select class="p-2 rounded-md border w-full font-medium" name="kategori_id">
+                                <option value="<?= $params['category']['id'] ?>" selected><?= $params['category']['nama_kategori'] ?></option>
+                                <?php foreach ($params['categories'] as $item) : ?>
+                                    <option value="<?= $item['id'] ?>"><?= $item['nama_kategori'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Stock</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="">
+                            <input type="text" name="stock" class="p-2 rounded-md border w-full font-medium" value="<?= $params['product']['stock'] ?>">
+                        </div>
+                        <div>
+                            <p class="font-semibold mb-1">Status produk</p>
+                            <select class="p-2 rounded-md border w-full font-medium" name="status_produk">
+                                <option value="<?= $params['product']['status_produk'] ?>" selected><?= $params['product']['status_produk'] ?></option>
+                                <option value="Tersedia">Tersedia</option>
+                                <option value="Tidak tersedia">Tidak tersedia</option>
+                            </select>
                         </div>
                         <div>
                             <p class="font-semibold mb-1">Size Tersedia</p>
                             <div class="flex items-center gap-5">
                                 <div class="flex items-center mb-4 h-10">
-                                    <input id="default-checkbox1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer">
+                                    <input id="default-checkbox1" type="checkbox" name="size_s" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer" <?= $params['product']['size_s'] == 'Yes' ? 'checked' : '' ?>>
                                     <label for="default-checkbox1" class="ms-2 text-sm font-medium text-gray-900">S</label>
                                 </div>
                                 <div class="flex items-center mb-4 h-10">
-                                    <input id="default-checkbox2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer">
+                                    <input id="default-checkbox2" type="checkbox" name="size_m" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer" <?= $params['product']['size_m'] == 'Yes' ? 'checked' : '' ?>>
                                     <label for="default-checkbox2" class="ms-2 text-sm font-medium text-gray-900">M</label>
                                 </div>
                                 <div class="flex items-center mb-4 h-10">
-                                    <input id="default-checkbox3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer">
+                                    <input id="default-checkbox3" type="checkbox" name="size_l" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer" <?= $params['product']['size_l'] == 'Yes' ? 'checked' : '' ?>>
                                     <label for="default-checkbox3" class="ms-2 text-sm font-medium text-gray-900">L</label>
                                 </div>
                                 <div class="flex items-center mb-4 h-10">
-                                    <input id="default-checkbox4" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer">
+                                    <input id="default-checkbox4" type="checkbox" name="size_xl" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer" <?= $params['product']['size_xl'] == 'Yes' ? 'checked' : '' ?>>
                                     <label for="default-checkbox4" class="ms-2 text-sm font-medium text-gray-900">XL</label>
                                 </div>
                                 <div class="flex items-center mb-4 h-10">
-                                    <input id="default-checkbox5" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer">
+                                    <input id="default-checkbox5" type="checkbox" name="size_xxl" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer" <?= $params['product']['size_xxl'] == 'Yes' ? 'checked' : '' ?>>
                                     <label for="default-checkbox5" class="ms-2 text-sm font-medium text-gray-900">XXL</label>
                                 </div>
                             </div>
@@ -55,13 +68,14 @@
                     </div>
                     <div class="mb-5">
                         <p class="font-semibold mb-1">Deskripsi Produk</p>
-                        <textarea rows="5" name="" id="" class="p-2 rounded-md border w-full font-medium block"></textarea>
+                        <textarea rows="5" name="deskripsi" id="" class="p-2 rounded-md border w-full font-medium block"><?= $params['product']['deskripsi'] ?></textarea>
                     </div>
+                    <input type="hidden" name="toko_id" value="<?= $params['store']['id'] ?>" id="">
                     <div class="text-end">
-                        <button class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300">Simpan perubahan</button>
+                        <button type="submit" class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300">Simpan perubahan</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
             <div>
                 <h2 class="text-xl font-bold">Gambar Produk</h2>
                 <span class="text-sm font-medium mb-7 block">Pastikan Anda mengupload gambar produk yang sesuai dengan produk yang dijual</span>

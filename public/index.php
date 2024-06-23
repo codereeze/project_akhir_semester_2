@@ -37,7 +37,7 @@ $app->route::get('/manajemen_produk', [StoreController::class, 'management_produ
 $app->route::get('/edit_produk/{id}', [StoreController::class, 'edit_product']);
 $app->route::get('/edit_toko', [StoreController::class, 'edit_store']);
 $app->route::get('/tambah_produk', [StoreController::class, 'add_product']);
-$app->route::get('/detail_produk', [StoreController::class, 'detail_product']);
+$app->route::get('/detail-produk/{id}', [StoreController::class, 'detail_product']);
 $app->route::get('/daftar-pesanan', [StoreController::class, 'order_list']);
 $app->route::get('/menjadi_seller', [SiteController::class, 'register_seller']);
 $app->route::get('/toko/{id}', [SiteController::class, 'store']);
@@ -63,6 +63,10 @@ $app->route::post('/produk/{id}', [ProductController::class, 'postHandler']);
 $app->route::post('/menjadi_seller', [SiteController::class, 'register_seller']);
 $app->route::post('/keranjang', [CartController::class, 'deleteHandler']);
 $app->route::post('/edit-alamat/{id}', [ProfileController::class, 'editAddressHandler']);
+$app->route::post('/daftar-pesanan', [StoreController::class, 'orderListHandler']);
+$app->route::post('/edit_produk/{id}', [StoreController::class, 'editProductHandler']);
+
+
 
 
 // Auth route
