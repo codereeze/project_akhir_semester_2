@@ -1858,8 +1858,8 @@ video {
 }
 
 .container-envelope {
-  margin:0 auto;
-  background-image: repeating-linear-gradient(135deg, #F29B91 0px, #F09290 30px,  transparent 10px, transparent 50px, #83B3DB 50px, #84ADCB 80px, transparent     80px, transparent 100px);
+  margin: 0 auto;
+  background-image: repeating-linear-gradient(135deg, #F29B91 0px, #F09290 30px, transparent 10px, transparent 50px, #83B3DB 50px, #84ADCB 80px, transparent 80px, transparent 100px);
   padding: 4px;
 }
 
@@ -1867,6 +1867,18 @@ video {
   background: white;
   width: 100%;
   height: 100%;
+}
+
+.printable {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.print-button {
+  width: 600px;
 }
 
 .placeholder\:text-black::-moz-placeholder {

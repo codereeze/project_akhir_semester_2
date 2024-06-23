@@ -3,19 +3,31 @@
 @tailwind utilities;
 
 .store-bg {
-    background-image: url('https://img.freepik.com/free-vector/gradient-abstract-hexagon-shapes-background_23-2149120168.jpg?t=st=1718884828~exp=1718888428~hmac=d015153552d184fe6809ed37bb3db268157ec5742d789caf51fda7ae9d8a12a0&w=826');
-    background-size: cover;
-    position: bottom;
+  background-image: url('https://img.freepik.com/free-vector/gradient-abstract-hexagon-shapes-background_23-2149120168.jpg?t=st=1718884828~exp=1718888428~hmac=d015153552d184fe6809ed37bb3db268157ec5742d789caf51fda7ae9d8a12a0&w=826');
+  background-size: cover;
+  position: bottom;
 }
 
 .container-envelope {
-    margin:0 auto;
-    background-image: repeating-linear-gradient(135deg, #F29B91 0px, #F09290 30px,  transparent 10px, transparent 50px, #83B3DB 50px, #84ADCB 80px, transparent     80px, transparent 100px);
-    padding: 4px;
-  }
-  
-  .container-envelope .inner-envelope {
-    background: white;
-    width: 100%;
-    height: 100%;
-  }
+  margin: 0 auto;
+  background-image: repeating-linear-gradient(135deg, #F29B91 0px, #F09290 30px, transparent 10px, transparent 50px, #83B3DB 50px, #84ADCB 80px, transparent 80px, transparent 100px);
+  padding: 4px;
+}
+
+.container-envelope .inner-envelope {
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+
+.printable {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.print-button {
+  width: 600px;
+}
