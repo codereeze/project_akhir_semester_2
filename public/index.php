@@ -13,6 +13,7 @@ use App\Controllers\ProfileController;
 use App\Controllers\SiteController;
 use App\Controllers\StoreController;
 use App\Controllers\TransactionController;
+use App\Models\Store;
 use Libraries\Application;
 
 require_once '../vendor/autoload.php';
@@ -49,6 +50,7 @@ $app->route::get('/kontak-kami', [CompanyController::class, 'contact']);
 $app->route::get('/tentang-kami', [CompanyController::class, 'about']);
 $app->route::get('/berita-artikel', [CompanyController::class, 'news']);
 $app->route::get('/pembayaran-sukses', [PaymentController::class, 'payment_success']);
+$app->route::get('/cetak-resi/{id}', [StoreController::class, 'print_resi']);
 
 // User & Seller route (post)
 $app->route::post('/profile', [ProfileController::class, 'profileUpdateHandler']);

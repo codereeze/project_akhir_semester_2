@@ -22,10 +22,6 @@
                             <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['nama_toko'] ?>" name="nama_toko">
                         </div>
                         <div>
-                            <p class="font-semibold mb-1">Copywriting</p>
-                            <input type="text" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['copywriting'] ?>" name="copywriting">
-                        </div>
-                        <div>
                             <p class="font-semibold mb-1">Jam buka</p>
                             <input type="time" class="p-2 rounded-md border w-full font-medium" value="<?= $params['store']['jam_buka'] ?>" name="jam_buka">
                         </div>

@@ -10,6 +10,7 @@ use App\Models\Transaction;
 use Libraries\Controller;
 use Libraries\Request;
 use Libraries\Response;
+use Picqer\Barcode\BarcodeGeneratorHTML;
 
 class StoreController extends Controller
 {
@@ -114,12 +115,25 @@ class StoreController extends Controller
         return $this->render('store/order_list', [
             'title' => 'List Pemesanan',
             'transactions' => $transaction->findAllWhereIn('status_pengiriman', ['Dalam antrian', 'Dikirim'], 'toko_id', $store['id']),
-            'product_name' => function($id) {
+            'product_name' => function ($id) {
                 $product = new Product();
                 return $product->find('id', $id)['nama_produk'];
             },
             'store' => $store,
             'footer' => 'disable'
+        ]);
+    }
+
+    public function print_resi()
+    {
+        $this->author->onlySeller();
+
+        return $this->render('store/print_resi', [
+            'title' => 'Cetak Resi',
+            'barcode' => function ($number, $widthFactor, $height) {
+                $generatorHTML = new BarcodeGeneratorHTML();
+                return $generatorHTML->getBarcode("$number", $generatorHTML::TYPE_CODE_128, $widthFactor, $height);
+            }
         ]);
     }
 

@@ -10,7 +10,7 @@
                         <div class="flex gap-3">
                             <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" width="100" class="rounded-lg">
                             <div class="max-w-lg">
-                                <a href="/detail_produk">
+                                <a href="/cetak-resi/<?= $item['id'] ?>">
                                     <h2 class="text-lg font-bold leading-6 mb-2 max-w-md"><?= $params['product_name']($item['produk_id']) ?></h2>
                                 </a>
                                 <div class="text-xs font-medium">
@@ -25,6 +25,7 @@
                                 <option value="<?= $item['status_pengiriman'] ?>" selected><?= $item['status_pengiriman'] ?></option>
                                 <option value="Dalam antrian">Dalam antrian</option>
                                 <option value="Dikirim">Dikirim</option>
+                                <option value="Selesai">Selesai</option>
                             </select>
                             <button class="border-red-primary border p-2 rounded-md font-semibold text-sm text-red-primary hover:bg-red-500 duration-300 hover:text-white self-center w-full"></i> Ubah status</button>
                         </form>
