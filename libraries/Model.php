@@ -113,21 +113,58 @@ abstract class Model
         }
     }
 
-    public function findAllWhereAnd($column, $condition)
-    {
-        try {
-            $this->initialize();
-            $stmt = $this->db->prepare("SELECT * FROM users WHERE $column IN (:condition1, :condition2)");
-            $stmt->bindValue(':condition1', $condition[0]);
-            $stmt->bindValue(':condition2', $condition[1]);
-            $stmt->execute();
+    public function findAllWhereIn($column, array $condition, $another_column = null, $another_condition = null)
+{
+    try {
+        // Inisialisasi database
+        $this->initialize();
 
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            return $result;
-        } catch (\Exception $e) {
-            echo "Maaf error: " . $e->getMessage();
+        // Buat parameter bernama untuk klausa IN secara dinamis
+        $placeholders = [];
+        foreach ($condition as $index => $value) {
+            $placeholders[] = ":condition" . $index;
         }
+        $placeholders_string = implode(',', $placeholders);
+
+        // Buat query dasar
+        $query = "SELECT * FROM " . $this->table_name . " WHERE $column IN ($placeholders_string)";
+
+        // Tambahkan klausa tambahan jika another_column tidak null
+        if ($another_column !== null) {
+            $query .= " AND $another_column = :another_condition";
+        }
+
+        // Siapkan statement
+        $stmt = $this->db->prepare($query);
+
+        // Bind parameter secara dinamis untuk klausa IN
+        foreach ($condition as $index => $value) {
+            $stmt->bindValue(":condition" . $index, $value);
+        }
+
+        // Bind parameter untuk another_column jika ada
+        if ($another_column !== null) {
+            $stmt->bindValue(':another_condition', $another_condition);
+        }
+
+        // Eksekusi query
+        $stmt->execute();
+
+        // Ambil hasil
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        if (!$result) {
+            echo "No results found.<br>";
+        }
+
+        return $result;
+    } catch (\PDOException $e) {
+        echo "Maaf, terjadi kesalahan pada database: " . $e->getMessage();
+    } catch (\Exception $e) {
+        echo "Maaf, terjadi kesalahan: " . $e->getMessage();
     }
+}
+
 
     public function find($column, $id, $column2 = '', $condition = '')
     {

@@ -6,6 +6,7 @@ use App\Middleware\Authorization;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Store;
+use App\Models\Transaction;
 use Libraries\Controller;
 use Libraries\Request;
 use Libraries\Response;
@@ -97,6 +98,27 @@ class StoreController extends Controller
         return $this->render('store/detail_product', [
             'title' => 'Tambah Produk',
             'store' => $store->find('seller_id', $_SESSION['user_id']),
+            'footer' => 'disable'
+        ]);
+    }
+
+    public function order_list()
+    {
+        $this->author->onlySeller();
+
+        $store = new Store();
+        $transaction = new Transaction();
+        $store = $store->find('seller_id', $_SESSION['user_id']);
+
+
+        return $this->render('store/order_list', [
+            'title' => 'List Pemesanan',
+            'transactions' => $transaction->findAllWhereIn('status_pengiriman', ['Dalam antrian', 'Dikirim'], 'toko_id', $store['id']),
+            'product_name' => function($id) {
+                $product = new Product();
+                return $product->find('id', $id)['nama_produk'];
+            },
+            'store' => $store,
             'footer' => 'disable'
         ]);
     }

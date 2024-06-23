@@ -1,0 +1,36 @@
+<section class="container mx-auto pl-16 text-gray-600 mb-14">
+    <div class="pt-36">
+        <?php include_once 'partials/sidebar.php' ?>
+        <div class="px-4 sm:ml-64">
+            <h1 class="font-bold text-2xl">Daftar Pemesanan</h1>
+            <span class="text-sm font-medium mb-7 block">Daftar pesanan yang masuk, semua pesanan yang belum selesai ada di menu ini</span>
+            <div class="shadow-md p-4">
+                <?php foreach ($params['transactions'] as $item) : ?>
+                    <div class="flex justify-between items-center mb-5">
+                        <div class="flex gap-3">
+                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" width="100" class="rounded-lg">
+                            <div class="max-w-lg">
+                                <a href="/detail_produk">
+                                    <h2 class="text-lg font-bold leading-6 mb-2 max-w-md"><?= $params['product_name']($item['produk_id']) ?></h2>
+                                </a>
+                                <div class="text-xs font-medium">
+                                    <p>Ukuran: <?= $item['size'] ?></p>
+                                    <p>Qty: <?= $item['qty'] ?></p>
+                                    <p>Harga total: Rp<?= $item['total_harga'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="flex gap-2">
+                            <select id="countries" class="bg-gray-50 self-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option value="<?= $item['status_pengiriman'] ?>" selected><?= $item['status_pengiriman'] ?></option>
+                                <option value="Dalam antrian">Dalam antrian</option>
+                                <option value="Dikirim">Dikirim</option>
+                            </select>
+                            <button class="border-red-primary border p-2 rounded-md font-semibold text-sm text-red-primary hover:bg-red-500 duration-300 hover:text-white self-center w-full"></i> Ubah status</button>
+                        </form>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>

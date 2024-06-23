@@ -14,6 +14,7 @@ class TransactionsTable extends Migration
             $attribute->id();
             $attribute->integer('user_id');
             $attribute->integer('produk_id');
+            $attribute->integer('toko_id');
             $attribute->integer('alamat_id');
             $attribute->char('size', 3, false);
             $attribute->char('qty', 2, false);
@@ -28,6 +29,7 @@ class TransactionsTable extends Migration
             $attribute->foreign('user_id', 'users', 'id');
             $attribute->foreign('produk_id', 'products', 'id');
             $attribute->foreign('alamat_id', 'addresses', 'id');
+            $attribute->foreign('toko_id', 'stores', 'id');
         });
     }
 
