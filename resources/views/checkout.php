@@ -52,21 +52,19 @@
                             <img src="https://i.pinimg.com/originals/2b/1f/11/2b1f11dec29fe28b5137b46fffa0b25f.png" alt="" width="50">
                             <div class="flex items-center">
                                 <p class="text-sm font-semibold mr-40">Pembayaran elektronik <br><span class="text-base">DANA</span></p>
-                                <span class="text-red-primary font-bold text-sm cursor-pointer">Ganti</span>
                             </div>
                         </div>
                     </div>
                     <div class="w-full rounded-xl border p-4 mb-5">
                         <h2 class="text-xl font-bold mb-1"><i class="fas fa-truck text-red-primary"></i> Jasa Ekspedisi
                         </h2>
-                        <p class="mb-2 text-sm font-semibold text-red-primary">Pilih kecepatan pengiriman paket
+                        <p class="mb-2 text-sm font-semibold text-red-primary">Pilih jasa pengiriman paket
                         </p>
                         <hr class="mb-4">
                         <div class="flex items-center gap-4">
-                            <img src="https://www.static-src.com/siva/coreasset/04_2023/1681788768456/standard-09-2023.svg?w=48" alt="" width="45">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/New_Logo_JNE.png" alt="" width="45">
                             <div class="flex items-center">
-                                <p class="text-base font-bold mr-36">Express <br><span class="text-sm font-semibold">Estimasi tiba 24 - 25 Mei</span></p>
-                                <span class="text-red-primary font-bold text-sm cursor-pointer">Ganti</span>
+                                <p class="text-base font-bold mr-36">JNE <br><span class="text-sm font-semibold">Estimasi tiba 24 - 25 Mei</span></p>
                             </div>
                         </div>
                     </div>
