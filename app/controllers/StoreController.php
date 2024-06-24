@@ -9,7 +9,9 @@ use App\Models\Follower;
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\Transaction;
+use App\Models\User;
 use Libraries\Controller;
+use Libraries\FileManagement;
 use Libraries\Request;
 use Libraries\Response;
 use Picqer\Barcode\BarcodeGeneratorHTML;
@@ -230,8 +232,31 @@ class StoreController extends Controller
                 'nama_toko' => htmlspecialchars(trim($request['nama_toko'])),
                 'jam_buka' => htmlspecialchars(trim($request['jam_buka'])),
                 'jam_tutup' => htmlspecialchars(trim($request['jam_tutup'])),
+                'telepon' => htmlspecialchars(trim($request['telepon'])),
                 'deskripsi' => htmlspecialchars(trim($request['deskripsi'])),
             ];
+
+            $uploadDir = '/img/profile_toko/';
+            $fileManager = new FileManagement(['jpg', 'jpeg', 'png']);
+            $currentSeller = $store->find('seller_id', $_SESSION['user_id']);
+
+            try {
+                if (!empty($_FILES['foto_toko']['name'])) {
+                    if (!empty($currentSeller['foto_toko'])) {
+                        $oldProfilePicture = $_SERVER['DOCUMENT_ROOT'] . $currentSeller['foto_toko'];
+                        if (file_exists($oldProfilePicture)) {
+                            unlink("$oldProfilePicture");
+                        }
+                    }
+
+                    $uniqueFileName = $fileManager->handleFileUpload('foto_toko', $uploadDir);
+                    $sanitized['foto_toko'] = $uploadDir . $uniqueFileName;
+                }
+            } catch (\Exception $e) {
+                echo 'File Upload Error: ' . $e->getMessage();
+                return;
+            }
+
             $store->update($sanitized, $_SESSION['user_id'], 'seller_id');
             Response::redirect('/edit_toko')->withSuccess("Toko Anda berhasil di perbarui");
         } elseif ($request['data_2']) {

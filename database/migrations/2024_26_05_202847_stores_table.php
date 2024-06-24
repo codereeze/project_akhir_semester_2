@@ -19,6 +19,7 @@ class StoresTable extends Migration
             $attribute->char('telepon', 15, false);
             $attribute->varchar('tahun_bergabung', 4, false);
             $attribute->text('deskripsi', false);
+            $attribute->text('foto_toko');
             $attribute->text('nama_jalan', false);
             $attribute->varchar('rt_rw', 10, false);
             $attribute->varchar('kelurahan', 30, false);
