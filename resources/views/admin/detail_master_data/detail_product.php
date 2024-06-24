@@ -63,7 +63,7 @@
                             <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" width="200" alt="" srcset="" class="rounded">
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <!-- <div class="col-md-8">
                         <h6>Gambar carousel produk</h6>
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
@@ -73,7 +73,7 @@
                             </div>
                             <button class="btn btn-sm btn-danger">-</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

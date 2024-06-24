@@ -31,7 +31,7 @@
                 <div class="flex justify-between items-start text-sm font-medium mb-3 gap-2">
                     <div class="">
                         <p><span class="font-bold">Berat:</span> 500g</p>
-                        <p><span class="font-bold">Harga satuan:</span> Rp.<?= $params['resi']['harga_satuan'] ?> | x<?= $params['resi']['qty'] ?></p>
+                        <p><span class="font-bold">Harga satuan:</span> Rp.<?= $params['product']['harga'] ?> | x<?= $params['resi']['qty'] ?></p>
                         <p><span class="font-bold">Biaya pengriman:</span> Rp.<?= $params['resi']['ongkir'] ?></p>
                         <p><span class="font-bold">Harga total:</span> Rp.<?= $params['resi']['total_harga'] ?></p>
                         <p><span class="font-bold">Pembayaran:</span> <?= $params['resi']['pembayaran'] ?></p>

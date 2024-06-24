@@ -87,7 +87,7 @@
                             <button class="border-red-primary border p-2 text-sm rounded-md font-semibold text-red-primary hover:bg-red-500 hover:text-white duration-300">Upload Cover</button>
                         </div>
                     </div>
-                    <div class="w-full">
+                    <!-- <div class="w-full">
                         <p class="font-bold mb-4">Gambar Pendukung</p>
                         <div class="text-end mb-5">
                             <button class="border-red-primary border p-2 text-sm rounded-md font-semibold text-red-primary hover:bg-red-500 hover:text-white duration-300">Upload Gambar</button>
@@ -108,7 +108,7 @@
                                 <button class="bg-red-primary px-2 py-1 self-center text-xs rounded-md font-semibold text-white hover:bg-red-500 duration-300"><i class="fas fa-minus"></i></button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="text-end">
                     <button class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300">Simpan perubahan</button>
