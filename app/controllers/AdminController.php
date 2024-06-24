@@ -12,6 +12,7 @@ use App\Models\Store;
 use App\Models\Transaction;
 use App\Models\User;
 use Libraries\Controller;
+use Libraries\MailModel;
 use Libraries\Request;
 use Libraries\Response;
 
@@ -280,5 +281,22 @@ class AdminController extends Controller
         $notification->delete('id', $notif_id);
 
         Response::redirect('/admin/buat_notifikasi')->withSuccess("Berhasil menghapus notifikasi");
+    }
+
+    public function sendEmailHandler(Request $request)
+    {
+        $request = $request->getFormData();
+        $model = new MailModel();
+        $admin = new User();
+        $admin_name = $admin->find('id', $_SESSION['user_id'])['nama'];
+
+        $sanitized = [
+            'judul' => htmlspecialchars(trim($request['judul'])),
+            'email' => htmlspecialchars(trim($request['email'])),
+            'pesan' => htmlspecialchars(trim($request['pesan']))
+        ];
+
+        $model->sendMail($sanitized['email'], $sanitized['judul'], $sanitized['pesan'], $admin_name);
+        Response::redirect('/admin/kirim_email')->withSuccess("Berhasil mengirimkan email kepada {$sanitized['email']}");
     }
 }

@@ -102,6 +102,7 @@ $app->route::get('/admin/detail-transaksi/{id}', [AdminController::class, 'detai
 
 // Admin route (post)
 $app->route::post('/admin/buat_notifikasi', [AdminController::class, 'createNotifHandler']);
+$app->route::post('/admin/kirim_email', [AdminController::class, 'sendEmailHandler']);
 
 
 // Error route

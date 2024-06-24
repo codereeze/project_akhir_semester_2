@@ -16,7 +16,7 @@
                 <select name="email" class="form-select mb-2" required>
                     <option selected>-- Pilih penerima --</option>
                     <?php foreach ($params['receivers'] as $item) : ?>
-                        <option value="<?= $item['email'] ?>"><?= $item['email'] ?></option>
+                        <option value="<?= $item['email'] ?>"><?= $item['email'] ?> - <?= $item['role'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
