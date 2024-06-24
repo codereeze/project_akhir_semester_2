@@ -44,10 +44,31 @@ class ProductController extends Controller
             'productTransaction' => count($product->findAllById('id', $id)),
             'productComment' => count($comment->findAllById('produk_id', $id)),
             'followers' => count($follower->findAllById('toko_id', $store_id)),
-            'profile' => function($id){
+            'profile' => function ($id) {
                 $user = new User();
                 return $user->find('id', $id)['foto_profile'];
-            }
+            },
+            'countRating' => function ($id) {
+                $comment = new Comment();
+                $ratings = [];
+
+                $comments = $comment->findAllById('produk_id', $id);
+
+                if (empty($comments)) {
+                    return 0;
+                }
+
+                foreach ($comments as $item) {
+                    array_push($ratings, (int)$item['rating']);
+                }
+
+                if (count($ratings) > 0) {
+                    $result = array_sum($ratings) / count($ratings);
+                    return round($result, 1);
+                } else {
+                    return 0;
+                }
+            },
         ]);
     }
 
@@ -56,7 +77,7 @@ class ProductController extends Controller
         $request = $request->getFormData();
         $follower = new Follower();
 
-        if($request['form'] === 'follow'){
+        if ($request['form'] === 'follow') {
             $sanitized = [
                 'toko_id' => htmlspecialchars(trim((int)$request['toko_id'])),
                 'user_id' => $_SESSION['user_id']
@@ -64,7 +85,7 @@ class ProductController extends Controller
 
             $follower->insert($sanitized);
             Response::redirect("/produk/{$request['produk_id']}");
-        }else if($request['form'] === 'unfollow'){
+        } else if ($request['form'] === 'unfollow') {
             $follower->delete('user_id', $_SESSION['user_id']);
             Response::redirect("/produk/{$request['produk_id']}");
         }

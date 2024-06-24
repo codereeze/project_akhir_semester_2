@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Middleware\Authorization;
 use App\Models\Address;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Follower;
 use App\Models\Product;
 use App\Models\Store;
@@ -32,6 +33,8 @@ class StoreController extends Controller
         $store = new Store();
         $product = new Product();
         $followers = new Follower();
+        $category = new Category();
+        $transaction = new Transaction();
         $store = $store->find('seller_id', $_SESSION['user_id']);
 
         return $this->render('store/home', [
@@ -39,6 +42,29 @@ class StoreController extends Controller
             'store' => $store,
             'followers' => count($followers->findAllById('toko_id', $store['id'])),
             'products' => $product->findAllById('toko_id', $store['id']),
+            'categoryName' => fn ($id) => $category->find('id', $id)['nama_kategori'],
+            'countTransaction' => fn ($id) => count($transaction->findAllById('produk_id', $id)),
+            'countRating' => function ($id) {
+                $comment = new Comment();
+                $ratings = [];
+
+                $comments = $comment->findAllById('produk_id', $id);
+
+                if (empty($comments)) {
+                    return 0;
+                }
+
+                foreach ($comments as $item) {
+                    array_push($ratings, (int)$item['rating']);
+                }
+
+                if (count($ratings) > 0) {
+                    $result = array_sum($ratings) / count($ratings);
+                    return round($result, 1);
+                } else {
+                    return 0;
+                }
+            },
             'footer' => 'disable'
         ]);
     }

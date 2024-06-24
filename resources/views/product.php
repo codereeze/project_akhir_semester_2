@@ -7,7 +7,7 @@
             <div class="self-start max-w-2xl w-full">
                 <div class="w-full self-start">
                     <h1 class="text-xl font-bold mb-1"><?= $params['product']['nama_produk'] ?></h1>
-                    <p class="text-sm font-semibold"><i class="fas fa-star text-yellow-300"></i> 5.0 Rating | Terjual <?= $params['productTransaction'] ?> | <?= $params['productComment'] ?> Ulasan</p>
+                    <p class="text-sm font-semibold"><i class="fas fa-star text-yellow-300"></i> <?= $params['countRating']($params['product']['id']) ?> Rating | Terjual <?= $params['productTransaction'] ?> | <?= $params['productComment'] ?> Ulasan</p>
                     <p class="text-2xl font-bold text-red-primary mb-3">Rp.<?= $params['product']['harga'] ?></p>
                     <p class="text-sm font-semibold mb-2">Ukuran tersedia</p>
                     <div class="text-sm font-semibold flex flex-wrap gap-3 mb-3">
@@ -143,23 +143,24 @@
                                 <div>
                                     <p class="font-bold text-sm"><?= $item['username'] ?></p>
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                        <svg class="w-4 h-4 <?= $item['rating'] >= 1 ? 'text-yellow-300' : 'text-gray-300' ?>" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                             <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                         </svg>
-                                        <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                        <svg class="w-4 h-4 <?= $item['rating'] >= 2 ? 'text-yellow-300' : 'text-gray-300' ?> ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                             <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                         </svg>
-                                        <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                        <svg class="w-4 h-4 <?= $item['rating'] >= 3 ? 'text-yellow-300' : 'text-gray-300' ?> ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                             <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                         </svg>
-                                        <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                        <svg class="w-4 h-4 <?= $item['rating'] >= 4 ? 'text-yellow-300' : 'text-gray-300' ?> ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                             <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                         </svg>
-                                        <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                        <svg class="w-4 h-4 ms-1 <?= $item['rating'] == 5 ? 'text-yellow-300' : 'text-gray-300' ?>" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                             <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                         </svg>
                                     </div>
                                 </div>
+                                <span class="text-xs font-semibold"><?= $item['tanggal'] ?></span>
                             </div>
                             <div class="font-medium flex items-start gap-5 mt-4">
                                 <?php if ($item['gambar']) : ?>

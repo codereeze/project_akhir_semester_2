@@ -11,9 +11,9 @@
                             <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
                             <p class="text-sm font-semibold"><?= $item['nama_produk'] ?></p>
                             <p class="text-lg font-bold text-red-primary">Rp<?= $item['harga'] ?></p>
-                            <p class="text-xs font-medium">Kategori: Anak-anak
+                            <p class="text-xs font-medium">Kategori: <?= $params['categoryName']($item['kategori_id']) ?>
                             </p>
-                            <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> 5.0 | Terjual 300
+                            <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> <?= $params['countRating']($item['id']) ?> | Terjual <?= $params['countTransaction']($item['id']) ?>
                             </p>
                         </a>
                     </div>
