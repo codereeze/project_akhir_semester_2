@@ -67,8 +67,6 @@ $app->route::post('/daftar-pesanan', [StoreController::class, 'orderListHandler'
 $app->route::post('/edit_produk/{id}', [StoreController::class, 'editProductHandler']);
 
 
-
-
 // Auth route
 $app->route::get('/login', [AuthController::class, 'login']);
 $app->route::get('/register', [AuthController::class, 'register']);
@@ -100,6 +98,11 @@ $app->route::get('/admin/detail-seller/{id}', [AdminController::class, 'detail_s
 $app->route::get('/admin/detail-user/{id}', [AdminController::class, 'detail_user']);
 $app->route::get('/admin/detail-produk/{id}', [AdminController::class, 'detail_product']);
 $app->route::get('/admin/detail-transaksi/{id}', [AdminController::class, 'detail_transaction']);
+
+
+// Admin route (post)
+$app->route::post('/admin/buat_notifikasi', [AdminController::class, 'createNotifHandler']);
+
 
 // Error route
 $app->route::get('/403', [ErrorController::class, 'forbidden']);

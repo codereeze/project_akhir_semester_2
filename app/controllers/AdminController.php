@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Middleware\Authorization;
 use App\Models\Address;
 use App\Models\Category;
+use App\Models\Notification;
 use App\Models\Product;
 use App\Models\SellerRegistration;
 use App\Models\Store;
@@ -12,6 +13,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use Libraries\Controller;
 use Libraries\Request;
+use Libraries\Response;
 
 class AdminController extends Controller
 {
@@ -142,9 +144,11 @@ class AdminController extends Controller
         $this->author->onlyAdmin();
 
         $user = new User();
+        $notification = new Notification();
         return $this->render('admin/create_notification', [
             'title' => 'Buat Notifikasi',
-            'receivers' => $user->findAllWhereIn('role', ['User', 'Seller'])
+            'receivers' => $user->findAllWhereIn('role', ['User', 'Seller']),
+            'notifications' => $notification->leftJoinAll(['penerima_id'], ['users'], 'pengirim_id', $_SESSION['user_id'])
         ]);
     }
 
@@ -244,5 +248,37 @@ class AdminController extends Controller
             'title' => 'Detail Transaksi',
             'transaction' => $transaction->leftJoinAll(['user_id', 'produk_id', 'alamat_id'], ['users', 'products', 'addresses'], 'id', $id)[0]
         ]);
+    }
+
+    public function createNotifHandler(Request $request)
+    {
+        $request = $request->getFormData();
+
+        if ($request['postRequest'] == 'insert') {
+            $notification = new Notification();
+            $user = new User();
+
+            $sanitized = [
+                'judul' => htmlspecialchars(trim($request['judul'])),
+                'pengirim_id' => $_SESSION['user_id'],
+                'penerima_id' => htmlspecialchars(trim($request['penerima_id'])),
+                'pesan' => htmlspecialchars(trim($request['pesan']))
+            ];
+
+            $userName = $user->find('id', $sanitized['penerima_id'])['nama'];
+
+            $notification->insert($sanitized);
+            Response::redirect('/admin/buat_notifikasi')->withSuccess("Berhasil mengirimkan notifikasi kepada $userName");
+        } elseif ($request['postRequest'] == 'delete') {
+            $this->deleteNotifHandler($request['notif_id']);
+        }
+    }
+
+    public function deleteNotifHandler($notif_id)
+    {
+        $notification = new Notification();
+        $notification->delete('id', $notif_id);
+
+        Response::redirect('/admin/buat_notifikasi')->withSuccess("Berhasil menghapus notifikasi");
     }
 }

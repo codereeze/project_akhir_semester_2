@@ -116,41 +116,32 @@ abstract class Model
     public function findAllWhereIn($column, array $condition, $another_column = null, $another_condition = null)
 {
     try {
-        // Inisialisasi database
         $this->initialize();
 
-        // Buat parameter bernama untuk klausa IN secara dinamis
         $placeholders = [];
         foreach ($condition as $index => $value) {
             $placeholders[] = ":condition" . $index;
         }
         $placeholders_string = implode(',', $placeholders);
 
-        // Buat query dasar
         $query = "SELECT * FROM " . $this->table_name . " WHERE $column IN ($placeholders_string)";
 
-        // Tambahkan klausa tambahan jika another_column tidak null
         if ($another_column !== null) {
             $query .= " AND $another_column = :another_condition";
         }
 
-        // Siapkan statement
         $stmt = $this->db->prepare($query);
 
-        // Bind parameter secara dinamis untuk klausa IN
         foreach ($condition as $index => $value) {
             $stmt->bindValue(":condition" . $index, $value);
         }
 
-        // Bind parameter untuk another_column jika ada
         if ($another_column !== null) {
             $stmt->bindValue(':another_condition', $another_condition);
         }
 
-        // Eksekusi query
         $stmt->execute();
 
-        // Ambil hasil
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
         if (!$result) {
@@ -250,7 +241,7 @@ abstract class Model
 
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-            return !empty($result) ? $result : null;
+            return !empty($result) ? $result : [];
         } catch (\Exception $e) {
             echo "Maaf, error: " . $e->getMessage();
         }
@@ -322,7 +313,7 @@ abstract class Model
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             if (empty($result)) {
-                return null;
+                return [];
             }
 
             if (count($result) === 0) {
@@ -368,7 +359,7 @@ abstract class Model
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             if (empty($result)) {
-                return null;
+                return [];
             }
 
             if (count($result) === 0) {
@@ -408,7 +399,7 @@ abstract class Model
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             if (empty($result)) {
-                return null;
+                return [];
             }
 
             if (count($result) === 0) {
@@ -448,7 +439,7 @@ abstract class Model
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             if (empty($result)) {
-                return null;
+                return [];
             }
 
             if (count($result) === 0) {
