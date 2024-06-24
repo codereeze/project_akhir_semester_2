@@ -139,7 +139,7 @@
                     <?php foreach ($params['comments'] as $item) : ?>
                         <div class="border border-gray-400 rounded-xl p-5 shadow-sm mb-5">
                             <div class="flex items-center gap-3 mb-2">
-                                <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full" width="40" alt="" srcset="">
+                                <img src="<?= $params['profile']($item['user_id']) ? $params['profile']($item['user_id']) : '/img/unknown_profile.jpg' ?>" class="rounded-full" width="40" alt="" srcset="">
                                 <div>
                                     <p class="font-bold text-sm"><?= $item['username'] ?></p>
                                     <div class="flex items-center">
@@ -163,7 +163,7 @@
                             </div>
                             <div class="font-medium flex items-start gap-5 mt-4">
                                 <?php if ($item['gambar']) : ?>
-                                    <img src="https://www.static-src.com/product-review/full/2024/03/1711422775086-190887636.jpeg" width="50" alt="" srcset="">
+                                    <img src="<?= $item['gambar'] ?>" width="50" alt="" srcset="">
                                 <?php endif; ?>
                                 <p><?= $item['komentar'] ?></p>
                             </div>

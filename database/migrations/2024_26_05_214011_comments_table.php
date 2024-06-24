@@ -14,12 +14,15 @@ class CommentsTable extends Migration
             $attribute->id();
             $attribute->integer('user_id');
             $attribute->integer('produk_id');
+            $attribute->integer('trans_id');
             $attribute->text('gambar');
+            $attribute->char('rating', 2, false);
             $attribute->text('komentar', false);
             $attribute->varchar('tanggal', 20, false);
 
             // foreign key
             $attribute->foreign('user_id', 'users', 'id');
+            $attribute->foreign('trans_id', 'transactions', 'id');
             $attribute->foreign('produk_id', 'products', 'id');
         });
     }

@@ -19,7 +19,7 @@
                                 <p>Ukuran : <?= $item['size'] ?></p>
                                 <p>Jumlah : <?= $item['qty'] ?></p>
                                 <p class="font-semibold">Pengiriman <?= $item['pengiriman'] ?> - Estimasi tiba <?= $item['estimasi'] ?></p>
-                                <h1 class="text-lg font-bold text-red-primary">Rp.300.000</h1>
+                                <h1 class="text-lg font-bold text-red-primary">Rp.<?= $item['total_harga'] ?></h1>
                                 <p class="font-bold">by <?= $item['nama_toko'] ?></p>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
         <div id="slide-display2" class="hidden">
             <?php if ($params['dikirim']) : ?>
                 <?php foreach ($params['dikirim'] as $item) : ?>
-                    <a href="" class="inline-block">
+                    <a href="/detail-transaksi/<?= $item['trans_id'] ?>" class="inline-block">
                         <div class="flex items-center max-w-full w-full mb-4">
                             <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md" width="130" alt="">
                             <div class="text-xs ml-5 mr-16 self-center">
@@ -43,7 +43,7 @@
                                 <p>Ukuran : <?= $item['size'] ?></p>
                                 <p>Jumlah : <?= $item['qty'] ?></p>
                                 <p class="font-semibold">Pengiriman <?= $item['pengiriman'] ?> - Estimasi tiba <?= $item['estimasi'] ?></p>
-                                <h1 class="text-lg font-bold text-red-primary">Rp.300.000</h1>
+                                <h1 class="text-lg font-bold text-red-primary">Rp.<?= $item['total_harga'] ?></h1>
                                 <p class="font-bold">by <?= $item['nama_toko'] ?></p>
                             </div>
                         </div>
@@ -70,27 +70,30 @@
                                     <p>Ukuran : <?= $item['size'] ?></p>
                                     <p>Jumlah : <?= $item['qty'] ?></p>
                                 </div>
-                                <h1 class="text-lg font-bold text-red-primary">Rp.300.000</h1>
+                                <h1 class="text-lg font-bold text-red-primary">Rp.<?= $item['total_harga'] ?></h1>
                                 <p class="font-bold">by <?= $item['nama_toko'] ?></p>
                             </div>
                         </div>
                         <p class="text-lg font-semibold">Berikan ulasan produk</p>
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="rate">
-                                <input type="radio" id="star5" name="rating" value="5" />
+                                <input type="radio" id="star5" name="rating" value="5" required />
                                 <label for="star5" title="5">5 stars</label>
-                                <input type="radio" id="star4" name="rating" value="4" />
+                                <input type="radio" id="star4" name="rating" value="4" required />
                                 <label for="star4" title="4">4 stars</label>
-                                <input type="radio" id="star3" name="rating" value="3" />
+                                <input type="radio" id="star3" name="rating" value="3" required />
                                 <label for="star3" title="3">3 stars</label>
-                                <input type="radio" id="star2" name="rating" value="2" />
+                                <input type="radio" id="star2" name="rating" value="2" required />
                                 <label for="star2" title="2">2 stars</label>
-                                <input type="radio" id="star1" name="rating" value="1" />
+                                <input type="radio" id="star1" name="rating" value="1" required />
                                 <label for="star1" title="1">1 star</label>
                             </div>
-                            <textarea id="message" name="komentar" rows="3" class="block p-2.5 max-w-xl w-full text-sm bg-gray-50 rounded-lg border focus:ring-red-500 focus:border-red-500 outline-none" placeholder="Tulis komentar disini..."></textarea>
+                            <textarea id="message" name="komentar" rows="3" class="block p-2.5 max-w-xl w-full text-sm bg-gray-50 rounded-lg border focus:ring-red-500 focus:border-red-500 outline-none" placeholder="Tulis komentar disini..." required></textarea>
                             <p class="text-lg font-semibold my-4">Upload foto produk (opsional)</p>
-                            <input class="block p-2 w-full mb-2 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="default_size" type="file">
+                            <input class="block p-2 w-full mb-2 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" name="gambar" id="default_size" type="file" accept=".png, .jpg, .jpeg">
+                            <input type="hidden" name="status_pengiriman" value="Sudah diulas" id="">
+                            <input type="hidden" name="trans_id" value="<?= $item['trans_id'] ?>" id="">
+                            <input type="hidden" name="produk_id" value="<?= $item['produk_id'] ?>" id="">
                             <div class="flex justify-end">
                                 <button type="submit" class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-3 font-bold mt-2">Berikan komentar</button>
                             </div>
@@ -118,7 +121,7 @@
                                     <p>Ukuran : <?= $item['size'] ?></p>
                                     <p>Jumlah : <?= $item['qty'] ?></p>
                                 </div>
-                                <h1 class="text-lg font-bold text-red-primary">Rp.300.000</h1>
+                                <h1 class="text-lg font-bold text-red-primary">Rp.<?= $item['total_harga'] ?></h1>
                                 <p class="font-bold">by <?= $item['nama_toko'] ?></p>
                             </div>
                         </div>
@@ -126,22 +129,22 @@
                         <p class="text-lg font-semibold">Ulasan Anda</p>
                         <div class="flex items-center gap-6 w-full">
                             <div>
-                                <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" width="100" alt="">
+                                <img src="<?= $params['ulasan']($item['trans_id'])['gambar'] ?>" width="100" alt="tidak ada gambar" class="rounded-md">
                             </div>
                             <div class="w-full">
                                 <div class="rated">
-                                    <input type="radio" id="star5" disabled />
+                                    <input type="radio" id="star5" <?= $params['ulasan']($item['trans_id'])['rating'] == '5' ? 'checked' : '' ?> disabled />
                                     <label for="star5" title="5">5 stars</label>
-                                    <input type="radio" id="star4" disabled />
+                                    <input type="radio" id="star4" <?= $params['ulasan']($item['trans_id'])['rating'] == '4' ? 'checked' : '' ?> disabled />
                                     <label for="star4" title="4">4 stars</label>
-                                    <input type="radio" id="star3" disabled />
+                                    <input type="radio" id="star3" <?= $params['ulasan']($item['trans_id'])['rating'] == '3' ? 'checked' : '' ?> disabled />
                                     <label for="star3" title="3">3 stars</label>
-                                    <input type="radio" id="star2" disabled />
+                                    <input type="radio" id="star2" <?= $params['ulasan']($item['trans_id'])['rating'] == '2' ? 'checked' : '' ?> disabled />
                                     <label for="star2" title="2">2 stars</label>
-                                    <input type="radio" id="star1" checked disabled />
+                                    <input type="radio" id="star1" <?= $params['ulasan']($item['trans_id'])['rating'] == '1' ? 'checked' : '' ?> disabled />
                                     <label for="star1" title="1">1 star</label>
                                 </div>
-                                <textarea id="message" rows="3" class="block p-2.5 max-w-xl w-full text-sm bg-gray-50 rounded-lg border focus:ring-red-500 focus:border-red-500 outline-none" disabled></textarea>
+                                <textarea id="message" rows="3" class="block p-2.5 max-w-xl w-full text-sm bg-gray-50 rounded-lg border focus:ring-red-500 focus:border-red-500 outline-none" disabled><?= $params['ulasan']($item['trans_id'])['komentar'] ?></textarea>
                             </div>
                         </div>
                     </div>

@@ -39,7 +39,7 @@
             <?php if (isset($_SESSION['user_id'])) : ?>
                 <div class="flex items-center gap-3 cursor-pointer group" id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="100" data-dropdown-trigger="hover">
                     <span class="font-semibold group-hover:text-red-200 duration-200"><?= $dataUser['username'] ?></span>
-                    <img src="https://avatars.githubusercontent.com/u/159593076?v=4" class="rounded-full p-0.5 border-2 border-white" width="45" alt="" srcset="">
+                    <img src="<?= $dataUser['foto_profile'] ? $dataUser['foto_profile'] : '/img/unknown_profile.jpg' ?>" class="rounded-full p-0.5 border-2 border-white" width="45" alt="" srcset="">
                 </div>
                 <div id="dropdownDelay" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 font-semibold">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDelayButton">

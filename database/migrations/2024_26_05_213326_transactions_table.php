@@ -19,6 +19,9 @@ class TransactionsTable extends Migration
             $attribute->char('no_pesanan', 30, false);
             $attribute->char('size', 3, false, true);
             $attribute->char('qty', 2, false);
+            $attribute->varchar('subtotal_produk', 20, false);
+            $attribute->varchar('ongkir', 20, false);
+            $attribute->varchar('biaya_admin', 20, false);
             $attribute->varchar('estimasi', 30, false);
             $attribute->text('catatan_kurir', false);
             $attribute->varchar('pengiriman', 30, false);

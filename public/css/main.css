@@ -600,6 +600,17 @@ video {
   border-width: 0;
 }
 
+.\!not-sr-only {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
 .collapse {
   visibility: collapse;
 }

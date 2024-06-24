@@ -39,7 +39,21 @@ class AdminController extends Controller
             'admins' => count($user->findAllWhere('role', 'Admin')),
             'sellers' => count($user->findAllWhere('role', 'Seller')),
             'categories' => count($category->selectAll()),
-            'transactions' => $transaction->leftJoinAll(['user_id', 'produk_id'], ['users', 'products'])
+            'transactions' => $transaction->leftJoinAll(['user_id', 'produk_id'], ['users', 'products']),
+            'sayHelloAdmin' => function () {
+                date_default_timezone_set('Asia/Jakarta'); // Atur zona waktu sesuai lokasi Anda
+                $jam = date("H");
+
+                if ($jam >= 0 && $jam < 12) {
+                    return "Selamat Pagi Admin, semoga harimu menyenangkan";
+                } elseif ($jam >= 12 && $jam < 15) {
+                    return "Selamat Siang Admin, semoga harimu menyenangkan";
+                } elseif ($jam >= 15 && $jam < 18) {
+                    return "Selamat Sore Admin, semoga harimu menyenangkan";
+                } else {
+                    return "Selamat Malam Admin, semoga harimu menyenangkan";
+                }
+            }
         ]);
     }
 

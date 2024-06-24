@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Follower;
 use App\Models\Product;
 use App\Models\Store;
+use App\Models\User;
 use Libraries\Controller;
 use Libraries\Request;
 use Libraries\Response;
@@ -42,7 +43,11 @@ class ProductController extends Controller
             'isFollow' => $follower->find('user_id', $_SESSION['user_id']),
             'productTransaction' => count($product->findAllById('id', $id)),
             'productComment' => count($comment->findAllById('produk_id', $id)),
-            'followers' => count($follower->findAllById('toko_id', $store_id))
+            'followers' => count($follower->findAllById('toko_id', $store_id)),
+            'profile' => function($id){
+                $user = new User();
+                return $user->find('id', $id)['foto_profile'];
+            }
         ]);
     }
 

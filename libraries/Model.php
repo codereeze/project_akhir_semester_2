@@ -269,7 +269,7 @@ abstract class Model
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             if (empty($result)) {
-                return null;
+                return [];
             }
 
             if (count($result) === 0) {
@@ -335,6 +335,7 @@ abstract class Model
             SELECT 
                 transactions.id AS trans_id, 
                 transactions.*, 
+                products.id AS produk_id, 
                 products.*, 
                 users.*, 
                 stores.*

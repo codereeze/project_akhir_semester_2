@@ -65,6 +65,7 @@ $app->route::post('/keranjang', [CartController::class, 'deleteHandler']);
 $app->route::post('/edit-alamat/{id}', [ProfileController::class, 'editAddressHandler']);
 $app->route::post('/daftar-pesanan', [StoreController::class, 'orderListHandler']);
 $app->route::post('/edit_produk/{id}', [StoreController::class, 'editProductHandler']);
+$app->route::post('/transaksi', [TransactionController::class, 'commentProductHandler']);
 
 
 // Auth route

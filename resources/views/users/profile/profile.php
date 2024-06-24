@@ -21,7 +21,7 @@
                     <hr class="mb-3">
                     <p class="font-semibold mb-2">Foto profile</p>
                     <div class="flex gap-4 items-center mb-1">
-                        <img src="<?= $dataUser['foto_profile'] ? $dataUser['foto_profile'] : 'https://assets.skilvul.com/users/cltqq5evn03jr01s4f3gdwlfz-1711958320000.jpg' ?>" width="90" id="preview-profile" class="rounded-full">
+                        <img src="<?= $dataUser['foto_profile'] ? $dataUser['foto_profile'] : '/img/unknown_profile.jpg' ?>" width="90" id="preview-profile" class="rounded-full">
                         <input type="file" name="foto_profile" accept=".png, .jpg, .jpeg" class="hidden" id="file-input">
                         <button type="button" id="trigger-input-file" class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2 font-bold"><i class="fas fa-upload"></i> Upload
                             foto</button>
