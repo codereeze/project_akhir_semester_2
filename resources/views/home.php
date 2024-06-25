@@ -21,7 +21,7 @@
         <div class="px-8">
             <h1 class="text-2xl mb-4 font-bold">Rekomendasi untuk mu</h1>
             <div class="grid grid-cols-7 gap-3">
-            <?php foreach ($params['products'] as $item) : ?>
+                <?php foreach ($params['products'] as $item) : ?>
                     <div class="w-40">
                         <a href="/produk/<?= $item['id'] ?>">
                             <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">

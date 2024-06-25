@@ -11,6 +11,7 @@ use App\Models\Store;
 use App\Models\Transaction;
 use Libraries\Controller;
 use Libraries\Request;
+use Libraries\Response;
 
 class SiteController extends Controller
 {
@@ -97,10 +98,44 @@ class SiteController extends Controller
         ]);
     }
 
-    public function search_result()
+    public function search_result(Request $request)
     {
+        $product = new Product();
+        $category = new Category();
+        $transaction = new Transaction();
+        $getQueryParam = $request->getBody()['q'];
+
+        if (!$getQueryParam) {
+            Response::redirect('/');
+        }
+
         return $this->render('search_result', [
-            'title' => 'Hasil Pencarian'
+            'title' => 'Hasil Pencarian',
+            'query' => $getQueryParam,
+            'products' => $product->search($getQueryParam),
+            'categoryName' => fn ($id) => $category->find('id', $id)['nama_kategori'],
+            'countTransaction' => fn ($id) => count($transaction->findAllById('produk_id', $id)),
+            'countRating' => function ($id) {
+                $comment = new Comment();
+                $ratings = [];
+
+                $comments = $comment->findAllById('produk_id', $id);
+
+                if (empty($comments)) {
+                    return 0;
+                }
+
+                foreach ($comments as $item) {
+                    array_push($ratings, (int)$item['rating']);
+                }
+
+                if (count($ratings) > 0) {
+                    $result = array_sum($ratings) / count($ratings);
+                    return round($result, 1);
+                } else {
+                    return 0;
+                }
+            }
         ]);
     }
 

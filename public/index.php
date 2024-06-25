@@ -53,6 +53,8 @@ $app->route::get('/pembayaran-sukses', [PaymentController::class, 'payment_succe
 $app->route::get('/cetak-resi/{id}', [StoreController::class, 'print_resi']);
 $app->route::get('/buat-notifikasi', [StoreController::class, 'create_notification']);
 $app->route::get('/pesanan-selesai', [StoreController::class, 'order_list_success']);
+$app->route::get('/hasil-pencarian', [SiteController::class, 'search_result']);
+
 
 // User & Seller route (post)
 $app->route::post('/profile', [ProfileController::class, 'profileUpdateHandler']);

@@ -38,7 +38,6 @@ class ProductController extends Controller
             'product' => $product->find('id', $id),
             'category' => $category->category('id', $id)[0],
             'store' => $store->store('id', $id)[0],
-            'productImages' => $product->productImage('id', $id),
             'comments' => $product->comment('produk_id', $id),
             'isFollow' => $follower->find('user_id', $_SESSION['user_id']),
             'productTransaction' => count($product->findAllById('id', $id)),

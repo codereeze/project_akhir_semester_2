@@ -5,14 +5,14 @@
                 <a href="/">
                     <img src="/assets/logo.svg" width="145" alt="" srcset="">
                 </a>
-                <div class="relative">
-                    <input type="text" class="bg-white py-2.5 px-3 rounded-md w-[24rem] text-sm placeholder:text-black text-black font-semibold outline-none border-none" placeholder="Cari baju yang kamu sukai...">
+                <form action="/hasil-pencarian" method="get" class="relative">
+                    <input type="text" name="q" class="bg-white py-2.5 px-3 rounded-md w-[24rem] text-sm placeholder:text-black text-black font-semibold outline-none border-none" placeholder="Cari baju yang kamu sukai...">
                     <div class="absolute right-0 top-0" style="margin-top: 4px; margin-right: 8px;">
                         <button type="submit" class="bg-red-primary hover:bg-red-500 rounded-full p-1 w-8 text-center">
                             <i class="fas fa-search text-white text-sm"></i>
                         </button>
                     </div>
-                </div>
+                </form>
                 <?php if (isset($dataUser['role']) && $dataUser['role'] != 'Admin') : ?>
                     <a href="/keranjang">
                         <div class="bg-red-primary rounded-full p-1 w-9 text-center border-2 border-white hover:border-red-primary duration-500 cursor-pointer">

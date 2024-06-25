@@ -114,47 +114,47 @@ abstract class Model
     }
 
     public function findAllWhereIn($column, array $condition, $another_column = null, $another_condition = null)
-{
-    try {
-        $this->initialize();
+    {
+        try {
+            $this->initialize();
 
-        $placeholders = [];
-        foreach ($condition as $index => $value) {
-            $placeholders[] = ":condition" . $index;
+            $placeholders = [];
+            foreach ($condition as $index => $value) {
+                $placeholders[] = ":condition" . $index;
+            }
+            $placeholders_string = implode(',', $placeholders);
+
+            $query = "SELECT * FROM " . $this->table_name . " WHERE $column IN ($placeholders_string)";
+
+            if ($another_column !== null) {
+                $query .= " AND $another_column = :another_condition";
+            }
+
+            $stmt = $this->db->prepare($query);
+
+            foreach ($condition as $index => $value) {
+                $stmt->bindValue(":condition" . $index, $value);
+            }
+
+            if ($another_column !== null) {
+                $stmt->bindValue(':another_condition', $another_condition);
+            }
+
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            if (!$result) {
+                echo "No results found.<br>";
+            }
+
+            return $result;
+        } catch (\PDOException $e) {
+            echo "Maaf, terjadi kesalahan pada database: " . $e->getMessage();
+        } catch (\Exception $e) {
+            echo "Maaf, terjadi kesalahan: " . $e->getMessage();
         }
-        $placeholders_string = implode(',', $placeholders);
-
-        $query = "SELECT * FROM " . $this->table_name . " WHERE $column IN ($placeholders_string)";
-
-        if ($another_column !== null) {
-            $query .= " AND $another_column = :another_condition";
-        }
-
-        $stmt = $this->db->prepare($query);
-
-        foreach ($condition as $index => $value) {
-            $stmt->bindValue(":condition" . $index, $value);
-        }
-
-        if ($another_column !== null) {
-            $stmt->bindValue(':another_condition', $another_condition);
-        }
-
-        $stmt->execute();
-
-        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-        if (!$result) {
-            echo "No results found.<br>";
-        }
-
-        return $result;
-    } catch (\PDOException $e) {
-        echo "Maaf, terjadi kesalahan pada database: " . $e->getMessage();
-    } catch (\Exception $e) {
-        echo "Maaf, terjadi kesalahan: " . $e->getMessage();
     }
-}
 
 
     public function find($column, $id, $column2 = '', $condition = '')
@@ -212,6 +212,26 @@ abstract class Model
         }
     }
 
+    public function search($keyword)
+    {
+        try {
+            $this->initialize();
+            $stmt = $this->db->prepare("SELECT p.*, c.nama_kategori 
+                  FROM " . $this->table_name . " p 
+                  LEFT JOIN categories c ON p.kategori_id = c.id 
+                  WHERE p.nama_produk LIKE ? OR c.nama_kategori LIKE ?");
+            $keyword = "%{$keyword}%";
+            $stmt->bindParam(1, $keyword);
+            $stmt->bindParam(2, $keyword);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Exception $e) {
+            echo "Maaf error: " . $e->getMessage();
+        }
+    }
+
     public function leftJoinAll($foreign_key, $destination_table, $column = '', $condition = '')
     {
         try {
@@ -246,8 +266,6 @@ abstract class Model
             echo "Maaf, error: " . $e->getMessage();
         }
     }
-
-
 
     public function joinWhere($destination_table, string $primary_key, string $foreign_key, string $column, $condition)
     {
