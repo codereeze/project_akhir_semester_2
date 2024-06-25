@@ -13,6 +13,7 @@ use App\Controllers\ProfileController;
 use App\Controllers\SiteController;
 use App\Controllers\StoreController;
 use App\Controllers\TransactionController;
+use App\Models\Chat;
 use App\Models\Store;
 use Libraries\Application;
 
@@ -54,6 +55,7 @@ $app->route::get('/cetak-resi/{id}', [StoreController::class, 'print_resi']);
 $app->route::get('/buat-notifikasi', [StoreController::class, 'create_notification']);
 $app->route::get('/pesanan-selesai', [StoreController::class, 'order_list_success']);
 $app->route::get('/hasil-pencarian', [SiteController::class, 'search_result']);
+$app->route::get('/read-chat/{id}', [ChatController::class, 'read_chat']);
 
 
 // User & Seller route (post)

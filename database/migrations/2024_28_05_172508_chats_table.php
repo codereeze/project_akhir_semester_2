@@ -17,6 +17,7 @@ class chatsTable extends Migration
             $attribute->varchar('kode_chat', 10, false);
             $attribute->text('pesan', false);
             $attribute->varchar('tgl_pesan', 15, false);
+            $attribute->varchar('sender', 10, false);
         });
     }
 
