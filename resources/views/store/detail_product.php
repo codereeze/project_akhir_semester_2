@@ -65,9 +65,9 @@
                 <div class="flex mt-5 gap-7">
                     <div class="max-w-xs w-full">
                         <p class="font-bold mb-4">Cover Produk</p>
-                        pp
+                        <img src="<?= $params['product']['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" class="rounded-md" alt="" srcset="">
                     </div>
-                    <div class="w-full">
+                    <!-- <div class="w-full">
                         <p class="font-bold mb-4">Gambar Pendukung</p>
                         <div>
                             <div class="flex justify-between mb-3">
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="text-end">
                     <a href="/edit_produk/<?= $params['product']['id'] ?>">

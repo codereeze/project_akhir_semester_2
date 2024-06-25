@@ -12,8 +12,8 @@
                         <input type="file" name="foto_toko" accept=".png, .jpg, .jpeg" class="hidden" id="file-input">
                         <button type="button" id="trigger-input-file" class="bg-red-primary hover:bg-red-500 rounded-md text-white text-sm p-2 font-bold"><i class="fas fa-upload"></i> Upload
                             foto</button>
-                        <button class="border border-red-primary text-red-primary hover:bg-red-primary hover:text-white duration-300 rounded-md text-sm p-2 font-bold">Hapus
-                            foto</button>
+                        <!-- <button class="border border-red-primary text-red-primary hover:bg-red-primary hover:text-white duration-300 rounded-md text-sm p-2 font-bold">Hapus
+                            foto</button> -->
                     </div>
                     <p class="text-sm mb-3">Ukuran foto maksimal sebesar 5MB dan harus berformat jpg, jpeg, atau png.
                     </p>

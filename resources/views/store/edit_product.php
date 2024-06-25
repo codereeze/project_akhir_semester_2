@@ -2,9 +2,9 @@
     <div class="pt-36">
         <?php include_once 'partials/sidebar.php' ?>
         <div class="px-4 sm:ml-64">
-            <h1 class="font-bold text-2xl">Edit Produk Toko</h1>
-            <span class="text-sm font-medium mb-7 block">Periksa kembali secara berkala untuk menghindari kesalahan input</span>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
+                <h1 class="font-bold text-2xl">Edit Produk Toko</h1>
+                <span class="text-sm font-medium mb-7 block">Periksa kembali secara berkala untuk menghindari kesalahan input</span>
                 <div class="mb-5">
                     <div class="grid grid-cols-2 gap-3">
                         <div>
@@ -71,49 +71,49 @@
                         <textarea rows="5" name="deskripsi" id="" class="p-2 rounded-md border w-full font-medium block"><?= $params['product']['deskripsi'] ?></textarea>
                     </div>
                     <input type="hidden" name="toko_id" value="<?= $params['store']['id'] ?>" id="">
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold">Gambar Produk</h2>
+                    <span class="text-sm font-medium mb-7 block">Pastikan Anda mengupload gambar produk yang sesuai dengan produk yang dijual</span>
+                    <div class="flex mt-5 gap-7">
+                        <div class="max-w-xs w-full">
+                            <p class="font-bold mb-4">Cover Produk</p>
+                            <div class="flex justify-center flex-col">
+                                <img id="preview-profile" src="<?= $params['product']['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" class="rounded-md mb-3" alt="">
+                                <input type="file" accept=".png, .jpg, .jpeg" class="hidden" name="cover" id="file-input">
+                                <button id="trigger-input-file" class="border-red-primary border p-2 text-sm rounded-md font-semibold text-red-primary hover:bg-red-500 hover:text-white duration-300" type="button">Ganti Cover</button>
+                            </div>
+                        </div>
+                        <!-- <div class="w-full">
+                            <p class="font-bold mb-4">Gambar Pendukung</p>
+                            <div class="text-end mb-5">
+                                <button class="border-red-primary border p-2 text-sm rounded-md font-semibold text-red-primary hover:bg-red-500 hover:text-white duration-300">Upload Gambar</button>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md w-10" alt="">
+                                        <span class="font-medium text-sm">Acumalaka.jpg</span>
+                                    </div>
+                                    <button class="bg-red-primary px-2 py-1 self-center text-xs rounded-md font-semibold text-white hover:bg-red-500 duration-300"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <div class="flex justify-between mb-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md w-10" alt="">
+                                        <span class="font-medium text-sm">Acumalaka.jpg</span>
+                                    </div>
+                                    <button class="bg-red-primary px-2 py-1 self-center text-xs rounded-md font-semibold text-white hover:bg-red-500 duration-300"><i class="fas fa-minus"></i></button>
+                                </div>
+                        </div>
+                    </div> -->
+                    </div>
                     <div class="text-end">
                         <button type="submit" class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300">Simpan perubahan</button>
                     </div>
                 </div>
             </form>
-            <div>
-                <h2 class="text-xl font-bold">Gambar Produk</h2>
-                <span class="text-sm font-medium mb-7 block">Pastikan Anda mengupload gambar produk yang sesuai dengan produk yang dijual</span>
-                <div class="flex mt-5 gap-7">
-                    <div class="max-w-xs w-full">
-                        <p class="font-bold mb-4">Cover Produk</p>
-                        <div class="flex justify-center flex-col">
-                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md mb-3" alt="">
-                            <button class="border-red-primary border p-2 text-sm rounded-md font-semibold text-red-primary hover:bg-red-500 hover:text-white duration-300">Upload Cover</button>
-                        </div>
-                    </div>
-                    <!-- <div class="w-full">
-                        <p class="font-bold mb-4">Gambar Pendukung</p>
-                        <div class="text-end mb-5">
-                            <button class="border-red-primary border p-2 text-sm rounded-md font-semibold text-red-primary hover:bg-red-500 hover:text-white duration-300">Upload Gambar</button>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-3">
-                                <div class="flex items-center gap-3">
-                                    <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md w-10" alt="">
-                                    <span class="font-medium text-sm">Acumalaka.jpg</span>
-                                </div>
-                                <button class="bg-red-primary px-2 py-1 self-center text-xs rounded-md font-semibold text-white hover:bg-red-500 duration-300"><i class="fas fa-minus"></i></button>
-                            </div>
-                            <div class="flex justify-between mb-3">
-                                <div class="flex items-center gap-3">
-                                    <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md w-10" alt="">
-                                    <span class="font-medium text-sm">Acumalaka.jpg</span>
-                                </div>
-                                <button class="bg-red-primary px-2 py-1 self-center text-xs rounded-md font-semibold text-white hover:bg-red-500 duration-300"><i class="fas fa-minus"></i></button>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="text-end">
-                    <button class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300">Simpan perubahan</button>
-                </div>
-            </div>
         </div>
     </div>
 </section>
+
+<script src="/js/profile.js"></script>

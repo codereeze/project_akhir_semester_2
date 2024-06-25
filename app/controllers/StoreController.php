@@ -279,6 +279,21 @@ class StoreController extends Controller
             'deskripsi' => htmlspecialchars(trim($request['deskripsi'])),
         ];
 
+        $uploadDir = '/img/product/';
+        $fileManager = new FileManagement(['jpg', 'jpeg', 'png']);
+
+        $product = new Product();
+
+        try {
+            if (!empty($_FILES['cover']['name'])) {
+                $uniqueFileName = $fileManager->handleFileUpload('cover', $uploadDir);
+                $sanitized['cover'] = $uploadDir . $uniqueFileName;
+            }
+        } catch (\Exception $e) {
+            echo 'File Upload Error: ' . $e->getMessage();
+            return;
+        }
+
         $product = new Product();
         $product->insert($sanitized);
         Response::redirect('/manajemen_produk')->withSuccess("Berhasil menambahkan produk baru ke toko");
@@ -288,6 +303,11 @@ class StoreController extends Controller
     {
         $request = $request->getFormData();
         $product = new Product();
+        $productCover = $product->find('id', $request['product_id'])['cover'];
+        $oldCoverPicture = $_SERVER['DOCUMENT_ROOT'] . $productCover;
+        if (file_exists($oldCoverPicture)) {
+            unlink("$oldCoverPicture");
+        }
         $product->delete('id', $request['product_id']);
         Response::redirect('/manajemen_produk')->withSuccess("Berhasil menghapus produk");
     }
@@ -364,6 +384,28 @@ class StoreController extends Controller
             'deskripsi' => htmlspecialchars(trim($request['deskripsi'])),
             'status_produk' => htmlspecialchars(trim($request['status_produk']))
         ];
+
+        $uploadDir = '/img/product/';
+        $fileManager = new FileManagement(['jpg', 'jpeg', 'png']);
+
+        $currentProduct = $product->find('id', $id);
+
+        try {
+            if (!empty($_FILES['cover']['name'])) {
+                if (!empty($currentProduct['cover'])) {
+                    $oldProductPicture = $_SERVER['DOCUMENT_ROOT'] . $currentProduct['cover'];
+                    if (file_exists($oldProductPicture)) {
+                        unlink("$oldProductPicture");
+                    }
+                }
+
+                $uniqueFileName = $fileManager->handleFileUpload('cover', $uploadDir);
+                $sanitized['cover'] = $uploadDir . $uniqueFileName;
+            }
+        } catch (\Exception $e) {
+            echo 'File Upload Error: ' . $e->getMessage();
+            return;
+        }
 
         $product->update($sanitized, $id);
         Response::redirect('/manajemen_produk')->withSuccess("Berhasil memperbarui produk");

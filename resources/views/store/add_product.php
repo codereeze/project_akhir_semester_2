@@ -4,7 +4,7 @@
         <div class="px-4 sm:ml-64">
             <h1 class="font-bold text-2xl">Tambah Produk Toko</h1>
             <span class="text-sm font-medium mb-7 block">Tambah produk baru dan pastikan data yang di inputkan sudah sesuai yang akan dijual</span>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-5 shadow-md p-4 rounded-md">
                     <div class="grid grid-cols-2 gap-3">
                         <div>
@@ -79,10 +79,11 @@
                                         <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                                         <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                     </div>
-                                    <input id="dropzone-file" type="file" class="hidden" />
+                                    <input id="dropzone-file" type="file" class="hidden" name="cover" accept=".png, .jpg, .jpeg" />
                                 </label>
                             </div>
                         </div>
+                        <img src="" id="preview" alt="Preview Cover Produk" srcset="" width="300">
                         <!-- <div class="w-full">
                             <p class="font-bold mb-4">Gambar Pendukung</p>
                             <div class="text-end mb-5">
@@ -107,10 +108,12 @@
                         </div> -->
                     </div>
                     <div class="text-end">
-                        <button type="submit" class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300">Simpan perubahan</button>
+                        <button type="submit" class="bg-red-primary p-2 rounded-md font-semibold text-sm text-white hover:bg-red-500 duration-300">Tambah produk</button>
                     </div>
             </form>
         </div>
     </div>
     </div>
 </section>
+
+<script src="/js/product.js"></script>

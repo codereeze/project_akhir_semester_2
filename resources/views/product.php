@@ -1,8 +1,8 @@
 <section class="container mx-auto px-12 text-gray-600">
     <div class="pt-36">
-        <div class="flex flex-wrap">
-            <div class="self-start max-w-md w-full">
-                <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-2xl shadow-md" alt="" srcset="">
+        <div class="flex flex-wrap gap-12">
+            <div class="self-start max-w-sm w-full">
+                <img src="<?= $params['product']['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" class="rounded-2xl shadow-md" alt="" srcset="">
             </div>
             <div class="self-start max-w-2xl w-full">
                 <div class="w-full self-start">
@@ -86,7 +86,7 @@
                 </div>
                 <div class="mt-5 border rounded-lg p-3">
                     <div class="flex items-center gap-3">
-                        <img src="https://avatars.githubusercontent.com/u/159593076?v=4" width="40" alt="" srcset="" class="rounded-full">
+                        <img src="<?= $params['store']['foto_toko'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" width="40" alt="" srcset="" class="rounded-full">
                         <div>
                             <p class="font-bold leading-5"><?= $params['store']['nama_toko'] ?></p>
                             <p class="text-xs font-medium"><?= $params['followers'] ?> Followers</p>

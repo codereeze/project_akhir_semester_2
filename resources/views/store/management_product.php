@@ -19,7 +19,7 @@
                 <?php foreach ($params['products'] as $item) : ?>
                     <div class="flex justify-between items-center mb-5">
                         <div class="flex gap-3">
-                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" width="100" class="rounded-lg self-start">
+                            <img src="<?= $item['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" alt="" srcset="" width="100" class="rounded-lg self-start">
                             <div class="max-w-lg self-start">
                                 <a href="/detail-produk/<?= $item['id'] ?>">
                                     <h2 class="text-lg font-bold leading-6 mb-2"><?= $item['nama_produk'] ?></h2>

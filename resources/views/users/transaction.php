@@ -13,7 +13,7 @@
                 <?php foreach ($params['antrian'] as $item) : ?>
                     <a href="/detail-transaksi/<?= $item['trans_id'] ?>" class="inline-block">
                         <div class="flex items-center max-w-full w-full mb-4">
-                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md" width="130" alt="">
+                            <img src="<?= $item['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" class="rounded-md" width="130" alt="">
                             <div class="text-xs ml-5 mr-16 self-center">
                                 <h1 class="text-lg font-bold"><?= $item['nama_produk'] ?></h1>
                                 <p>Ukuran : <?= $item['size'] ?></p>
@@ -37,7 +37,7 @@
                 <?php foreach ($params['dikirim'] as $item) : ?>
                     <a href="/detail-transaksi/<?= $item['trans_id'] ?>" class="inline-block">
                         <div class="flex items-center max-w-full w-full mb-4">
-                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md" width="130" alt="">
+                            <img src="<?= $item['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" class="rounded-md" width="130" alt="">
                             <div class="text-xs ml-5 mr-16 self-center">
                                 <h1 class="text-lg font-bold"><?= $item['nama_produk'] ?></h1>
                                 <p>Ukuran : <?= $item['size'] ?></p>
@@ -61,7 +61,7 @@
                 <?php foreach ($params['selesai'] as $item) : ?>
                     <div class="w-full border p-5 rounded-md shadow-md mb-7">
                         <div class="flex items-center mb-4">
-                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md" width="130" alt="">
+                            <img src="<?= $item['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" class="rounded-md" width="130" alt="">
                             <div class="text-xs ml-5 mr-16 self-center">
                                 <a href="" class="inline-block">
                                     <h1 class="text-lg font-bold"><?= $item['nama_produk'] ?> </h1>
@@ -112,7 +112,7 @@
                 <?php foreach ($params['diulas'] as $item) : ?>
                     <div class="w-full border p-5 rounded-md shadow-md mb-7">
                         <div class="flex items-center mb-4">
-                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" class="rounded-md" width="130" alt="">
+                            <img src="<?= $item['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" class="rounded-md" width="130" alt="">
                             <div class="text-xs ml-5 mr-16 self-center">
                                 <a href="/produk/<?= $item['produk_id'] ?>" class="inline-block">
                                     <h1 class="text-lg font-bold"><?= $item['nama_produk'] ?> </h1>
