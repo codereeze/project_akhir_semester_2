@@ -10,78 +10,73 @@
                     <p class="text-sm font-semibold"><i class="fas fa-star text-yellow-300"></i> <?= $params['countRating']($params['product']['id']) ?> Rating | Terjual <?= $params['productTransaction'] ?> | <?= $params['productComment'] ?> Ulasan</p>
                     <p class="text-2xl font-bold text-red-primary mb-3">Rp.<?= $params['product']['harga'] ?></p>
                     <p class="text-sm font-semibold mb-2">Ukuran tersedia</p>
-                    <div class="text-sm font-semibold flex flex-wrap gap-3 mb-3">
-                        <?php if ($params['product']['size_s'] === 'Yes') : ?>
-                            <label for="size_s">
-                                <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
-                                    <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_s" value="S" class="cursor-pointer" required> S
+                    <form class="max-w-xs" method="post">
+                        <div class="text-sm font-semibold flex flex-wrap gap-3 mb-3">
+                            <?php if ($params['product']['size_s'] === 'Yes') : ?>
+                                <label for="size_s">
+                                    <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="size" id="size_s" value="S" class="cursor-pointer" required> S
+                                        </div>
                                     </div>
-                                </div>
-                            </label>
-                        <?php endif; ?>
-                        <?php if ($params['product']['size_m'] === 'Yes') : ?>
-                            <label for="size_m">
-                                <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
-                                    <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_m" value="M" class="cursor-pointer" required> M
+                                </label>
+                            <?php endif; ?>
+                            <?php if ($params['product']['size_m'] === 'Yes') : ?>
+                                <label for="size_m">
+                                    <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="size" id="size_m" value="M" class="cursor-pointer" required> M
+                                        </div>
                                     </div>
-                                </div>
-                            </label>
-                        <?php endif; ?>
-                        <?php if ($params['product']['size_l'] === 'Yes') : ?>
-                            <label for="size_l">
-                                <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
-                                    <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_l" value="L" class="cursor-pointer" required> L
+                                </label>
+                            <?php endif; ?>
+                            <?php if ($params['product']['size_l'] === 'Yes') : ?>
+                                <label for="size_l">
+                                    <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="size" id="size_l" value="L" class="cursor-pointer" required> L
+                                        </div>
                                     </div>
-                                </div>
-                            </label>
-                        <?php endif; ?>
-                        <?php if ($params['product']['size_xl'] === 'Yes') : ?>
-                            <label for="size_xl">
-                                <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
-                                    <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_xl" value="XL" class="cursor-pointer" required> XL
+                                </label>
+                            <?php endif; ?>
+                            <?php if ($params['product']['size_xl'] === 'Yes') : ?>
+                                <label for="size_xl">
+                                    <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="size" id="size_xl" value="XL" class="cursor-pointer" required> XL
+                                        </div>
                                     </div>
-                                </div>
-                            </label>
-                        <?php endif; ?>
-                        <?php if ($params['product']['size_xxl'] === 'Yes') : ?>
-                            <label for="size_xxl">
-                                <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
-                                    <div class="flex items-center gap-2">
-                                        <input type="radio" name="size" id="size_xxl" value="XXL" class="cursor-pointer" required> XXL
+                                </label>
+                            <?php endif; ?>
+                            <?php if ($params['product']['size_xxl'] === 'Yes') : ?>
+                                <label for="size_xxl">
+                                    <div class="bg-gray-300 px-2 py-1 rounded-md inline-block cursor-pointer">
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" name="size" id="size_xxl" value="XXL" class="cursor-pointer" required> XXL
+                                        </div>
                                     </div>
-                                </div>
-                            </label>
-                        <?php endif; ?>
-                    </div>
-                    <p class="text-sm font-semibold mb-2">Tersedia <?= $params['product']['stock'] ?></p>
-                    <form class="max-w-xs">
+                                </label>
+                            <?php endif; ?>
+                        </div>
+                        <p class="text-sm font-semibold mb-2">Tersedia <?= $params['product']['stock'] ?></p>
                         <div class="relative flex items-center max-w-[11rem]">
                             <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-red-primary hover:bg-red-500 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                                 <svg class="w-3 h-3 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                 </svg>
                             </button>
-                            <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1" data-input-counter-max="10" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 font-medium text-center text-gray-900 text-sm w-11 focus:ring-blue-500 focus:border-blue-500 block h-11" placeholder="" value="1" required />
+                            <input type="text" name="qty" id="bedrooms-input" data-input-counter data-input-counter-min="1" data-input-counter-max="10" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 font-medium text-center text-gray-900 text-sm w-11 focus:ring-blue-500 focus:border-blue-500 block h-11" placeholder="" value="1" required />
                             <button type="button" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-red-primary hover:bg-red-500 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                                 <svg class="w-3 h-3 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                                 </svg>
                             </button>
-                            <a href="/checkout/<?= $params['product']['id'] ?>">
-                                <button type="button" class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
-                            </a>
-                    </form>
-                    <form action="" method="post">
-                        <input type="hidden" name="form" id="" value="keranjang">
-                        <input type="hidden" name="product_id" value="<?= $params['product']['id'] ?>">
-                        <button type="submit" class="border border-red-primary text-red-primary hover:bg-red-500 rounded-md hover:text-white ml-4 text-base px-7 py-2.5 font-semibold duration-300 flex items-center gap-2">
-                            <i class="fas fa-cart-plus"></i>
-                            <span>Keranjang</span>
-                        </button>
+                            <button type="submit" id="checkout" name="form" class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
+                            <input type="hidden" name="produk_id" value="<?= $params['product']['id'] ?>">
+                            <button type="submit" id="keranjang" name="form" class="border border-red-primary text-red-primary hover:bg-red-500 rounded-md hover:text-white ml-4 text-base px-7 py-2.5 font-semibold duration-300 flex items-center gap-2">
+                                <i class="fas fa-cart-plus"></i>
+                                <span>Keranjang</span>
+                            </button>
                     </form>
                 </div>
                 <div class="mt-5 border rounded-lg p-3">
@@ -203,3 +198,5 @@
     </div>
     </div>
 </section>
+
+<script src="/js/checkoutOrCart.js"></script>

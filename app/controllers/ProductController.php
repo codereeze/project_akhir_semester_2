@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Middleware\Authorization;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Follower;
@@ -75,6 +76,7 @@ class ProductController extends Controller
     {
         $request = $request->getFormData();
         $follower = new Follower();
+        $cart = new Cart();
 
         if ($request['form'] === 'follow') {
             $sanitized = [
@@ -87,6 +89,15 @@ class ProductController extends Controller
         } else if ($request['form'] === 'unfollow') {
             $follower->delete('user_id', $_SESSION['user_id']);
             Response::redirect("/produk/{$request['produk_id']}");
+        } else if ($request['form'] == 'keranjang') {
+            $sanitized = [
+                'qty' => htmlspecialchars(trim($request['qty'])),
+                'size' => htmlspecialchars(trim($request['size'])),
+                'produk_id' => htmlspecialchars(trim($request['produk_id'])),
+                'user_id' => $_SESSION['user_id']
+            ];
+            $cart->insert($sanitized);
+            Response::redirect('/keranjang')->withSuccess('Berhasil menambahkan produk ke keranjang');
         }
     }
 }
