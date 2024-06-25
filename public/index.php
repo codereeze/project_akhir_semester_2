@@ -52,6 +52,7 @@ $app->route::get('/berita-artikel', [CompanyController::class, 'news']);
 $app->route::get('/pembayaran-sukses', [PaymentController::class, 'payment_success']);
 $app->route::get('/cetak-resi/{id}', [StoreController::class, 'print_resi']);
 $app->route::get('/buat-notifikasi', [StoreController::class, 'create_notification']);
+$app->route::get('/pesanan-selesai', [StoreController::class, 'order_list_success']);
 
 // User & Seller route (post)
 $app->route::post('/profile', [ProfileController::class, 'profileUpdateHandler']);
@@ -68,6 +69,7 @@ $app->route::post('/daftar-pesanan', [StoreController::class, 'orderListHandler'
 $app->route::post('/edit_produk/{id}', [StoreController::class, 'editProductHandler']);
 $app->route::post('/transaksi', [TransactionController::class, 'commentProductHandler']);
 $app->route::post('/buat-notifikasi', [StoreController::class, 'createNotifHandler']);
+$app->route::post('/pesanan-selesai', [StoreController::class, 'orderListHandler']);
 
 
 

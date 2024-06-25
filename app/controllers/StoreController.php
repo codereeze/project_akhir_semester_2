@@ -191,6 +191,28 @@ class StoreController extends Controller
         ]);
     }
 
+    public function order_list_success()
+    {
+        $this->author->onlySeller();
+
+        $store = new Store();
+        $transaction = new Transaction();
+        $followers = new Follower();
+        $store = $store->find('seller_id', $_SESSION['user_id']);
+
+        return $this->render('store/order_list_success', [
+            'title' => 'List Pesanan Sukses',
+            'transactions' => $transaction->findAllWhereIn('status_pengiriman', ['Selesai', 'Sudah diulas'], 'toko_id', $store['id']),
+            'followers' => count($followers->findAllById('toko_id', $store['id'])),
+            'product_name' => function ($id) {
+                $product = new Product();
+                return $product->find('id', $id)['nama_produk'];
+            },
+            'store' => $store,
+            'footer' => 'disable'
+        ]);
+    }
+
     public function print_resi(Request $request)
     {
         $this->author->onlySeller();
