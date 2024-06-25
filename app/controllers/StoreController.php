@@ -182,9 +182,9 @@ class StoreController extends Controller
             'title' => 'List Pemesanan',
             'transactions' => $transaction->findAllWhereIn('status_pengiriman', ['Dalam antrian', 'Dikirim'], 'toko_id', $store['id']),
             'followers' => count($followers->findAllById('toko_id', $store['id'])),
-            'product_name' => function ($id) {
+            'product' => function ($id) {
                 $product = new Product();
-                return $product->find('id', $id)['nama_produk'];
+                return $product->find('id', $id);
             },
             'store' => $store,
             'footer' => 'disable'
@@ -204,9 +204,9 @@ class StoreController extends Controller
             'title' => 'List Pesanan Sukses',
             'transactions' => $transaction->findAllWhereIn('status_pengiriman', ['Selesai', 'Sudah diulas'], 'toko_id', $store['id']),
             'followers' => count($followers->findAllById('toko_id', $store['id'])),
-            'product_name' => function ($id) {
+            'product' => function ($id) {
                 $product = new Product();
-                return $product->find('id', $id)['nama_produk'];
+                return $product->find('id', $id);
             },
             'store' => $store,
             'footer' => 'disable'

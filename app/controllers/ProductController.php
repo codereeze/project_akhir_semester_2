@@ -25,6 +25,10 @@ class ProductController extends Controller
 
     public function product(Request $request)
     {
+        if (isset($_SESSION['checkout'])) {
+            unset($_SESSION['checkout']);
+        }
+
         $product = new Product();
         $category = new Category();
         $store = new Store();
@@ -40,7 +44,7 @@ class ProductController extends Controller
             'category' => $category->category('id', $id)[0],
             'store' => $store->store('id', $id)[0],
             'comments' => $product->comment('produk_id', $id),
-            'isFollow' => $follower->find('user_id', $_SESSION['user_id']),
+            'isFollow' => $follower->find('user_id', $_SESSION['user_id'] ?? 0),
             'productTransaction' => count($product->findAllById('id', $id)),
             'productComment' => count($comment->findAllById('produk_id', $id)),
             'followers' => count($follower->findAllById('toko_id', $store_id)),
@@ -98,6 +102,15 @@ class ProductController extends Controller
             ];
             $cart->insert($sanitized);
             Response::redirect('/keranjang')->withSuccess('Berhasil menambahkan produk ke keranjang');
+        } else if ($request['form'] == 'checkout') {
+            $_SESSION['checkout'] = [
+                'qty' => htmlspecialchars(trim($request['qty'])),
+                'size' => htmlspecialchars(trim($request['size'])),
+                'produk_id' => htmlspecialchars(trim($request['produk_id'])),
+                'toko_id' => htmlspecialchars(trim($request['toko_id']))
+            ];
+
+            Response::redirect('/checkout');
         }
     }
 }

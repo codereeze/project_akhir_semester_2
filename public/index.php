@@ -31,7 +31,7 @@ $app->route::get('/transaksi', [TransactionController::class, 'transaction']);
 $app->route::get('/notifikasi', [NotificationController::class, 'notification']);
 $app->route::get('/baca_notifikasi/{notif_id}', [NotificationController::class, 'read_notification']);
 $app->route::get('/produk/{id}', [ProductController::class, 'product']);
-$app->route::get('/checkout/{id}', [PaymentController::class, 'checkout']);
+$app->route::get('/checkout', [PaymentController::class, 'checkout']);
 $app->route::get('/toko_saya', [StoreController::class, 'my_store']);
 $app->route::get('/manajemen_produk', [StoreController::class, 'management_product']);
 $app->route::get('/edit_produk/{id}', [StoreController::class, 'edit_product']);
@@ -72,7 +72,7 @@ $app->route::post('/edit_produk/{id}', [StoreController::class, 'editProductHand
 $app->route::post('/transaksi', [TransactionController::class, 'commentProductHandler']);
 $app->route::post('/buat-notifikasi', [StoreController::class, 'createNotifHandler']);
 $app->route::post('/pesanan-selesai', [StoreController::class, 'orderListHandler']);
-
+$app->route::post('/checkout', [PaymentController::class, 'checkoutHandler']);
 
 
 // Auth route

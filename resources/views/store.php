@@ -27,6 +27,8 @@
                     <p>Jam tutup: <span class="text-red-primary"><?= $params['store']['jam_tutup'] ?></span></p>
                 </div>
             </div>
+            <p class="mt-3 font-bold">Deskripsi toko:</p>
+            <p class="mt-3 text-justify text-sm"><?= $params['store']['deskripsi'] ?></p>
         </div>
         <div class="border rounded-md p-5 shadow-sm">
             <h1 class="text-2xl mb-4 font-bold block">Semua produk</h1>

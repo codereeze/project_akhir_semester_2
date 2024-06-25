@@ -71,12 +71,13 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                                 </svg>
                             </button>
-                            <button type="submit" id="checkout" name="form" class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
                             <input type="hidden" name="produk_id" value="<?= $params['product']['id'] ?>">
-                            <button type="submit" id="keranjang" name="form" class="border border-red-primary text-red-primary hover:bg-red-500 rounded-md hover:text-white ml-4 text-base px-7 py-2.5 font-semibold duration-300 flex items-center gap-2">
-                                <i class="fas fa-cart-plus"></i>
-                                <span>Keranjang</span>
-                            </button>
+                            <input type="hidden" name="toko_id" value="<?= $params['store']['id'] ?>">
+                                <button type="submit" id="checkout" name="form" class="bg-red-primary hover:bg-red-500 rounded-md text-white ml-4 text-base px-7 py-2.5 font-semibold ">Checkout</button>
+                                <button type="submit" id="keranjang" name="form" class="border border-red-primary text-red-primary hover:bg-red-500 rounded-md hover:text-white ml-4 text-base px-7 py-2.5 font-semibold duration-300 flex items-center gap-2">
+                                    <i class="fas fa-cart-plus"></i>
+                                    <span>Keranjang</span>
+                                </button>
                     </form>
                 </div>
                 <div class="mt-5 border rounded-lg p-3">

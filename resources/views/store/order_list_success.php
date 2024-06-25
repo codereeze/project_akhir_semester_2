@@ -8,10 +8,10 @@
                 <?php foreach ($params['transactions'] as $item) : ?>
                     <div class="flex justify-between items-center mb-5">
                         <div class="flex gap-3">
-                            <img src="<?= $item['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" alt="" srcset="" width="100" class="rounded-lg">
+                            <img src="<?= $params['product']($item['produk_id'])['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" alt="" srcset="" width="100" class="rounded-lg">
                             <div class="max-w-lg">
                                 <a href="/cetak-resi/<?= $item['id'] ?>">
-                                    <h2 class="text-lg font-bold leading-6 mb-2 max-w-md"><?= $params['product_name']($item['produk_id']) ?></h2>
+                                    <h2 class="text-lg font-bold leading-6 mb-2 max-w-md"><?= $params['product']($item['produk_id'])['nama_produk'] ?></h2>
                                 </a>
                                 <div class="text-xs font-medium">
                                     <p>Ukuran: <?= $item['size'] ?></p>
@@ -31,7 +31,7 @@
                                 </select>
                                 <button type="submit" class="border-red-primary border p-2 rounded-md font-semibold text-sm text-red-primary hover:bg-red-500 duration-300 hover:text-white self-center w-full"></i> Ubah status</button>
                             </form>
-                        <?php else: ?>
+                        <?php else : ?>
                             <p class="text-red-primary font-semibold"><?= $item['status_pengiriman'] ?></p>
                         <?php endif; ?>
                     </div>
