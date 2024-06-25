@@ -4,12 +4,14 @@ namespace App\Controllers;
 
 use App\Middleware\Authorization;
 use App\Models\Category;
+use App\Models\Chat;
 use App\Models\Comment;
 use App\Models\Follower;
 use App\Models\Product;
 use App\Models\SellerRegistration;
 use App\Models\Store;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Libraries\Controller;
 use Libraries\FileManagement;
 use Libraries\Request;
@@ -226,5 +228,27 @@ class SiteController extends Controller
 
         $sr->delete('user_id', $_SESSION['user_id']);
         Response::redirect('/menjadi_seller');
+    }
+
+    public function storeHandler(Request $request)
+    {
+        $formData = $request->getFormData();
+
+        $chat = new Chat();
+        Carbon::setLocale('id');
+        $result = Carbon::now()->isoFormat('d MMMM');
+        if($formData['form'] == 'chat'){
+            $sanitized = [
+                'seller_id' => $formData['seller_id'],
+                'user_id' => $formData['user_id'],
+                'kode_chat' => $formData['kode_chat'],
+                'pesan' => 'Hallo',
+                'tgl_pesan' => $result,
+                'sender' => $formData['sender'],
+            ];
+
+            $chat->insert($sanitized);
+            Response::redirect('/chat-penjual');
+        }
     }
 }

@@ -8,12 +8,15 @@
                     <div>
                         <h1 class="text-2xl font-extrabold mb-3 text-slate-200"><?= $params['store']['nama_toko'] ?></h1>
                         <div class="flex gap-5">
-                            <button name="form" value="follow" class="border border-white text-sm font-semibold p-2 duration-300 text-white">
-                                <i class="fas fa-user-plus"></i> Ikuti toko
-                            </button>
-                            <button name="form" value="follow" class="border border-white text-sm font-semibold p-2 duration-300 text-white">
-                                <i class="fas fa-comments"></i> Chat penjual
-                            </button>
+                            <form action="" method="post">
+                                <input type="hidden" name="seller_id" value="<?= $params['store']['seller_id'] ?>">
+                                <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
+                                <input type="hidden" name="sender" value="User">
+                                <input type="hidden" name="kode_chat" value="<?= uniqid() ?>" id="">
+                                <button type="submit" name="form" value="chat" class="border border-white text-sm font-semibold p-2 duration-300 text-white">
+                                    <i class="fas fa-comments"></i> Chat penjual
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

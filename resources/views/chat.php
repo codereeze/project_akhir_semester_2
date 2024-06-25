@@ -8,8 +8,8 @@
                         <a href="/read-chat/<?= $item['id'] ?>">
                             <button class="border rounded-md p-3 mr-5 mb-3 block w-full">
                                 <div class="flex items-center gap-3">
-                                    <img src="<?= $params['user']($item['seller_id'])['foto_profile'] ?>" width="40" alt="" srcset="" class="rounded-full">
-                                    <h2 class="font-semibold text-base block text-start"><?= $params['user']($item['seller_id'])['nama'] ?></h2>
+                                    <img src="<?= $params['user']($item['seller_id'], $item['user_id'])['foto_profile'] ?>" width="40" alt="" srcset="" class="rounded-full">
+                                    <h2 class="font-semibold text-base block text-start"><?= $params['user']($item['seller_id'], $item['user_id'])['nama'] ?></h2>
                                 </div>
                             </button>
                         </a>

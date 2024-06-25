@@ -76,6 +76,9 @@ $app->route::post('/buat-notifikasi', [StoreController::class, 'createNotifHandl
 $app->route::post('/pesanan-selesai', [StoreController::class, 'orderListHandler']);
 $app->route::post('/checkout', [PaymentController::class, 'checkoutHandler']);
 $app->route::post('/menjadi_seller', [SiteController::class, 'registerSellerHandler']);
+$app->route::post('/read-chat/{id}', [ChatController::class, 'sendChatHandler']);
+$app->route::post('/toko/{id}', [SiteController::class, 'storeHandler']);
+
 
 
 // Auth route

@@ -8,8 +8,8 @@
                         <a href="/read-chat/<?= $item['id'] ?>">
                             <button class="border rounded-md p-3 mr-5 mb-3 block w-full">
                                 <div class="flex items-center gap-3">
-                                    <img src="<?= $params['user']($item['seller_id'])['foto_profile'] ?>" width="40" alt="" srcset="" class="rounded-full">
-                                    <h2 class="font-semibold text-base block text-start"><?= $params['user']($item['seller_id'])['nama'] ?></h2>
+                                    <img src="<?= $params['user']($item['seller_id'], $item['user_id'])['foto_profile'] ?>" width="40" alt="" srcset="" class="rounded-full">
+                                    <h2 class="font-semibold text-base block text-start"><?= $params['user']($item['seller_id'], $item['user_id'])['nama'] ?></h2>
                                 </div>
                             </button>
                         </a>
@@ -42,13 +42,13 @@
                                         </div>
                                         <span class="text-sm text-end font-normal text-gray-500">Terkirim</span>
                                     </div>
-                                    <img class="w-8 h-8 rounded-full" src="<?= $params['user']($item['user_id'])['foto_profile'] ?>">
+                                    <img class="w-8 h-8 rounded-full" src="<?= $params['infoUser']($item['user_id'])['foto_profile'] ?>">
                                 </div>
                             </div>
                         <?php else : ?>
                             <div class="flex justify-start mb-5">
                                 <div class="flex items-start gap-2.5">
-                                    <img class="w-8 h-8 rounded-full" src="<?= $params['user']($item['seller_id'])['foto_profile'] ?>">
+                                    <img class="w-8 h-8 rounded-full" src="<?= $params['infoUser']($item['seller_id'])['foto_profile'] ?>">
                                     <div class="flex flex-col gap-1 w-full max-w-[320px]">
                                         <div class="flex items-center space-x-2 rtl:space-x-reverse">
                                             <span class="text-sm font-semibold text-gray-900">Seller</span>
@@ -75,13 +75,16 @@
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
-
                 </div>
             </div>
             <div class="flex mt-7">
                 <form class="w-full" method="post">
                     <div class="relative">
-                        <input type="text" name="pesan" class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50" placeholder="Tulis pesan Anda disini..." required />
+                        <input type="hidden" name="seller_id" value="<?= $params['dataChat']['seller_id'] ?>">
+                        <input type="hidden" name="user_id" value="<?= $params['dataChat']['user_id'] ?>">
+                        <input type="hidden" name="kode_chat" value="<?= $params['dataChat']['kode_chat'] ?? uniqid() ?>">
+                        <input type="hidden" name="sender" value="<?= $dataUser['role'] ?>" id="">
+                        <input type="text" autocomplete="off" name="pesan" class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50" placeholder="Tulis pesan Anda disini..." required />
                         <button type="submit" class="text-white absolute end-2.5 bottom-1 bg-red-primary hover:bg-red-800 focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-4 py-3"><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </form>
