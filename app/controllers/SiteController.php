@@ -7,9 +7,11 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Follower;
 use App\Models\Product;
+use App\Models\SellerRegistration;
 use App\Models\Store;
 use App\Models\Transaction;
 use Libraries\Controller;
+use Libraries\FileManagement;
 use Libraries\Request;
 use Libraries\Response;
 
@@ -143,8 +145,86 @@ class SiteController extends Controller
     {
         $this->author->onlyUser();
 
+        $rs = new SellerRegistration();
+
         return $this->render('register_seller', [
-            'title' => 'Daftar Menjadi Seller'
+            'title' => 'Daftar Menjadi Seller',
+            'status' => $rs->find('user_id', $_SESSION['user_id'])['status'] ?? [],
         ]);
+    }
+
+    public function registerSellerHandler(Request $request)
+    {
+        $formData = $request->getFormData();
+
+        $sr = new SellerRegistration();
+
+        if ($formData['resend'] == 'resend') {
+            $this->resendSeller($sr);
+        }
+
+        $sanitized = [
+            'user_id' => $_SESSION['user_id'],
+            'nama_pemilik' => htmlspecialchars(trim($formData['nama_pemilik'])),
+            'nik' => htmlspecialchars(trim($formData['nik'])),
+            'telepon' => htmlspecialchars(trim($formData['telepon'])),
+            'nama_jalan' => htmlspecialchars(trim($formData['nama_jalan'])),
+            'kelurahan' => htmlspecialchars(trim($formData['kelurahan'])),
+            'kecamatan' => htmlspecialchars(trim($formData['kecamatan'])),
+            'kab_kot' => htmlspecialchars(trim($formData['kab_kot'])),
+            'provinsi' => htmlspecialchars(trim($formData['provinsi'])),
+            'kode_pos' => htmlspecialchars(trim($formData['kode_pos'])),
+            'nama_toko' => htmlspecialchars(trim($formData['nama_toko'])),
+            'jam_buka' => htmlspecialchars(trim($formData['jam_buka'])),
+            'jam_tutup' => htmlspecialchars(trim($formData['jam_tutup'])),
+            'deskripsi' => htmlspecialchars(trim($formData['deskripsi'])),
+            'status' => 'Menunggu persetujuan',
+        ];
+
+        $uploadDir = '/img/seller_register/';
+        $fileManager = new FileManagement(['jpg', 'jpeg', 'png']);
+
+        try {
+            if (!empty($_FILES['foto_diri']['name'])) {
+                $uniqueFileName = $fileManager->handleFileUpload('foto_diri', $uploadDir);
+                $sanitized['foto_diri'] = $uploadDir . $uniqueFileName;
+            }
+            if (!empty($_FILES['foto_ktp']['name'])) {
+                $uniqueFileName = $fileManager->handleFileUpload('foto_ktp', $uploadDir);
+                $sanitized['foto_ktp'] = $uploadDir . $uniqueFileName;
+            }
+            if (!empty($_FILES['foto_toko']['name'])) {
+                $uniqueFileName = $fileManager->handleFileUpload('foto_toko', $uploadDir);
+                $sanitized['foto_toko'] = $uploadDir . $uniqueFileName;
+            }
+        } catch (\Exception $e) {
+            echo 'File Upload Error: ' . $e->getMessage();
+            return;
+        }
+
+        $sr->insert($sanitized);
+
+        Response::redirect('/menjadi_seller')->withSuccess("Pengajuan menjadi seller berhasil dikirim, silahkan tunggu beberapa saat");
+    }
+
+    private function resendSeller($sr)
+    {
+        $file = $sr->find('user_id', $_SESSION['user_id']);
+
+        $oldCoverPicture = $_SERVER['DOCUMENT_ROOT'] . $file['foto_diri'];
+        if (file_exists($oldCoverPicture)) {
+            unlink("$oldCoverPicture");
+        }
+        $oldCoverPicture = $_SERVER['DOCUMENT_ROOT'] . $file['foto_ktp'];
+        if (file_exists($oldCoverPicture)) {
+            unlink("$oldCoverPicture");
+        }
+        $oldCoverPicture = $_SERVER['DOCUMENT_ROOT'] . $file['foto_toko'];
+        if (file_exists($oldCoverPicture)) {
+            unlink("$oldCoverPicture");
+        }
+
+        $sr->delete('user_id', $_SESSION['user_id']);
+        Response::redirect('/menjadi_seller');
     }
 }

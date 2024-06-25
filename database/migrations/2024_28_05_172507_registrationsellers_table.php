@@ -17,7 +17,6 @@ class RegistrationSellersTable extends Migration
             $attribute->char('nik', 25, false);
             $attribute->char('telepon', 15, false);
             $attribute->varchar('nama_jalan', 50, false);
-            $attribute->varchar('rt_rw', 10, false);
             $attribute->varchar('kelurahan', 30, false);
             $attribute->varchar('kecamatan', 30, false);
             $attribute->varchar('kab_kot', 30, false);
@@ -29,7 +28,7 @@ class RegistrationSellersTable extends Migration
             $attribute->text('deskripsi', false);
             $attribute->text('foto_diri', false);
             $attribute->text('foto_ktp', false);
-            $attribute->text('foto_toko_produk', false);
+            $attribute->text('foto_toko', false);
             $attribute->enum('status', ['Menunggu persetujuan', 'Disetujui', 'Ditolak', 'Ditolak permanen'], 'Menunggu persetujuan');
 
             // foreign key

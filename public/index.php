@@ -73,6 +73,7 @@ $app->route::post('/transaksi', [TransactionController::class, 'commentProductHa
 $app->route::post('/buat-notifikasi', [StoreController::class, 'createNotifHandler']);
 $app->route::post('/pesanan-selesai', [StoreController::class, 'orderListHandler']);
 $app->route::post('/checkout', [PaymentController::class, 'checkoutHandler']);
+$app->route::post('/menjadi_seller', [SiteController::class, 'registerSellerHandler']);
 
 
 // Auth route
