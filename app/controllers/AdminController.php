@@ -145,15 +145,6 @@ class AdminController extends Controller
         ]);
     }
 
-    public function notification()
-    {
-        $this->author->onlyAdmin();
-
-        return $this->render('admin/notification', [
-            'title' => 'Notifikasi'
-        ]);
-    }
-
     public function create_notification()
     {
         $this->author->onlyAdmin();

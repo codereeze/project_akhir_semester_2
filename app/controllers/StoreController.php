@@ -7,6 +7,7 @@ use App\Models\Address;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Follower;
+use App\Models\Notification;
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\Transaction;
@@ -218,6 +219,26 @@ class StoreController extends Controller
         ]);
     }
 
+    public function create_notification()
+    {
+        $this->author->onlySeller();
+
+        $notification = new Notification();
+        $store = new Store();
+        $followers = new Follower();
+
+        $store = $store->find('seller_id', $_SESSION['user_id']);
+
+        return $this->render('store/create_notification', [
+            'title' => 'Buat Notifikasi',
+            'receivers' => $followers->leftJoinAll(['user_id'], ['users'], 'toko_id', $store['id']),
+            'notifications' => $notification->leftJoinAll(['penerima_id'], ['users'], 'pengirim_id', $_SESSION['user_id']),
+            'followers' => count($followers->findAllById('toko_id', $store['id'])),
+            'store' => $store,
+            'footer' => 'disable'
+        ]);
+    }
+
     public function addProductHandler(Request $request)
     {
         $request = $request->getFormData();
@@ -340,5 +361,36 @@ class StoreController extends Controller
 
         $transaction->update($sanitized, $trans_id);
         Response::redirect('/daftar-pesanan')->withSuccess('Berhasil memperbarui status pengiriman');
+    }
+
+    public function createNotifHandler(Request $request)
+    {
+        $request = $request->getFormData();
+
+        if ($request['postRequest'] == 'insert') {
+            $notification = new Notification();
+            $user = new User();
+            $user_name = $user->find('id', $request['penerima_id'])['nama'];
+
+            $sanitized = [
+                'pengirim_id' => $_SESSION['user_id'],
+                'penerima_id' => htmlspecialchars(trim($request['penerima_id'])),
+                'judul' => htmlspecialchars(trim($request['judul'])),
+                'pesan' => htmlspecialchars(trim($request['pesan']))
+            ];
+
+            $notification->insert($sanitized);
+            Response::redirect('/buat-notifikasi')->withSuccess("Berhasil mengirimkan notifikasi kepada {$user_name}");
+        } else if ($request['postRequest'] == 'delete') {
+            $this->deleteNotifHandler($request['notif_id']);
+        }
+    }
+
+    public function deleteNotifHandler($notif_id)
+    {
+        $notification = new Notification();
+        $notification->delete('id', $notif_id);
+
+        Response::redirect('/buat-notifikasi')->withSuccess("Berhasil menghapus notifikasi");
     }
 }
