@@ -36,12 +36,12 @@
         <div class="border rounded-md p-5 shadow-sm">
             <h1 class="text-2xl mb-4 font-bold block">Semua produk</h1>
             <div class="grid grid-cols-6 gap-7">
-                <?php foreach ($params['products'] as $item) : ?>
+            <?php foreach ($params['products'] as $item) : ?>
                     <div class="w-40">
                         <a href="/produk/<?= $item['id'] ?>">
-                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/MTA-58296597/9_to_12_9_to_12_signature_overlap_semi_blazer_shirt_-_ballet_pink_full02_dl6mail5.jpeg?w=276" alt="" srcset="" class="rounded-lg mb-2">
+                            <img src="<?= $item['cover'] ?? 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" alt="" srcset="" class="rounded-lg mb-2">
                             <p class="text-sm font-semibold"><?= $item['nama_produk'] ?></p>
-                            <p class="text-lg font-bold text-red-primary">Rp.<?= $item['harga'] ?></p>
+                            <p class="text-lg font-bold text-red-primary">Rp<?= $item['harga'] ?></p>
                             <p class="text-xs font-medium">Kategori: <?= $params['categoryName']($item['kategori_id']) ?>
                             </p>
                             <p class="text-xs font-medium"><i class="fas fa-star text-yellow-500"></i> <?= $params['countRating']($item['id']) ?> | Terjual <?= $params['countTransaction']($item['id']) ?>

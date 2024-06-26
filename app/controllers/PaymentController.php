@@ -25,9 +25,9 @@ class PaymentController extends Controller
     {
         $this->author->userAndSeller();
 
-        if (!isset($_SESSION['checkout']) || !isset($address)) {
-            Response::redirect('/');
-        }
+        // if (!isset($_SESSION['checkout']) || !isset($address)) {
+        //     Response::redirect('/');
+        // }
 
         $address = new Address();
         $product = new Product();

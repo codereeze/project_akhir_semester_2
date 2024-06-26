@@ -97,13 +97,13 @@
                 <?php endif; ?>
             </div>
             <div class="flex gap-7 text-white">
-                <a href="" class="hover:text-red-200 duration-150">T-Shirt</a>|
-                <a href="" class="hover:text-red-200 duration-150">Kemeja</a>|
-                <a href="" class="hover:text-red-200 duration-150">Jaket Tracker</a>|
-                <a href="" class="hover:text-red-200 duration-150">Anak-anak</a>|
-                <a href="" class="hover:text-red-200 duration-150">Baju Muslim</a>|
-                <a href="" class="hover:text-red-200 duration-150">Olahraga</a>|
-                <a href="" class="hover:text-red-200 duration-150">Remaja</a>
+                <a href="/hasil-pencarian?q=t-shirt" class="hover:text-red-200 duration-150">T-Shirt</a>|
+                <a href="/hasil-pencarian?q=kemeja" class="hover:text-red-200 duration-150">Kemeja</a>|
+                <a href="/hasil-pencarian?q=jaket" class="hover:text-red-200 duration-150">Jaket Tracker</a>|
+                <a href="/hasil-pencarian?q=anak-anak" class="hover:text-red-200 duration-150">Anak-anak</a>|
+                <a href="/hasil-pencarian?q=baju+muslim" class="hover:text-red-200 duration-150">Baju Muslim</a>|
+                <a href="/hasil-pencarian?q=olahraga" class="hover:text-red-200 duration-150">Olahraga</a>|
+                <a href="/hasil-pencarian?q=remaja" class="hover:text-red-200 duration-150">Remaja</a>
             </div>
             <div class="bg-white p-2 rounded-tl-md">
                 <div class="flex items-center gap-3 cursor-pointer">
