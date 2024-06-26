@@ -24,13 +24,13 @@
                                         <tr>
                                             <td><?= $item['nama_kategori'] ?></td>
                                             <td><?= $params['countProduct']($item['id']) ?></td>
-                                            <td>
+                                            <!-- <td>
                                                 <div class="d-flex gap-2">
                                                     <a href="">
                                                         <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
                                                     </a>
                                                 </div>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

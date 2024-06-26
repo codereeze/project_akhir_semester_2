@@ -27,10 +27,6 @@
                         <input type="text" id="" class="form-control mb-4" value="<?= $params['data']['nama_jalan'] ?>" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="" class="fw-bold mb-2">RT/RW</label>
-                        <input type="text" id="" class="form-control mb-4" value="<?= $params['data']['rt_rw'] ?>" readonly>
-                    </div>
-                    <div class="col-md-6">
                         <label for="" class="fw-bold mb-2">Kelurahan</label>
                         <input type="text" id="" class="form-control mb-4" value="<?= $params['data']['kelurahan'] ?>" readonly>
                     </div>
@@ -83,19 +79,19 @@
                     <div class="col-md-4">
                         <p class="mb-1">Foto diri</p>
                         <div class="mb-2">
-                            <img id="preview-photo" src="https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636" alt="" srcset="" width="100" class="h-25">
+                            <img id="preview-photo" src="<?= $params['data']['foto_diri'] ? $params['data']['foto_diri'] : 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" alt="" srcset="" width="100" class="h-25">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <p class="mb-1">Foto KTP</p>
                         <div class="mb-2">
-                            <img id="preview-ktp" src="https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636" alt="" srcset="" width="100" class="h-25">
+                            <img id="preview-ktp" src="<?= $params['data']['foto_ktp'] ? $params['data']['foto_ktp'] : 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" alt="" srcset="" width="100" class="h-25">
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <p class="mb-1">Foto toko atau produk</p>
+                        <p class="mb-1">Foto toko</p>
                         <div class="mb-2">
-                            <img id="preview-store" src="https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636" alt="" srcset="" width="100" class="h-25">
+                            <img id="preview-store" src="<?= $params['data']['foto_toko'] ? $params['data']['foto_toko'] : 'https://preyash2047.github.io/assets/img/no-preview-available.png?h=824917b166935ea4772542bec6e8f636' ?>" alt="" srcset="" width="100" class="h-25">
                         </div>
                     </div>
                 </div>

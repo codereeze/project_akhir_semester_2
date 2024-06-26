@@ -1,6 +1,6 @@
-<?php if (isset($params['status'])) : ?>
+<?php if ($params['status']) : ?>
     <section class="container mx-auto">
-        <div class="pt-28 text-black">
+        <div class="pt-28 text-black"> 
             <div class="py-7 px-8">
                 <div class="p-4 shadow-md flex gap-5">
                     <ol class="relative border-s border-gray-200 max-w-md w-full self-start">

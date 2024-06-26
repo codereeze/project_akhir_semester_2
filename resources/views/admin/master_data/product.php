@@ -33,9 +33,9 @@
                                             <a href="/admin/detail-produk/<?= $item['primary_id'] ?>">
                                                 <button class="btn btn-primary"><i class="fas fa-info"></i></button>
                                             </a>
-                                            <a href="">
+                                            <!-- <a href="">
                                                 <button class="btn btn-danger"><i class="fas fa-ban"></i></button>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </td>
                                 </tr>

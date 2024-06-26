@@ -151,7 +151,7 @@ class SiteController extends Controller
 
         return $this->render('register_seller', [
             'title' => 'Daftar Menjadi Seller',
-            'status' => $rs->find('user_id', $_SESSION['user_id'])['status'] ?? [],
+            'status' => $rs->find('user_id', $_SESSION['user_id'])['status'],
         ]);
     }
 
