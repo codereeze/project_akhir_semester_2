@@ -25,7 +25,7 @@ class View
         return str_replace("{{ content }}", $viewContent, $layoutContent);
     }
 
-    public function renderViewOnly($view, array $params, array $dataUser, $session)
+    public function renderViewOnly($view, array $params, $dataUser, $session)
     {
         foreach ($params as $key => $value) {
             $$key = $value;
