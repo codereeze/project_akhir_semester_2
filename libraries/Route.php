@@ -77,7 +77,7 @@ class Route
             $callback = $this->getCallback();
 
             if ($callback === false) {
-                echo "Error masbro";
+                Response::redirect('/404');
             }
         }
 
